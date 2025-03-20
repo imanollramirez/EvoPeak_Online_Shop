@@ -22,6 +22,7 @@ const employeesSchema = new Schema({
    dui: {
     type: String,
     require: true,
+    unique: true,
     match: [
         /^[0-9]{9}$/,
         "El numero de telefono debe contener exactamente 8 números"

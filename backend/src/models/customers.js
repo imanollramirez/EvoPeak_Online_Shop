@@ -29,6 +29,7 @@ const customersSchema = new Schema({
     phone: {
         type: String,
         require: true,
+        unique: true,
         match: [
             /^[0-9]{8}$/,
             "El numero de telefono debe contener exactamente 8 números"

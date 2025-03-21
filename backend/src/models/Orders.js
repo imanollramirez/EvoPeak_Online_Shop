@@ -84,4 +84,4 @@ status: {
 }
 );
 
-export default model ("Products", OrdersSchema);
+export default model ("Orders", OrdersSchema);

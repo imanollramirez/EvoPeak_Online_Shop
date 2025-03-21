@@ -24,4 +24,4 @@ const promotionsSchema = new Schema ({
     strict: false
 });
 
-export default model("Products",promotionsSchema)
+export default model("Promotions",promotionsSchema)

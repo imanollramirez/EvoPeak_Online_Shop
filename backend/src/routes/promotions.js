@@ -12,3 +12,5 @@ router
 .route("/:id")
 .put(promotionsController.updatePromotions)
 .delete(promotionsController.deletePromotions);
+
+export default router;

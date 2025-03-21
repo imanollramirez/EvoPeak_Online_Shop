@@ -1,14 +1,14 @@
-const promotionController = {};
+const promotionsController = {};
 import promotionModel from "../models/Promotions.js";
 
 //SELECT
-promotionController.getPromotions =  async(req,res) => {
+promotionsController.getPromotions =  async(req,res) => {
     const promotions = await promotionModel.find();
     res.json(promotions)
 }
 
 //INSERT
-promotionController.createPromotions = async(req,res) => {
+promotionsController.createPromotions = async(req,res) => {
     const { Discount, idProducts } = req.body;
     const newPromotion = new promotionModel({Discount,idProducts});
     await newPromotion.save();
@@ -16,7 +16,7 @@ promotionController.createPromotions = async(req,res) => {
 };
 
 //DELETE
-promotionController.deletePromotion = async (req, res) => {
+promotionsController.deletePromotions = async (req, res) => {
     const deletePromotion = await promotionModel.findByIdAndDelete(req.params.id);
     if (!deletePromotion) {
       return res.status(404).json({ message: "Promotion Not Found :(" });
@@ -25,7 +25,7 @@ promotionController.deletePromotion = async (req, res) => {
   };
 
 //UPDATE
-promotionsController.updateBranchs = async (req, res) => {
+promotionsController.updatePromotions = async (req, res) => {
     const { Discount, idProducts } = req.body;
     await branchsModel.findByIdAndUpdate(
       req.params.id,

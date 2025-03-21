@@ -40,4 +40,4 @@ wishListController.updateWishList = async (req, res) => {
     res.json({ message: "WishList Updated!" });
   };
   
-  export default salesController;
+  export default wishListController;

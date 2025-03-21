@@ -10,17 +10,17 @@ OrdersController.getOrders = async (req, res) => {
 
 // INSERT
 OrdersController.createOrders = async (req, res) => {
-  const { IdCostumers,
+  const { Nombre, idCostumers,
     products,
     total,
-    status,
+    status
      } = req.body;
 
   const newOrders = new OrdersModel({ Nombre,
-    IdCostumers,
+    idCostumers,
     products,
     total,
-    status,});
+    status});
   await newOrders.save();
   res.json({ message: "orders saved" });
 };
@@ -37,7 +37,7 @@ OrdersController.deleteOrders = async (req, res) => {
 // UPDATE
 OrdersController.updateOrders = async (req, res) => {
   // Solicito todos los valores
-  const {IdCostumers,
+  const {idCostumers,
     products,
     total,
     status, } = req.body;
@@ -45,7 +45,7 @@ OrdersController.updateOrders = async (req, res) => {
   await OrdersModel.findByIdAndUpdate(
     req.params.id,
     {
-        IdCostumers,
+        idCostumers,
         products,
         total,
         status,

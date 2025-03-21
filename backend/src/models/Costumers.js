@@ -38,14 +38,7 @@ const costumerSchema = new Schema({
     profilePic: {
          type: String,
          require: true,
-         maxLenght: 300,
-        validate: {
-         validator: (value) => {
-            const urlRegex = /^https?:\/\/[^\s]+$/;
-           return urlRegex.test(value);
-         },
-        message: props => `${props.value} no es una URL válida para una imagen`
-        }
+         maxLenght: 300
             
     }
 }, {

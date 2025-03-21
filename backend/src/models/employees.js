@@ -59,4 +59,4 @@ const employeesSchema = new Schema({
     strict: false
 })
 
-export default model("Branches", employeesSchema);
+export default model("Employees", employeesSchema);

@@ -5,6 +5,7 @@ dotenv.config();
 
 import { config } from "./src/config.js";
 
+
 mongoose.connect(config.db.URI);
 
 const connection = mongoose.connection;

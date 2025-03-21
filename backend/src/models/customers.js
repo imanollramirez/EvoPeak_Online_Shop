@@ -18,7 +18,7 @@ const customersSchema = new Schema({
             message: props => `${props.value} no es un email válido`
         }
     },
-    lastName: {
+    lastName: { 
         type: String,
         require: true, 
     },
@@ -53,4 +53,4 @@ const customersSchema = new Schema({
     strict: false
 })
 
-export default model("Branches", customersSchema);
+export default model("Customers", customersSchema);

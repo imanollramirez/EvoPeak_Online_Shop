@@ -6,7 +6,7 @@ dotenv.config();
 
 export const config = {
     db: {
-        URI: process.env.DB_URI || "mongodb://localhost:INSERT-URI"
+        URI: process.env.DB_URI || "mongodb+srv://German:GermanDanielImanol@clustera2.lgxpo.mongodb.net/"
     },
     server: {
         PORT: process.env.PORT

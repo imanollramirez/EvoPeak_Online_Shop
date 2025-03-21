@@ -1,7 +1,7 @@
 //import de la libreria express
 import express from "express";
 //import de el controlador de Category
-import productsController from "../controllers/productsController";
+import productsController from "../controllers/productsController.js";
 
 //router nos ayuda a cargar los metodos que tendra mi ruta 
 const router = express.Router();

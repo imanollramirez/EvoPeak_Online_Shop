@@ -1,6 +1,6 @@
 //Array de metodos (C R U D)
 const OrdersController = {};
-import OrdersModel from "../models/Orders";
+import OrdersModel from "../models/Orders.js";
 
 // SELECT
 OrdersController.getOrders = async (req, res) => {

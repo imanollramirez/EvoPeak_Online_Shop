@@ -12,7 +12,7 @@ const AssessmentsSchema = new Schema(
 
 value: {
 
-    type: Int,
+    type: Number,
     require: true,
     max: 5
 },

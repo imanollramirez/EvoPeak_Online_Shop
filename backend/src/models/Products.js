@@ -21,14 +21,14 @@ Nombre: {
 
 Stock:{
 
-    type: Int,
+    type: Number,
     require: true
 },
 
 
 Precio:{
 
-    type: Double,
+    type: Number,
     require: true
 },
 

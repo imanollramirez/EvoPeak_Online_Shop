@@ -8,7 +8,7 @@ import {Schema, model} from 'mongoose';
 
 const promotionsSchema = new Schema ({
     Discount: {
-        type: double,
+        type: Number,
         require: true,
         max: 90
     },

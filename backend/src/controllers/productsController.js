@@ -1,6 +1,6 @@
 //Array de metodos (C R U D)
 const ProductsController = {};
-import ProductsModel from "../models/Products";
+import ProductsModel from "../models/Products.js";
 
 // SELECT
 ProductsController.getProducts = async (req, res) => {

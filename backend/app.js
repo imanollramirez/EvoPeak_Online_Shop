@@ -7,7 +7,7 @@ import assessments from './src/routes/assessments.js'
 import products from './src/routes/products.js'
 import orders from './src/routes/orders.js'
 
-import customers from './src/routes/customers.js'
+import customers from './src/routes/costumers.js'
 import employees from './src/routes/employees.js'
 import category from './src/routes/category.js'
 
@@ -24,7 +24,7 @@ app.use("/api/assessments", assessments);
 app.use("/api/products", products);
 app.use("/api/orders", orders);
 
-app.use("/api/customers", customers);
+app.use("/api/costumers", customers);
 app.use("/api/employees", employees);
 app.use("/api/category", category);
 

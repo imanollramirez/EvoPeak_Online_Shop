@@ -1,6 +1,6 @@
 //Array de metodos (C R U D)
 const assessmentsController = {};
-import assessmentsModel from "../models/Assessments";
+import assessmentsModel from "../models/Assessments.js";
 
 // SELECT
 assessmentsController.getas = async (req, res) => {

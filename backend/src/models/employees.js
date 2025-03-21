@@ -25,7 +25,7 @@ const employeesSchema = new Schema({
     unique: true,
     match: [
         /^[0-9]{9}$/,
-        "El numero de telefono debe contener exactamente 8 números"
+        "El numero de dui debe contener exactamente 9 carácteres"
     ]
    },
    salary: {

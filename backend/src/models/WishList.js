@@ -8,11 +8,11 @@ import {Schema , model} from "mongoose";
 
 const wishListModel = new Schema ({
 
-    idProducts: [{
+    idProducts: {
         type: Schema.Types.ObjectId,
         ref: "WishList",
         require: true
-    }],
+    },
 
     idCostumers: {
         type: Schema.Types.ObjectId,

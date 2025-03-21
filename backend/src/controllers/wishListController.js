@@ -16,7 +16,7 @@ wishListController.createWishList = async (req,res) =>
     res.json({message: "Product Saved succesfully"})
 }
 
-//DELETE -- Check because, the wishlist contains products, and we cannot delete the whole wishlist, we got to delete product by product.
+//DELETE 
 wishListController.deleteWishList = async(req,res) => {
     const deleteWishList = await wishListModel.findByIdAndDelete(req.params.id);
     if (!deleteWishList) {
@@ -24,8 +24,6 @@ wishListController.deleteWishList = async(req,res) => {
     }
     res.json({ message: "Product Deleted!" });
   };
-
-  //UPDATE
 
    //UPDATE
 wishListController.updateWishList = async (req, res) => {

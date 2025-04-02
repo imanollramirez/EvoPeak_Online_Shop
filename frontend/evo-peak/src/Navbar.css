@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+    background-color: black;
+}
+
+.navbar {
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar ul li a {
+    transition: color .5s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    color: #c6dae9;
+    text-shadow:
+    0 2 2px #9ECBEB,
+    0 2 4px #9ECBEB,v
+    0 2 6px #9ECBEB;
+
+    transition-duration: .5s;
+}
+
+.btn-login {
+    background-color: #ffffff;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+    transition: background-color .5s ease-in-out, box-shadow .5s ease-in-out;
+}
+
+.btn-login:hover {
+    background-color: #9ecbeb; 
+    box-shadow: 4px 9px 11px -9px rgba(158,203,235,0.58);
+}
+.navbar ul .link-page
+{
+    color: #9E9E9E;
+}
+

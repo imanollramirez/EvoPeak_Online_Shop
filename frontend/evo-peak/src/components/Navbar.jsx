@@ -28,13 +28,14 @@ return(
         <li >
           <a className="link-page" href="#">Contáctanos</a>
         </li>
-        
+
+       
       </ul>
       </div>
 
       <div class="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
       <button className="btn-login">Iniciar Sesión</button>
-      <a href="#"><img src={WishList} width="35"/></a>
+      <a href="/wishlist"><img src={WishList} width="35"/></a>
       <a href="#"><img src={ShoppingCart} width="35"/></a>
       </div>
 

@@ -1,0 +1,22 @@
+body {
+    background-image: url('../assets/prueba.png');
+    background-size: cover;        
+  background-repeat: no-repeat;  
+  background-position: center;   
+  min-height: 100vh;             
+  margin: 0;      
+  }
+
+  .triangulo-izquierdo {
+    position: absolute;
+    bottom: 0%; /* Subir el triángulo */
+    left: -27%;  /* Ajuste para pegar a la izquierda */
+    width: 40%; /* Ajusta el tamaño según sea necesario */
+  }
+  
+  .triangulo-derecho {
+    position: absolute;
+    bottom: 0; /* Pegado a la parte inferior */
+    right: 0; /* Pegado a la derecha */
+    width: 40%; /* Ajusta el tamaño según sea necesario */
+  }

@@ -1,24 +1,20 @@
-import "../pages/wishlist.css"
-import  Derecho from "../assets/Rectangle 474.png"
-import  Izquierdo from "../assets/Rectangle 474.png"
-
-
-
-
+import "../pages/wishlist.css";
+import Derecho from "../assets/Rectangle 474.png";
+import Izquierdo from "../assets/Rectangle 474.png";
+import Titulo from "../assets/Frame 180.png";
+import Mancuernas from "../assets/Items 1.png";
+import PesaRusa from "../assets/Group 113.png";
+import Saltacuerda from "../assets/Items 3.png";
+import RuedaAbdominal from "../assets/Group 114.png";
 
 const Wishlist = () => {
     return (
-      
         
-         
-        <><img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
-        <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" /></>
-      
-    
+            <><img src={Titulo} className="titulo" alt="Lista de Deseos" /><img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" /><img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" /></>
+                
+            
         
-      
     );
-  };
-  
-  export default Wishlist;
-  
+};
+
+export default Wishlist;

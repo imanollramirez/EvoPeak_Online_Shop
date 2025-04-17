@@ -7,6 +7,18 @@ body {
   margin: 0;      
   }
 
+
+
+  .titulo {
+    position: absolute;
+    top: 21%; /* Ajusta la posición vertical */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centra perfectamente */
+    width: 26%; /* Ajusta el ancho del título */
+  }
+
+
+
   .triangulo-izquierdo {
     position: absolute;
     bottom: 0%; /* Subir el triángulo */
@@ -19,4 +31,41 @@ body {
     bottom: 0; /* Pegado a la parte inferior */
     right: 0; /* Pegado a la derecha */
     width: 40%; /* Ajusta el tamaño según sea necesario */
+  }
+
+  .productos-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 30%;
+  }
+  
+  .producto {
+    background-color: #34495e;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: center;
+    width: 22%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex; /* Flexbox para alinear imagen y texto */
+    flex-direction: column; /* Apila la imagen y el texto */
+    align-items: center; /* Centra los elementos horizontalmente */
+  }
+  
+  .producto img {
+    width: 70%;
+    margin-bottom: 10px;
+  }
+  
+  .producto-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }

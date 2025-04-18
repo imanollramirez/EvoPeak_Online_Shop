@@ -16,7 +16,7 @@ const Products = () => {
         </div>
         <img src={rectangleIzq} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
         <img src={rectangleDer} className="triangulo-derecho" alt="Triángulo Derecho" />
-        <div className="center-content">
+        <div className="center-content">        
             <ProductsCard />
         </div>
     </div>

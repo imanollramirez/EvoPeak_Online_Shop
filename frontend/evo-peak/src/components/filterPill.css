@@ -8,6 +8,7 @@
     justify-content: center;
     margin: 30px auto;
     width: fit-content;
+    box-shadow: #000000 20px;
   }
   
   .filter-btn {

@@ -20,6 +20,7 @@ const Login = () => {
                 <p className="text-start mt-4">Contraseña:</p>
                 <input type="password" className="password" required/>
             </div>
+            <a href="/recoverPassword" className="recoverPass"><p className=" text-end mt-3">Olvidé mi contraseña</p></a>
             <button type="submit" className="login mt-5">Iniciar Sesión</button>
             <button type="submit" className="register mt-3">Registrarse</button>
         </form>

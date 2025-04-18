@@ -1,4 +1,6 @@
 import './filterPill.css';
+import { useState } from "react";
+
 
 const categories = ['Equipamiento', 'Nutrición', 'Accesorios', 'Pesas', 'Todo'];
 

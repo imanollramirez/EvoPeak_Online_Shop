@@ -22,7 +22,7 @@ return(
         </li>
 
         <li >
-          <a className="link-page" href="#">Productos</a>
+          <a className="link-page" href="/products">Productos</a>
         </li>
 
         <li >

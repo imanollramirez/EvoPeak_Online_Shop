@@ -37,6 +37,7 @@
 .description {
     font-family: "Rubik", sans-serif;
     color: #9E9E9E;
+    font-size: 1.3em;
 }
 
 .go-to-products {
@@ -108,31 +109,30 @@
 }
 
 .info {
-    width: 300px;
+    width: 400px;
 }
 
 .info img {
-    transition-duration: .4s;
+    transition-duration: .5s;
 }
 
 .info img:hover {
-    -webkit-transform:translateY(-8px);
-    transform:translateY(-8px);
-    transition-duration: .4s;
+    -webkit-transform:translateY(-10px);
+    transform:translateY(-10px);
+    transition-duration: .5s;
     transition-delay: .1s;
 }
 
 .img {
-    position: relative;
     width: 35%;
     overflow: hidden;
     z-index: 1;
-    transition-duration: .5s;
+    transition-duration: .7s;
 }
 
 .img:hover {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
-    transition-duration: .5s;
+    -webkit-transform:translateX(-30px);
+    transform:translateX(-30px);
+    transition-duration: .7s;
 }
 

@@ -12,8 +12,8 @@ import "./index.css"
 const Index = () => {
     return (
      <>
-     <div className="top-container d-block">
-     <h1 className="title ms-5">Bienvenidos a<br /> EvoPeak</h1>
+     <div className="top-container d-block pt-5">
+     <h1 className="title ms-5 pt-5">Bienvenidos a<br /> EvoPeak</h1>
      <p className="description ms-5">Somos una tienda línea de artículos para Gimnasio, <br/>
      ubicados en El Salvador.</p>
      <button className="go-to-products ms-5">Ver Artículos</button>

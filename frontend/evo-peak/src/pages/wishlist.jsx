@@ -1,6 +1,6 @@
 import "../pages/wishlist.css";
 import Derecho from "../assets/Rectangle 474.png";
-import Izquierdo from "../assets/Rectangle 474.png";
+import Izquierdo from "../assets/Rectangle 475.png";
 import Titulo from "../assets/Frame 180.png";
 import CardWishlists from "../components/cardWishlist.jsx";
 //import Mancuernas from "../assets/Items 1.png";

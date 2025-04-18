@@ -25,10 +25,13 @@ body {
 
 .triangulo-izquierdo {
   position: absolute;
-  bottom: 0%; 
-  left: -27%;  
+  bottom: 0;
+  left: -27;
   width: 40%;
-  height: 50%;
+  height: auto;  /* Mantiene proporciones si es una imagen */
+  max-height: 300%;  /* Controla altura máxima */
+  object-fit: contain;
+  z-index: -1;
 }
 
 .triangulo-derecho {
@@ -37,7 +40,8 @@ body {
   bottom: 0;
   width: auto;
   height: auto;
-  max-width: 400px;
+  max-width: 500px;
+  max-height: 500%;
   z-index: 0;
 }
 
@@ -86,4 +90,42 @@ body {
 .btn-primary:hover {
   background-color: #cccccc; /* Fondo gris al pasar el ratón */
   color: black; /* Color del texto */
+}
+
+/* Tamaño aumentado */
+.custom-card-size {
+  width: 399px;  /* Aumentado de 220px a 280px */
+  min-height: 380px;  /* Aumentado de 320px a 380px */
+  margin: 0 15px 25px;  /* Más espacio entre cards */
+}
+
+/* Contenedor de imágenes más grande */
+.card-img-container {
+  height: 160px;  /* Aumentado de 130px a 160px */
+  background: #2f3749;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px 15px 0 0;
+}
+
+/* Imágenes más grandes */
+.card-img-top {
+  max-height: 200px;  /* Aumentado de 120px a 150px */
+  max-width: 95%;
+  object-fit: contain;
+}
+
+/* Espaciado aumentado */
+.g-4 {
+  --bs-gutter-x: 2.5rem;  /* Aumentado de 2rem a 2.5rem */
+  --bs-gutter-y: 2.5rem;
+}
+
+/* Texto más grande */
+.card-title {
+  font-size: 1.2rem;
+}
+.card-text {
+  font-size: 1.05rem;
 }

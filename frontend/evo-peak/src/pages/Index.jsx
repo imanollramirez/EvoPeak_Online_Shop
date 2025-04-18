@@ -23,7 +23,7 @@ const Index = () => {
         
         <img src={shape1}/>
 
-        <h3 className="text-center">Somos una tienda en línea que ofrece amplia variedad de productos.</h3>
+        <h3 className="text-center mb-5">Somos una tienda en línea que ofrece amplia variedad de productos.</h3>
         <div className="benefit">
         <div className="info">
             <img src={info1}/>
@@ -51,7 +51,7 @@ const Index = () => {
         </div>
                 
 
-        <img src={image1}/>
+        <img className="img position-absolute bottom-0 end-0" src={image1}/>
         <img src={shape2} className="position-absolute bottom-0 end-0"/>
      </div>
      </>   

@@ -36,7 +36,6 @@
 
 .description {
     font-family: "Rubik", sans-serif;
-    font-size: 1.5rem;
     color: #9E9E9E;
 }
 
@@ -103,11 +102,17 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     column-gap: 50px;
-    margin-left: 15px;
+    margin-left: 5%;
     padding: 2%;
     width: 50%;
 }
 
 .info {
     width: 300px;
+}
+
+.img {
+    position: relative;
+    width: 35%;
+    z-index: 1;
 }

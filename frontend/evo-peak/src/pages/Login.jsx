@@ -22,7 +22,7 @@ const Login = () => {
             </div>
             <a href="/recoverPassword" className="recoverPass"><p className=" text-end mt-3">Olvidé mi contraseña</p></a>
             <button type="submit" className="login mt-5">Iniciar Sesión</button>
-            <button type="submit" className="register mt-3">Registrarse</button>
+            <a href="/register" className="link-register"><button type="submit" className="register mt-3">Registrarse</button></a>
         </form>
 
      </div>

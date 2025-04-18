@@ -6,6 +6,7 @@ import Login from "./pages/Login.jsx"
 import Shoppingcar from "./pages/shoppingcar.jsx";
 import Products from "./pages/products.jsx";
 import RecoverPassword from "./pages/RecoverPassword.jsx";
+import Register from "./pages/Register.jsx";
 
 
 function App() {  
@@ -19,6 +20,7 @@ function App() {
         <Route path="/shoppingcar" element={<Shoppingcar/>}/>
         <Route path="/products" element={<Products/>}/>
         <Route path="/recoverPassword" element={<RecoverPassword/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </Router>
   );

@@ -1,0 +1,32 @@
+.filter-container {
+    display: flex;
+    gap: 12px;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    margin: 30px auto;
+    width: fit-content;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .filter-btn:hover {
+    background-color: #eee;
+  }
+  
+  .filter-btn.active {
+    background-color: #111;
+    color: #fff;
+  }
+  

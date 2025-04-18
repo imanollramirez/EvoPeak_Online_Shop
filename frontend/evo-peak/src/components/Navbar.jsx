@@ -22,7 +22,7 @@ return(
         </li>
 
         <li >
-          <a className="link-page" href="#">Productos</a>
+          <a className="link-page" href="/products">Productos</a>
         </li>
 
         <li >
@@ -36,7 +36,7 @@ return(
       <div class="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
       <a href="/Login"><button className="btn-login">Iniciar Sesión</button></a>
       <a href="/wishlist"><img src={WishList} width="35"/></a>
-      <a href="#"><img src={ShoppingCart} width="35"/></a>
+      <a href="/shoppingcar"><img src={ShoppingCart} width="35"/></a>
       </div>
 
     </div>

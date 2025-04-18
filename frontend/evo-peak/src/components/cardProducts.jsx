@@ -5,7 +5,7 @@ import Card1 from '../assets/Group 76.png';
 import WishList from '../assets/WishList_Icon.png';
 
 
-const ProductsCard = () => {
+const CardWishlists = () => {
   return (
     <div className="row row-cols-1 row-cols-md-4 g-4"> {}
       <div className="col d-flex justify-content-center">
@@ -75,4 +75,4 @@ const ProductsCard = () => {
   );
 };
 
-export default ProductsCard;
+export default CardWishlists;

@@ -1,71 +1,89 @@
 body {
-    background-image: url('../assets/prueba.png');
-    background-size: cover;        
-  background-repeat: no-repeat;  
-  background-position: center;   
-  min-height: 100vh;             
-  margin: 0;      
-  }
+  background-image: url('../assets/prueba.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+ 
+  height: 100vh;
+}
+.wishlist-container {
+  position: relative;
+  min-height: 100vh;
+ 
+
+}
+
+.titulo {
+  display: block;
+  margin: 23rem auto 2rem auto; 
+  padding-top: 2rem;
+}
 
 
+.triangulo-izquierdo {
+  position: absolute;
+  bottom: 0%; 
+  left: -27%;  
+  width: 40%;
+  height: 50%;
+}
 
-  .titulo {
-    position: absolute;
-    top: 21%; /* Ajusta la posición vertical */
-    left: 50%; /* Centra horizontalmente */
-    transform: translateX(-50%); /* Centra perfectamente */
-    width: 26%; /* Ajusta el ancho del título */
-  }
+.triangulo-derecho {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  max-width: 400px;
+  z-index: 0;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  z-index: 1;
+  position: relative;
+}
 
 
+.card {
+  background-color: #2f3749; /* Fondo oscuro */
+  color: white; /* Color del texto */
+  border: none; /* Elimina el borde */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transition: transform 0.3s ease; /* Transición suave */
+  margin-bottom: 20px; /* Espacio entre las tarjetas */
+}
 
-  .triangulo-izquierdo {
-    position: absolute;
-    bottom: 0%; /* Subir el triángulo */
-    left: -27%;  /* Ajuste para pegar a la izquierda */
-    width: 40%; /* Ajusta el tamaño según sea necesario */
-  }
-  
-  .triangulo-derecho {
-    position: absolute;
-    bottom: 0; /* Pegado a la parte inferior */
-    right: 0; /* Pegado a la derecha */
-    width: 40%; /* Ajusta el tamaño según sea necesario */
-  }
+.card:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta al pasar el ratón */
+}
 
-  .productos-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 30%;
-  }
-  
-  .producto {
-    background-color: #34495e;
-    color: white;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 10px;
-    text-align: center;
-    width: 22%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex; /* Flexbox para alinear imagen y texto */
-    flex-direction: column; /* Apila la imagen y el texto */
-    align-items: center; /* Centra los elementos horizontalmente */
-  }
-  
-  .producto img {
-    width: 70%;
-    margin-bottom: 10px;
-  }
-  
-  .producto-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.card-title {
+  color: white; /* Color del título */
+}
+
+.card-text {
+  color: #cccccc; /* Color del texto */
+}
+
+.btn-primary {
+  background-color: white; /* Fondo blanco */
+  color: black; /* Color del texto */
+  border: none; /* Elimina el borde */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 8px 20px; /* Ajusta el padding */
+  font-weight: bold; /* Texto en negrita */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-primary:hover {
+  background-color: #cccccc; /* Fondo gris al pasar el ratón */
+  color: black; /* Color del texto */
+}

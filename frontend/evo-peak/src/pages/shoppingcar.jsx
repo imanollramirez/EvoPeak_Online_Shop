@@ -2,7 +2,7 @@ import "../pages/shoppingcar.css";
 import Derecho from "../assets/Rectangle 474.png";
 import Izquierdo from "../assets/Rectangle 475.png";
 import Titulo from "../assets/compras.png";
-import CardWishlists from "../components/cardWishlist.jsx";
+import Shopping from "../components/shoppingcard";
 //import Mancuernas from "../assets/Items 1.png";
 //import PesaRusa from "../assets/Group 113.png";
 //import Saltacuerda from "../assets/Items 3.png";
@@ -18,7 +18,7 @@ const Shoppingcard = () => {
             <img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
             <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />
             <div className="center-content">
-                <CardWishlists />
+                <Shopping />
             </div>
            
         </div>

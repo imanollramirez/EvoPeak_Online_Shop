@@ -5,6 +5,7 @@ import Wishlist from "./pages/wishlist.jsx"
 import Login from "./pages/Login.jsx"
 import Shoppingcar from "./pages/shoppingcar.jsx";
 import Products from "./pages/products.jsx";
+import ContactUs from "./pages/contactUs.jsx"
 
 
 function App() {  
@@ -17,6 +18,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist/>}/>
         <Route path="/shoppingcar" element={<Shoppingcar/>}/>
         <Route path="/products" element={<Products/>}/>
+        <Route path="/contactUs" element={<ContactUs/>}/>
       </Routes>
     </Router>
   );

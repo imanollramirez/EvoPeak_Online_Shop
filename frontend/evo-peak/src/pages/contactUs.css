@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: rgba(40, 48, 63, 1);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.title-contact {
+    color: white;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.title-contact::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(55, 139, 200, 1), rgba(66, 78, 202, 1));
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(40, 48, 63, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1),
+                0 0 60px rgba(66, 78, 202, 0.2),
+                0 0 120px rgba(55, 139, 200, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-header h1 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.contact-description p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Nuevo wrapper para el contenido */
+.form-content-wrapper {
+    background-color: rgba(40, 48, 63, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.form-and-image {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.name-fields {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.name-fields .form-group {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+.submit-button {
+    background: linear-gradient(90deg, rgba(55, 139, 200, 1), rgba(66, 78, 202, 1));
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+
+.submit-button:hover {
+    background: linear-gradient(90deg, rgba(55, 139, 200, 1), rgba(255, 255, 255, 0.8));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(55, 139, 200, 0.3);
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 60px;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 900px) {
+    .form-and-image {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .image-container {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+    
+    .image-container img {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-container {
+        padding: 1.5rem;
+    }
+    
+    .form-content-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .name-fields {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .title-contact {
+        font-size: 2rem;
+    }
+    
+    .contact-header h1 {
+        font-size: 1.5rem;
+    }
+}

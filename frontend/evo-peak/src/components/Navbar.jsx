@@ -36,7 +36,7 @@ return(
       <div class="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
       <button className="btn-login">Iniciar Sesión</button>
       <a href="/wishlist"><img src={WishList} width="35"/></a>
-      <a href="#"><img src={ShoppingCart} width="35"/></a>
+      <a href="/shoppingcar"><img src={ShoppingCart} width="35"/></a>
       </div>
 
     </div>

@@ -3,6 +3,7 @@
 
 .logo {
     padding-top: 8%;
+    z-index: 1;
 }
 
 h1 {

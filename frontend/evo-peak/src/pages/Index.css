@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+body
+{
+    background-color: #FFFFFF;
+}
+
 .top-container {
     background-image: url('../assets/Index_Background.png');
     background-size: cover;
@@ -64,26 +69,19 @@
 .question {
     background-color: #28303F;
     color: #FFFFFF;
-    padding: 2%;
+    padding: 55px;
 }
 
 .question h1 {
     font-family: "Rubik", sans-serif;
     font-weight: bold;
     font-size: 3.5em;
+    text-transform: none;
 
-    background-image: linear-gradient(-90deg, #FFFFFF, #92c8ee);
-  
-    /* Set the background size and repeat properties. */
-    background-size: 35%;
-    background-repeat: repeat;
-  
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
+    background: linear-gradient(to right, #86c5f1, #FFFFFF);
+    background-size: cover;
+    -webkit-background-clip: text;                                                                                
+    -webkit-text-fill-color: transparent;
 }
 
 .why-choose-us {

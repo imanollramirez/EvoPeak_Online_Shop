@@ -59,10 +59,10 @@ body {
 .card {
   background-color: #2f3749;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 30px 30px 40px 40px; /* Aumenta el valor del borde inferior */
-  box-shadow: none; /* Elimina la sombra negra */
-  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Original */
+  border-radius: 30px 30px 40px 40px;
+  box-shadow: none; 
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Añadido border-color en la transición */
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
@@ -82,8 +82,10 @@ body {
 
 .card:hover {
   transform: translateY(-7px);
-  box-shadow: no
+  border:  4px solid rgba(255, 255, 255, 0.8); /* Cambia el miedo a blanco neón suave */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Añade un suave resplandor */
 }
+
 
 .card-img-container {
   height: 190px;

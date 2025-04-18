@@ -12,7 +12,7 @@ return(
     <div class="row justify-content-between align-items-center">
 
       <div class="col-auto mt-0 pt-0 ps-5">
-      <a class="navbar-brand" href="#"><img src={Logo} alt="Logo" width="180"/></a>
+      <a class="navbar-brand" href="/"><img src={Logo} alt="Logo" width="180"/></a>
       </div>
 
       <div class="col-auto d-flex justify-content-center mt-0 p-0">
@@ -34,7 +34,7 @@ return(
       </div>
 
       <div class="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
-      <button className="btn-login">Iniciar Sesión</button>
+      <a href="/Login"><button className="btn-login">Iniciar Sesión</button></a>
       <a href="/wishlist"><img src={WishList} width="35"/></a>
       <a href="#"><img src={ShoppingCart} width="35"/></a>
       </div>

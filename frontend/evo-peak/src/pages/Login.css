@@ -26,6 +26,7 @@ padding-top: 7%;
     font-weight: 400;
     font-size: 1.3em;
     color: #A4A4A4;
+    z-index: 1;
 }
 
 .box input {
@@ -36,9 +37,9 @@ padding-top: 7%;
     color: #A4A4A4;
 }
 
-.recoverPass {
+.recoverPass , .link-register{
     text-decoration: none;
-    color: #A4A4A4;
+    color: white;
 }
 
 
@@ -90,5 +91,3 @@ padding-top: 7%;
        color: #fff;
        text-decoration: none;
 }
-
-

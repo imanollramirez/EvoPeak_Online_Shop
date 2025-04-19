@@ -44,7 +44,7 @@ const RecoverPassword = () => {
 </div>
 
 
-     <img src={lower_shape} className="position-absolute bottom-0 end-0" />
+     <img src={lower_shape} className="rec position-absolute bottom-0 end-0"/>
      </>   
     );
     }

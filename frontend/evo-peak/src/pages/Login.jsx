@@ -22,12 +22,12 @@ const Login = () => {
             </div>
             <a href="/recoverPassword" className="recoverPass"><p className=" text-end mt-3">Olvidé mi contraseña</p></a>
             <button type="submit" className="login mt-5">Iniciar Sesión</button>
-            <button type="submit" className="register mt-3">Registrarse</button>
+            <button className="register mt-3"><a href="/register" className="link-register">Registrarse</a></button>
         </form>
 
      </div>
 
-     <img src={lower_shape} className="position-absolute bottom-0 end-0" />
+     <img src={lower_shape} className="position-absolute bottom-0 end-0"/>
      </>   
     );
     }

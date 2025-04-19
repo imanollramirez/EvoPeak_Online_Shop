@@ -7,12 +7,13 @@ import Shoppingcar from "./pages/shoppingcar.jsx";
 import Products from "./pages/products.jsx";
 import RecoverPassword from "./pages/RecoverPassword.jsx";
 import ContactUs from "./pages/contactUs.jsx"
+import Register from "./pages/Register.jsx";
 
 
 function App() {  
     return (
     <Router>
-     {window.location.pathname !== "/Login" && <Navbar/>}
+     {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Navbar/>}
       <Routes>
         <Route path="/" element={<Index/>}/>
         <Route path="/Login" element={<Login/>}/>
@@ -21,9 +22,10 @@ function App() {
         <Route path="/products" element={<Products/>}/>
         <Route path="/recoverPassword" element={<RecoverPassword/>}/>
         <Route path="/contactUs" element={<ContactUs/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </Router>
-  );
+    );
 }
 
 export default App;

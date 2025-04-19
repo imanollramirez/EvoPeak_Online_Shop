@@ -20,13 +20,12 @@ padding-top: 7%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     padding: 70px;
     width: 100%;
-    max-width: 600px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1.3em;
     color: #A4A4A4;
-    margin-top: 6%;
 }
 
 .box input {
@@ -37,51 +36,84 @@ padding-top: 7%;
     color: #A4A4A4;
 }
 
-.recoverPass {
-    text-decoration: none;
-    color: #A4A4A4;
-}
-
-.box .setNewPassword {
-    background-image:url('../assets/Icon_newPassword.png');
-    background-repeat:no-repeat;
-    background-position: 15px 20px;
-    padding-left: 65px;
-    outline: none;
-}
-
-
-.box .email
+.box .username
 {
-    background-image:url('../assets/Icon_email.png');
+    background-image:url('../assets/Icon_Name.png');
     background-repeat:no-repeat;
-    background-position: 15px 20px;
+    background-position: 20px 25px;
     padding-left: 65px;
     outline: none;
 }
 
-.box .verificationCode
+.box .lastname
 {
-    background-image:url('../assets/Icon_code.png');
+    background-image:url('../assets/Icon_Name.png');
     background-repeat:no-repeat;
-    background-position: 15px 20px;
+    background-position: 20px 25px;
     padding-left: 65px;
     outline: none;
 }
 
-
-.box .newPassword   {
-    background-image: linear-gradient(to right, #61BCEE 0%, #6E75F0  50%);
-    border: none;
+.box .password
+{
+    background-image:url('../assets/Icon_Password.png');
+    background-repeat:no-repeat;
+    background-position: 20px 25px;
+    padding-left: 65px;
+    outline: none;
 }
 
-.box .verificateCode   {
+.box .phone {
+    background-image:url('../assets/Icon_Phone.png');
+    background-repeat:no-repeat;
+    background-position: 20px 25px;
+    padding-left: 65px;
+    outline: none;
+}
+
+.box .register   {
     background-image: linear-gradient(to right, #6E75F0 0%, #61BCEE  50%);
     border: none;
 }
 
-.box .newPassword, .verificateCode {
+.box .profile-pic {
+    background-image: url('../assets/Icon_pf.png');
+    background-repeat: no-repeat;
+    background-position: 40px 25px;
+    height: 140px;
+    width: 180px;;
+    outline: none;
+}
+
+.upload-pic {
+    background-image: linear-gradient(to right, #6E75F0 0%, #61BCEE  50%);
+    border: none;;
+    color: white;
+}
+
+.profile-pic
+{
+    background-position: right center; 
+       color: #fff;
+       text-decoration: none;
+}
+
+.box .login, .register {
        padding: 8px 45px;
+       text-align: center;
+       transition: 0.5s;
+       background-size: 200% auto;
+       color: white;            
+       box-shadow: 0 0 20px #eee;
+       border-radius: 10px;
+       font-weight: bold;
+       display: block;
+       width: 80%;
+       margin-left: 10%;
+}
+
+.upload-pic {
+    padding: 8px 45px;
        text-align: center;
        transition: 0.5s;
        background-size: 200% auto;
@@ -100,6 +132,4 @@ padding-top: 7%;
        text-decoration: none;
 }
 
-.rec {
-    z-index: -1;
-}
+

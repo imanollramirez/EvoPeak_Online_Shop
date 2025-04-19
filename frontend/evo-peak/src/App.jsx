@@ -12,18 +12,18 @@ import Register from "./pages/Register.jsx";
 function App() {  
     return (
     <Router>
-     {window.location.pathname !== "/Login" && <Navbar/>}
+     {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Navbar/>}
       <Routes>
-        <Route path="/" element={<Index/>}/>
-        <Route path="/Login" element={<Login/>}/>
-        <Route path="/wishlist" element={<Wishlist/>}/>
-        <Route path="/shoppingcar" element={<Shoppingcar/>}/>
-        <Route path="/products" element={<Products/>}/>
-        <Route path="/recoverPassword" element={<RecoverPassword/>}/>
-        <Route path="/register" element={<Register/>}/>
+      <Route path="/" element={<Index/>}/>
+      <Route path="/Login" element={<Login/>}/>
+      <Route path="/wishlist" element={<Wishlist/>}/>
+      <Route path="/shoppingcar" element={<Shoppingcar/>}/>
+      <Route path="/products" element={<Products/>}/>
+      <Route path="/recoverPassword" element={<RecoverPassword/>}/>
+      <Route path="/register" element={<Register/>}/>
       </Routes>
     </Router>
-  );
+    );
 }
 
 export default App;

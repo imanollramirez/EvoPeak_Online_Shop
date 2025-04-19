@@ -4,7 +4,8 @@ import ImageContactUs from "../assets/contactUsItem.png"
 
 const ContactUs = () => {
     return (
-       <div className='main-container'>
+       <div className='contact-page-container'>
+        <div className='main-container'>
          <h1 className='title-contact'>CONTÁCTANOS</h1>
          <div className="contact-container">
            
@@ -49,6 +50,7 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
+       </div>
        </div>
     );
 };

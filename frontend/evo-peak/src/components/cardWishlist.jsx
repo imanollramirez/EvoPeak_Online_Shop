@@ -9,6 +9,7 @@ const ProductsCard = () => {
   return (
     <div className="row row-cols-1 row-cols-md-4 g-4"> {}
       <div className="col d-flex justify-content-center">
+        <div className='card-inner'>
         <div className="card custom-card-size">
         <img src={WishList} alt="Agregar a Wishlist" style={{ position: 'absolute', top: '10px', right: '10px', width: '30px', height: '24px', cursor: 'pointer' }} />
           <div className="card-img-container">
@@ -21,6 +22,9 @@ const ProductsCard = () => {
             <button className="btn btn-primary">Agregar al carrito</button>
           </div>
         </div>
+
+        </div>
+        
       </div>
 
       <div className="col d-flex justify-content-center">

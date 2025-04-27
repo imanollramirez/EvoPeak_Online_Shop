@@ -63,7 +63,7 @@ const CardWishlists = () => {
           
           </div>
           <div className="card-body">
-            <h5 className="card-title">Par de mancuernas</h5>
+          <h5 className="card-title">Set de mancuernas de 20LB</h5>
             <p className="card-text">$40.00</p>
             <p className="card-text">Cantidad: -1+</p>
             <button className="btn btn-primary">Agregar al carrito</button>

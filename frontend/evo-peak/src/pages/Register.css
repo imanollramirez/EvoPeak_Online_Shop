@@ -14,21 +14,23 @@ color: #A4A4A4;
 padding-top: 7%;
 }
 
-.box {
+.box-register {
     border-radius: 25px;
     background-color: #ffffff;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    padding: 70px;
+    padding: 20px 35px 20px 35px;
     width: 100%;
-    max-width: 1200px;
+    margin-top: 4% !important;
+    max-width: 1240px !important;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1.3em;
     color: #A4A4A4;
+    z-index: 2;
 }
 
-.box input {
+.box-register input {
     border-radius: 5px ;
     border: rgba(164, 164, 164, 0.534) solid 2px;
     height: 80px;
@@ -36,7 +38,11 @@ padding-top: 7%;
     color: #A4A4A4;
 }
 
-.box .username
+.box-register input::placeholder {
+    color: rgba(164, 164, 164, 0.534);
+}
+
+.box-register .username
 {
     background-image:url('../assets/Icon_Name.png');
     background-repeat:no-repeat;
@@ -45,7 +51,7 @@ padding-top: 7%;
     outline: none;
 }
 
-.box .lastname
+.box-register .lastname
 {
     background-image:url('../assets/Icon_Name.png');
     background-repeat:no-repeat;
@@ -54,7 +60,7 @@ padding-top: 7%;
     outline: none;
 }
 
-.box .password
+.box-register .password
 {
     background-image:url('../assets/Icon_Password.png');
     background-repeat:no-repeat;
@@ -63,7 +69,7 @@ padding-top: 7%;
     outline: none;
 }
 
-.box .phone {
+.box-register .phone {
     background-image:url('../assets/Icon_Phone.png');
     background-repeat:no-repeat;
     background-position: 20px 25px;
@@ -71,17 +77,35 @@ padding-top: 7%;
     outline: none;
 }
 
-.box .register   {
+.box-register .register   {
     background-image: linear-gradient(to right, #6E75F0 0%, #61BCEE  50%);
     border: none;
 }
 
-.box .profile-pic {
+.box-register .profile-pic {
     background-image: url('../assets/Icon_pf.png');
     background-repeat: no-repeat;
     background-position: 40px 25px;
     height: 140px;
     width: 180px;;
+    outline: none;
+}
+
+.box-register .email
+{
+    background-image:url('../assets/Icon_email.png');
+    background-repeat:no-repeat;
+    background-position: 20px 25px;
+    padding-left: 65px;
+    outline: none;
+}
+
+.box-register .dui
+{
+    background-image:url('../assets/Icon_dui.png');
+    background-repeat:no-repeat;
+    background-position: 8px 25px;
+    padding-left: 65px;
     outline: none;
 }
 
@@ -98,7 +122,7 @@ padding-top: 7%;
        text-decoration: none;
 }
 
-.box .login, .register {
+.box-register .login, .register {
        padding: 8px 45px;
        text-align: center;
        transition: 0.5s;
@@ -126,7 +150,12 @@ padding-top: 7%;
        margin-left: 25%;
 }
 
-.box button:hover {
+.box-register .register {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.box-register button:hover {
        background-position: right center; 
        color: #fff;
        text-decoration: none;

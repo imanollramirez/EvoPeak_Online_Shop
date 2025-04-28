@@ -10,7 +10,7 @@ const Login = () => {
      <a href="/"><img src={logo} width={220} className="logo position-absolute top-0 start-50 translate-middle"/></a>
     
      <h1 className="text-center position-absolute top-0 start-50 translate-middle-x">Inicio de Sesión</h1>
-     <div className="box position-absolute top-50 start-50 translate-middle mt-5">
+     <div className="box position-absolute top-50 start-50 translate-middle">
         <form className="form">
             <div className="input-container">
                 <p className="text-start mt-4">Usuario:</p>

@@ -17,7 +17,7 @@
   font-family: "Rubik", sans-serif;
   align-items: center;
   text-align: center;
-
+  font-weight: 700;
 }
 
 .triangulo-izquierdo {
@@ -54,14 +54,14 @@
 .card {
   background-color: #2f3749;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Original */
-  border-radius: 30px 30px 40px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px; /* Cambiado para que todos los bordes sean iguales */
   box-shadow: none; 
-  transition: transform 0.3s ease, border-color 0.3s ease; /* Añadido border-color en la transición */
+  transition: transform 0.3s ease, border-color 0.3s ease;
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 87%, 0 100%);
+  /* Puedes quitar clip-path si quieres bordes completamente redondeados */
 }
 
 .card::before {
@@ -73,21 +73,21 @@
   height: 100%;
   background: linear-gradient(to bottom, rgba(110, 127, 165, 0.85) 0%, rgba(47, 55, 73, 0.7) 100%);
   z-index: 0;
+  
 }
 
 .card:hover {
   transform: translateY(-7px);
-  border:  4px solid rgba(255, 255, 255, 0.8); /* Cambia el miedo a blanco neón suave */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Añade un suave resplandor */
+  border:  4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
-
 
 .card-img-container {
   height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 30px 30px 0 0;
+  border-radius: 30px 30px 30px 30px; /* Si quieres todos los bordes iguales, usa 30px */
   overflow: hidden;
   position: relative;
   z-index: 2;
@@ -125,7 +125,7 @@
   background-color: white;
   color: black;
   border: none;
-  border-radius: 20px;
+  border-radius: 30px; /* Cambiado para que todos los bordes sean iguales */
   padding: 8px 20px;
   font-weight: bold;
   transition: background-color 0.3s ease;
@@ -141,4 +141,3 @@
   min-height: 480px;
   margin: 0 15px 25px;
 }
-

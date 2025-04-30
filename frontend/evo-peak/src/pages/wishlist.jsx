@@ -12,7 +12,7 @@ const Wishlist = () => {
     return (
         
         <div className="wishlist-container">
-        <img src={Titulo} className="titulo" alt="Lista de Deseos" />
+        <h1 className="titulo">Lista de Deseos</h1>
         <img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
         <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />
         <div className="center-content">

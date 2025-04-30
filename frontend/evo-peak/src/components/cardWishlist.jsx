@@ -7,7 +7,7 @@ import WishList from '../assets/WishList_Icon.png';
 
 const ProductsCard = () => {
   return (
-    <div className="row row-cols-1 row-cols-md-4 g-4"> {}
+    <div className="row row-cols-1 row-cols-md-4 g-4"> 
       <div className="col d-flex justify-content-center">
         <div className='card-inner'>
         <div className="card custom-card-size">

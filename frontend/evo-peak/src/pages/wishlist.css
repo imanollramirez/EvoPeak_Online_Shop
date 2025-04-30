@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 .wishlist-container {
   position: relative;
@@ -13,6 +14,10 @@
   display: block;
   margin: 0 auto 2rem auto;
   padding-top: 2rem;
+  font-family: "Rubik", sans-serif;
+  align-items: center;
+  text-align: center;
+
 }
 
 .triangulo-izquierdo {

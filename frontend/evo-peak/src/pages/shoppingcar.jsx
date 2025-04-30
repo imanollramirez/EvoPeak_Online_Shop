@@ -11,7 +11,7 @@ import Shopping from "../components/shoppingcard";
 const Shoppingcard = () => {
     return (
         <div className="wishlist-container">
-            <img src={Titulo} className="titulo" alt="Lista de Deseos" />
+            <h1 className="titulo">Carrito de Compras</h1>
             <div className="button-container">
                 <button className="pay-button">Ir a pagar</button>
             </div>

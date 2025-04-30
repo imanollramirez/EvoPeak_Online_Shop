@@ -13,6 +13,10 @@
     margin: 0 auto 2rem auto;
     padding-top: 2rem;
     color: black;
+    font-family: "Rubik", sans-serif;
+    text-transform: uppercase;
+    align-items: center;
+    text-align: center;
   }
   
   .triangulo-izquierdo {

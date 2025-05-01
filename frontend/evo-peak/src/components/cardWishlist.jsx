@@ -2,7 +2,7 @@ import Card2 from '../assets/4.png';
 import Card3 from '../assets/9.png';
 import Card4 from '../assets/10.png';
 import Card1 from '../assets/Group 76.png';
-import WishList from '../assets/WishList_Icon.png';
+import WishList from '../assets/WishList_Icon_White.png';
 
 
 const ProductsCard = () => {

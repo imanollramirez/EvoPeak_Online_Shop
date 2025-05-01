@@ -54,6 +54,10 @@ const Index = () => {
         <img className="img position-absolute bottom-0 end-0" src={image1}/>
         <img src={shape2} className="position-absolute bottom-0 end-0"/>
      </div>
+     <div className="background text-center">
+             <h1 className="title">Redes sociales</h1>
+             <p className="description">Puedes encontarnos en las diferentes redes <br /> sociales como <span className="at">@EvoPeak_SV</span>.</p>
+         </div>
      </>   
     );
     }

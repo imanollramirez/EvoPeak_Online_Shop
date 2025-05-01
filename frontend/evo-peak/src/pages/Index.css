@@ -42,7 +42,7 @@ body
 
 .description {
     font-family: "Rubik", sans-serif;
-    color: #9E9E9E;
+    color: #c5c5c5;
     font-size: 1.3em;
 }
 
@@ -135,3 +135,16 @@ body
     transition-duration: .7s;
 }
 
+.background {
+    background-image: url('../assets/Footer_Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+}
+
+.at {
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    color: #FFFFFF;
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.bottom {
+    background-color: rgba(40, 48, 63, 1);
+    font-family: 'Rubik', sans-serif;
+    text-decoration-line: underline;
+    height: auto !important;
+}
+
+.bottom p, a 
+{
+    color: white;
+    margin-bottom: 0;
+}
+
+.socials {
+    font-size: 1.3em;
+    letter-spacing: 1em;
+    animation-duration: .6s;
+}
+

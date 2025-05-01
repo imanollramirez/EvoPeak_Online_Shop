@@ -8,6 +8,7 @@ import Products from "./pages/products.jsx";
 import RecoverPassword from "./pages/RecoverPassword.jsx";
 import ContactUs from "./pages/contactUs.jsx"
 import Register from "./pages/Register.jsx";
+import Footer from "./components/footer.jsx";
 
 
 function App() {  
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contactUs" element={<ContactUs/>}/>
         <Route path="/register" element={<Register/>}/>
       </Routes>
+      <Footer/>
     </Router>
     );
 }

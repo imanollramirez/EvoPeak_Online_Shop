@@ -245,7 +245,7 @@ transition: background-color 0.3s ease}
   border-radius:30px ;
 }
 
-..product-actions .btn {
+.product-actions .btn {
   margin-bottom: 10px;
   background-color: #000;
   border-color: #000;
@@ -299,4 +299,11 @@ transition: background-color 0.3s ease}
   color: #fff;
   border: 10px solid #111;
   border-radius: 30px;
+}
+
+.custom-btn {
+
+border-radius: 999px;
+font-weight: bold;
+
 }

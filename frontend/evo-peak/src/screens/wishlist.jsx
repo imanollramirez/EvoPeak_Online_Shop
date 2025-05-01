@@ -1,4 +1,4 @@
-import "../pages/wishlist.css";
+import "../screens/wishlist.css";
 import Derecho from "../assets/Rectangle 474.png";
 import Izquierdo from "../assets/Rectangle 475.png";
 import Titulo from "../assets/Frame 180.png";

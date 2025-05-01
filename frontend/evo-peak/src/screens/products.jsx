@@ -1,7 +1,7 @@
 import rectangleDer from "../assets/Rectangle Der.png"
 import rectangleIzq from "../assets/Rectangle Izq.png"
 import FilterPill from "../components/filterPill.jsx"
-import "../pages/products.css"
+import "../screens/products.css"
 
 import ProductsCard from "../components/cardProducts.jsx";
 

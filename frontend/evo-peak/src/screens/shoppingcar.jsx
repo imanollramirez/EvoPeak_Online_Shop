@@ -1,4 +1,4 @@
-import "../pages/shoppingcar.css";
+import "../screens/shoppingcar.css";
 import Derecho from "../assets/Rectangle 474.png";
 import Izquierdo from "../assets/Rectangle 475.png";
 import Titulo from "../assets/compras.png";

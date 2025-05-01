@@ -8,17 +8,18 @@ body
 .top-container {
     background-image: url('../assets/Index_Background.png');
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-attachment: scroll;
     height: 100vh;
-    margin-top: 8%;
 }
 
 .title {
     font-family: "Rubik", sans-serif;
     font-weight: bold;
     font-size: 5rem;
+    padding-top: 12%;
+    text-transform: none;
 
     /* Gradient | Investigation => Set gradient to a text/ 
     background-color: rgb(255, 255, 255);

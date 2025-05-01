@@ -1,7 +1,7 @@
 import upper_shape from "../assets/Upper_Shape.png"
 import lower_shape from "../assets/Lower_Shape.png"
 import logo from "../assets/EvoPeak_Black.png"
-import "../pages/RecoverPassword.css"
+import "../screens/RecoverPassword.css"
 
 const RecoverPassword = () => {
     return (

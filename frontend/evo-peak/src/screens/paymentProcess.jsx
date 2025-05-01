@@ -1,7 +1,7 @@
 import Rectangle_1 from '../assets/Rectangle_paymentProcess_1.png';
 import Rectangle_2 from '../assets/Rectangle_paymentProcess_2.png';
 import Rectangle_3 from '../assets/Rectangle_paymentProcess_3.png';
-import '../pages/paymentProcess.css';
+import '../screens/paymentProcess.css';
 
 const paymentProcess = () => {
     return (

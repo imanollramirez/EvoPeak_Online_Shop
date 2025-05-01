@@ -14,20 +14,20 @@ import PaymentProcess from "./screens/paymentProcess.jsx";
 function App() {  
     return (
     <Router>
-      //This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Navbar component.
-     {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Navbar/>}
+      {/* This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Navbar component. */}
+      {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Navbar/>}
       <Routes>
-        <Route path="/" element={<Index/>}/>
-        <Route path="/Login" element={<Login/>}/>
-        <Route path="/wishlist" element={<Wishlist/>}/>
-        <Route path="/shoppingcar" element={<Shoppingcar/>}/>
-        <Route path="/products" element={<Products/>}/>
-        <Route path="/recoverPassword" element={<RecoverPassword/>}/>
-        <Route path="/contactUs" element={<ContactUs/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/paymentProcess" element={<PaymentProcess/>}/>
+      <Route path="/" element={<Index/>}/>
+      <Route path="/Login" element={<Login/>}/>
+      <Route path="/wishlist" element={<Wishlist/>}/>
+      <Route path="/shoppingcar" element={<Shoppingcar/>}/>
+      <Route path="/products" element={<Products/>}/>
+      <Route path="/recoverPassword" element={<RecoverPassword/>}/>
+      <Route path="/contactUs" element={<ContactUs/>}/>
+      <Route path="/register" element={<Register/>}/>
+      <Route path="/paymentProcess" element={<PaymentProcess/>}/>
       </Routes>
-      //This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Footer component.
+      {/* This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Footer component. */}
       {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Footer/>}
     </Router>
     );

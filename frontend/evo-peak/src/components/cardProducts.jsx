@@ -75,7 +75,7 @@ const StarRating = ({ rating, onRatingChange }) => {
   );
 };
 
-// Modal de producto modificado con botones apilados verticalmente en negro
+// Model de producto modificado con botones apilados verticalmente en negro
 const ProductModal = ({ product, onClose, onRatingChange }) => (
   <div className="modal-overlay" onClick={onClose}>
     <div className="modal-card" onClick={(e) => e.stopPropagation()}>

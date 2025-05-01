@@ -13,7 +13,7 @@ const Shoppingcard = () => {
         <div className="wishlist-container">
             <h1 className="titulo">Carrito de Compras</h1>
             <div className="button-container">
-                <button className="pay-button">Ir a pagar</button>
+                <a href="/paymentProcess"><button className="pay-button">Ir a pagar</button></a>
             </div>
             <img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
             <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />

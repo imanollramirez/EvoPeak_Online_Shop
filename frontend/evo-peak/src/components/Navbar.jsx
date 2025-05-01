@@ -15,7 +15,7 @@ return(
     <div class="row justify-content-between align-items-center">
 
       <div class="col-auto mt-0 pt-0 ps-5">
-        {location.pathname === "/" || location.pathname === "/contactUs" ? <a class="navbar-brand" href="/"><img src={Logo_White} alt="Logo_White" width="180"/></a> : <a class="navbar-brand" href="/"><img src={Logo_Black} alt="Logo_White" width="180"/></a>}
+        {location.pathname === "/" || location.pathname === "/contactUs" || location.pathname === "/paymentProcess" ? <a class="navbar-brand" href="/"><img src={Logo_White} alt="Logo_White" width="180"/></a> : <a class="navbar-brand" href="/"><img src={Logo_Black} alt="Logo_White" width="180"/></a>}
       </div>
 
       <div class="col-auto d-flex justify-content-center mt-0 p-0">
@@ -38,9 +38,9 @@ return(
       </div>
 
       <div class="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
-      {location.pathname === "/" || location.pathname === "/contactUs" ? <a href="/Login"><button className="btn-login ">Iniciar Sesión</button></a> : <a href="/Login"><button className="btn-login text-light bg-black">Iniciar Sesión</button></a>}
-      {location.pathname === "/" || location.pathname === "/contactUs" ? <a href="/wishlist"><img src={WishList_White} width="35"/></a> : <a href="/wishlist"><img src={WishList_Black} width="35"/></a>}
-      {location.pathname === "/" || location.pathname === "/contactUs" ? <a href="/shoppingcar"><img src={ShoppingCart_White} width="35"/></a> : <a href="/shoppingcar"><img src={ShoppingCart_Black} width="35"/></a>}
+      {location.pathname === "/" || location.pathname === "/contactUs" || location.pathname === "/paymentProcess" ? <a href="/Login"><button className="btn-login ">Iniciar Sesión</button></a> : <a href="/Login"><button className="btn-login text-light bg-black">Iniciar Sesión</button></a>}
+      {location.pathname === "/" || location.pathname === "/contactUs" || location.pathname === "/paymentProcess" ?  <a href="/wishlist"><img src={WishList_White} width="35"/></a> : <a href="/wishlist"><img src={WishList_Black} width="35"/></a>}
+      {location.pathname === "/" || location.pathname === "/contactUs" || location.pathname === "/paymentProcess" ?  <a href="/shoppingcar"><img src={ShoppingCart_White} width="35"/></a> : <a href="/shoppingcar"><img src={ShoppingCart_Black} width="35"/></a>}
       </div>
 
     </div>

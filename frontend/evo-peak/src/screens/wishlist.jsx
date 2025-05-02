@@ -10,18 +10,18 @@ import CardWishlists from "../components/cardWishlist.jsx";
 
 const Wishlist = () => {
     return (
-        
+
         <div className="wishlist-container">
-        <h1 className="titulo">Lista de Deseos</h1>
-        <img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
-        <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />
-        <div className="center-content">
-            <CardWishlists />
+            <h1 className="titulo">Lista de Deseos</h1>
+            <img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
+            <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />
+            <div className="center-content">
+                <CardWishlists />
+            </div>
         </div>
-    </div>
-                
-            
-        
+
+
+
     );
 };
 

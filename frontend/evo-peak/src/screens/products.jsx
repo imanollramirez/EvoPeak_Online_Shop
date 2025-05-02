@@ -8,21 +8,21 @@ import ProductsCard from "../components/cardProducts.jsx";
 
 const Products = () => {
     return (
-        
+
         <div className="products-container">
-        <h1 className="titulo">PRODUCTOS</h1>
-        <div className="filter-wrapper">
-            <FilterPill />
+            <h1 className="titulo">PRODUCTOS</h1>
+            <div className="filter-wrapper">
+                <FilterPill />
+            </div>
+            <img src={rectangleIzq} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
+            <img src={rectangleDer} className="triangulo-derecho" alt="Triángulo Derecho" />
+            <div className="center-content">
+                <ProductsCard />
+            </div>
         </div>
-        <img src={rectangleIzq} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
-        <img src={rectangleDer} className="triangulo-derecho" alt="Triángulo Derecho" />
-        <div className="center-content">        
-            <ProductsCard />
-        </div>
-    </div>
-                
-            
-        
+
+
+
     );
 };
 

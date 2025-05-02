@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 
-.logo {
+.logo-register {
     padding-top: 8%;
     z-index: 1;
 }
 
-h1 {
+.title-register {
 text-transform: uppercase;
 font-family: 'Poppins', sans-serif;
 font-weight: 800;
@@ -162,10 +162,68 @@ padding-top: 7%;
 }
 
 /* ---- RESPONSIVE ----- */
+@media (max-width: 1440px) {
+
+
+    .box-register {
+        margin-top: 5% !important;
+        padding: 5px 40px 15px 40px;
+        width: 900px !important;
+        font-size: 1rem;
+    }
+
+    .box-register input
+    {
+        margin: 0 !important;
+    }
+
+    .logo-register {
+        width: 180px;
+    }
+}
+
 @media (max-width: 1024px) {
     .box-register {
-        margin-top: 10% !important;
-        padding: 20px 15px 20px 15px;
-        width: 90% !important;
+        margin-top: 7% !important;
+        padding: 5px 40px 15px 40px;
+        width: 900px !important;
+        font-size: 1rem;
+    }
+
+    .box-register input
+    {
+        margin: 0 !important;
+    }
+
+    .logo-register {
+        width: 180px;
+        margin-top: 2%;
+    }
+
+    .title-register {
+        margin-top: 3%;
+    }
+}
+
+@media (max-width: 768px){
+    .box-register {
+        margin-top: 9% !important;
+        padding: 5px 40px 15px 40px;
+        width: 700px !important;
+        font-size: 1rem;
+    }
+
+    .box-register input
+    {
+        margin: 0 !important;
+    }
+
+    .logo-register {
+        margin-top: 5% !important;
+    }
+
+    .title-register {
+        margin-top: 7%;
+        font-size: 1.8rem;
     }
 }

@@ -11,8 +11,7 @@ const RecoverPassword = () => {
     
      <h1 className="text-center position-absolute top-0 start-50 translate-middle-x">Recuperación de contraseña</h1>
 
-     <div className="d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle w-100 ">
-  <div className="box me-5">
+  <div className="box-recovery position-absolute top-50 start-0 translate-middle-y" id="left">
     <p className="text-center">Ingrese su correo e ingrese el código de verificación para continuar con el proceso.</p>
     <form className="form">
       <div className="input-container">
@@ -27,7 +26,7 @@ const RecoverPassword = () => {
     </form>
   </div>
 
-  <div className="box ms-5">
+  <div className="box-recovery position-absolute top-50 end-0 translate-middle-y" id="right">
     <form className="form">
       <div className="input-container">
         <p className="text-center">Ingrese su nueva contraseña.</p>
@@ -41,7 +40,6 @@ const RecoverPassword = () => {
       <button type="submit" className="newPassword mt-5">Confirmar</button>
     </form>
   </div>
-</div>
 
 
      <img src={lower_shape} className="rec position-absolute bottom-0 end-0"/>

@@ -9,11 +9,11 @@ const Register = () => {
      <img src={upper_shape} className="absolute top-0 left-0 w-full h-auto" />
      <a href="/"><img src={logo} width={220} className="logo position-absolute top-0 start-50 translate-middle"/></a>
     
-     <h1 className="text-center position-absolute top-0 start-50 translate-middle-x">Inicio de Sesión</h1>
+     <h1 className="text-center position-absolute top-0 start-50 translate-middle-x">Registrarse</h1>
      <div className="box-register position-absolute top-50 start-50 translate-middle">
         
-        <div className="form-register">
-        <form className="form">
+  <div className="form-register">
+  <form className="form">
   <div className="row">
     <div className="col-md-6">
       <div className="input-container">
@@ -56,7 +56,7 @@ const Register = () => {
   </div>
 </form>
 
-        </div>
+  </div>
     
      </div>
 

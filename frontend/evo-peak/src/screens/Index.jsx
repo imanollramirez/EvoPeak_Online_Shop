@@ -21,7 +21,7 @@ const Index = () => {
      <div className="question text-center"><h1>¿Porqué elegirnos?</h1></div>
      <div className="why-choose-us position-relative">
         
-        <img src={shape1}/>
+        <img src={shape1} className="rec-index"/>
 
         <h3 className="text-center mb-5">Somos una tienda en línea que ofrece amplia variedad de productos.</h3>
         <div className="benefit">
@@ -52,11 +52,11 @@ const Index = () => {
                 
 
         <img className="img position-absolute bottom-0 end-0" src={image1}/>
-        <img src={shape2} className="position-absolute bottom-0 end-0"/>
+        <img src={shape2} className="rec-index position-absolute bottom-0 end-0"/>
      </div>
-     <div className="background text-center">
-             <h1 className="title">Redes sociales</h1>
-             <p className="description">Puedes encontarnos en las diferentes redes <br /> sociales como <span className="at">@EvoPeak_SV</span>.</p>
+     <div className="background">
+             <h1 className="title2 text-center">Redes sociales</h1>
+             <p className="description text-center">Puedes encontarnos en las diferentes redes <br /> sociales como <span className="at">@EvoPeak_SV</span>.</p>
          </div>
      </>   
     );

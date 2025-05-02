@@ -92,3 +92,105 @@ padding-top: 7%;
        color: #fff;
        text-decoration: none;
 }
+
+/* ------ Responsive -----*/
+@media (max-width: 1600px) {
+    .box {
+        margin-top: 5% !important;
+    }
+
+    .logo {
+        margin-top: 3%;
+    }
+
+    h1 {
+        margin-top: 3%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .logo {
+        margin-top: 6%;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 7%;
+    }
+
+    .box {
+        margin-top: 8% !important;
+        padding: 40px !important;
+        font-size: 1.2em;
+        width: 500px !important;
+        height: 600px !important;
+    }
+
+    .box .login, .box .register {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px 30px;
+        font-size: 1em;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .box {
+        padding: 40px;
+        font-size: 1em;
+        margin-top: 10% !important;
+        width: 90%;
+    }
+
+    .box input {
+        height: 60px;
+    }
+
+    .box .login, .box .register {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px 25px;
+        font-size: 0.95em;
+    }
+
+    h1 {
+        margin-top: 12% !important;
+        text-align: center;
+    }
+
+    .logo {
+        margin-top: 9% !important;
+        text-align: center;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .logo {
+        margin-top: 15%;
+        width: 50%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 25%;
+        color: white !important;
+    }
+
+    .box {
+        padding: 25px 20px !important;
+        font-size: 1em;
+        margin-top: 18% !important;
+        width: 90% !important;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: none;
+    }
+
+    .rec-login {
+        display: none;
+    }
+}

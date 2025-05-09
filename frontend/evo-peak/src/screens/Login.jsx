@@ -21,7 +21,7 @@ const Login = () => {
                 <input type="password" className="password" required/>
             </div>
             <a href="/recoverPassword" className="recoverPass"><p className=" text-end mt-3">Olvidé mi contraseña</p></a>
-            <button type="submit" className="login mt-5">Iniciar Sesión</button>
+            <button className="login mt-5"><a href="/welcome" className="link-login">Iniciar Sesión</a></button>
             <button className="register mt-3"><a href="/register" className="link-register">Registrarse</a></button>
         </form>
 

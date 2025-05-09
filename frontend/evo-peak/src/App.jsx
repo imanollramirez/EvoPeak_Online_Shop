@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router";
 import Index from "./screens/Index.jsx";
 import Navbar from './components/Navbar.jsx'
+import NavbarAdmin from './components/NavbarAdmin.jsx'
 import Wishlist from "./screens/wishlist.jsx"
 import Login from "./screens/Login.jsx"
 import Shoppingcar from "./screens/shoppingcar.jsx";
@@ -18,8 +19,20 @@ import Listproducts from "./screens/Listproducts.jsx";
 function App() {  
     return (
     <Router>
-      {/* This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Navbar component. */}
-      {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Navbar/>}
+      {/*Investigation: This code doesn't display the navigation bar on the login, registration, and password recovery pages due to design. If it's on the admin pages, it displays the admin navigation bar.*/}
+      {window.location.pathname !== "/Login" && 
+      window.location.pathname !== "/register" && 
+      window.location.pathname !== "/recoverPassword" && 
+      window.location.pathname !== "/welcome"
+  ? <Navbar />
+  : (
+      window.location.pathname !== "/Login" &&
+      window.location.pathname !== "/register" &&
+      window.location.pathname !== "/recoverPassword" && 
+    <NavbarAdmin />
+  )
+}
+
       <Routes>
         <Route path="/" element={<Index/>}/>
         <Route path="/Login" element={<Login/>}/>

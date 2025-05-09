@@ -43,6 +43,11 @@ padding-top: 7%;
     color: white;
 }
 
+.recoverPass , .link-login{
+    text-decoration: none;
+    color: white;
+}
+
 
 .box .username
 {

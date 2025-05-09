@@ -1,0 +1,10 @@
+.pendingOrders 
+{
+    width: 280px;
+    height: 100px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}

@@ -224,67 +224,6 @@
     flex-wrap: wrap;
 }
 
-.monthSales {
-    width: 900px;
-    height: 550px;
-    margin: 10px;
-    border-radius: 25px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: white;
-}
-
-.filteredSales {
-    width: 650px;
-    height: 400px;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 25px;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-
-.stock {
-    width: 280px;
-    height: 100px;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 25px;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.balance {
-    width: 280px;
-    height: 100px;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 25px;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.pendingOrders 
-{
-    width: 280px;
-    height: 100px;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 25px;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.salesPerDay {
-    width: 650px;
-    height: 250px;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 25px;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
 /* Responsive for Tablets and Phones */
 
 /* Tablet: max-width: 768px */

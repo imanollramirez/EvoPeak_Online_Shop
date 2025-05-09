@@ -1,6 +1,15 @@
-import rectangleDer from "../../assets/Rectangle Der.png"
-import rectangleIzq from "../../assets/Rectangle Izq.png"
-import "./Welcome.css"
+import rectangleDer from "../../assets/Rectangle Der.png";
+import rectangleIzq from "../../assets/Rectangle Izq.png";
+
+//Dashboard Components
+import MonthSales from "../../components/MonthSales.jsx";
+import PendingOrders from "../../components/PendingOrders.jsx";
+import Stock from "../../components/Stock.jsx";
+import Balance from "../../components/Balance.jsx";
+import FilteredSales from "../../components/FilteredSales.jsx";
+import SalesPerDay from "../../components/SalesPerDay.jsx";
+
+import "./Welcome.css";
 
 
 const Welcome = () => {
@@ -14,15 +23,15 @@ const Welcome = () => {
 
             <div className="dashboard">
                 <div className="left-panels">
-                    <div className="monthSales"></div>
-                    <div className="pendingOrders"></div>
-                    <div className="stock"></div>
-                    <div className="balance"></div>
+                    <MonthSales/>
+                    <PendingOrders/>
+                    <Stock/>
+                    <Balance/>
                 </div>
                 
                 <div className="right-panels">
-                    <div className="filteredSales"></div>
-                    <div className="salesPerDay"></div>
+                    <FilteredSales/>
+                    <SalesPerDay/>
                 </div>
                 
             </div>

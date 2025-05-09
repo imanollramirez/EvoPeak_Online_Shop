@@ -1,0 +1,284 @@
+/* Fuentes globales */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.products-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.title-welcome {
+    display: block;
+    margin: 0 auto 2rem auto;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: black;
+    align-items: center;
+    padding-top: 120px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 3rem;
+    font-family: "Rubik", sans-serif;
+}
+
+.subtitle {
+    color: #A4A4A4;
+    align-items: center;
+    font-weight: normal;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: "Poppins";
+}
+
+.filter-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-bottom: 100px;
+}
+
+/* El ajuste para filtros en dispositivos móviles (apilar en columna) */
+@media (max-width: 480px) {
+    .filter-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    .filter-wrapper > * {
+        margin: 5px 0; /* Agregar un pequeño margen entre los elementos del filtro */
+    }
+}
+
+.left-t {
+    position: absolute;
+    bottom: -120px; 
+    left: -100px;
+    width: 40%;
+    height: auto;
+    max-height: 300%;
+    object-fit: contain;
+    z-index: -1;
+}
+
+.right-t {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    max-height: 500%;
+    z-index: 0;
+}
+
+.center-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    z-index: 1;
+    position: relative;
+    padding-bottom: 80px;
+}
+
+/* Card de productos */
+.card {
+    width: 100%;
+    max-width: 320px;  /* Ancho máximo para la tarjeta */
+    height: auto;
+    background-color: #0a0a0a;
+    opacity: 87%;
+    color: white;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(110, 127, 165, 0.85) 0%, rgba(47, 55, 73, 0.7) 100%);
+    z-index: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 20px;
+    clip-path: path('M20,0 Lcalc(100% - 20px),0 Q100%,0 100%,20 L100%,calc(87% - 20px) Q100%,87% calc(100% - 20px),87% L20,100% Q0,100% 0,calc(100% - 20px) L0,20 Q0,0 20,0');
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.card:hover::before {
+    opacity: 0.3;
+}
+
+.card-img-container {
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px 30px 0 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.card-img-top {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card-body {
+    position: relative;
+    z-index: 2;
+    padding: 1.25rem;
+}
+
+.card-title {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    align-items: center;
+    text-align: center;
+}
+
+.card-text {
+    color: #cccccc;
+    font-size: 1.05rem;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: bold;
+    font: Poppins;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #cccccc;
+    color: black;
+}
+
+.custom-card-size {
+    width: 399px;
+    min-height: 480px;
+    margin: 0 15px 25px;
+}
+
+/* Responsive for Tablets and Phones */
+
+/* Tablet: max-width: 768px */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 2rem;
+        
+        padding-top: 150px;
+    }
+
+    .filter-wrapper {
+        flex-direction: column;
+        margin-bottom: 30px;
+        padding-bottom: 60px;
+    }
+
+    .center-content {
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 80%; /* 80% width for better fit */
+    }
+}
+
+/* Phones: max-width: 480px */
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 1.6rem;
+        padding-top: 60px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 90%;  /* 90% width for phones */
+        margin-bottom: 15px;
+    }
+
+    .filter-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    .filter-wrapper > * {
+        margin: 5px 0; /* Añadir margen entre elementos del filtro */
+    }
+
+    .center-content {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Desktop and larger screens (Monitor and larger) */
+@media (min-width: 1024px) {
+    .center-content {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .card {
+        width: 300px;  /* Establecer un ancho máximo para desktop */
+        margin: 20px;
+    }
+
+    .titulo {
+        font-size: 2.5rem;
+        padding-top: 150px;
+    }
+}

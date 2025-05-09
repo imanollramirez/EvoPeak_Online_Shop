@@ -1,6 +1,5 @@
 // CardAdminProducts.jsx
 import React from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
 
 export default function CardAdminProducts({ prod, onEdit, onDelete }) {
   return (

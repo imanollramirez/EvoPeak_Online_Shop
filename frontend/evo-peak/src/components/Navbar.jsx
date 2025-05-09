@@ -11,14 +11,14 @@ const Navbar = () => {
 return(
     <>
     <nav className="navbar p-0 fixed-top">
-  <div class="container-fluid d-block mt-0 pt-0"> 
-    <div class="row justify-content-between align-items-center">
+  <div className="container-fluid d-block mt-0 pt-0"> 
+    <div className="row justify-content-between align-items-center">
 
-      <div class="col-auto mt-0 pt-0 ps-5">
-        {location.pathname === "/" || location.pathname === "/contactUs" ? <a class="navbar-brand" href="/"><img src={Logo_White} alt="Logo_White" width="180"/></a> : <a class="navbar-brand" href="/"><img src={Logo_Black} alt="Logo_White" width="180"/></a>}
+      <div className="col-auto mt-0 pt-0 ps-5">
+        {location.pathname === "/" || location.pathname === "/contactUs" ? <a className="navbar-brand" href="/"><img src={Logo_White} alt="Logo_White" width="180"/></a> : <a className="navbar-brand" href="/"><img src={Logo_Black} alt="Logo_White" width="180"/></a>}
       </div>
 
-      <div class="col-auto d-flex justify-content-center mt-0 p-0">
+      <div className="col-auto d-flex justify-content-center mt-0 p-0">
       <ul className="navbar navbar-list text-dark">
         <li >
           {location.pathname=== "/" ? <a className="link-page-active" href="/">Inicio</a> : <a className="link-page" href="/">Inicio</a>}
@@ -33,11 +33,17 @@ return(
           
         </li>
 
+
+        <li >
+        {location.pathname === "/Listproducts" ? <a className="link-page-active" href="/Listproducts">Pruebaadmin</a> : <a className="link-page" href="/Listproducts">PruebaAdmin</a>}
+          
+        </li>
+
        
       </ul>
       </div>
 
-      <div class="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
+      <div className="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
       {location.pathname === "/" || location.pathname === "/contactUs" ? <a href="/Login"><button className="btn-login ">Iniciar Sesión</button></a> : <a href="/Login"><button className="btn-login text-light bg-black">Iniciar Sesión</button></a>}
       {location.pathname === "/" || location.pathname === "/contactUs" ? <a href="/wishlist"><img src={WishList_White} width="35"/></a> : <a href="/wishlist"><img src={WishList_Black} width="35"/></a>}
       {location.pathname === "/" || location.pathname === "/contactUs" ? <a href="/shoppingcar"><img src={ShoppingCart_White} width="35"/></a> : <a href="/shoppingcar"><img src={ShoppingCart_Black} width="35"/></a>}

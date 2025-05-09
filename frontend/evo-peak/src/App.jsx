@@ -9,6 +9,7 @@ import RecoverPassword from "./pages/RecoverPassword.jsx";
 import ContactUs from "./pages/contactUs.jsx"
 import Register from "./pages/Register.jsx";
 import Footer from "./components/footer.jsx";
+import Listproducts from "./pages/Listproducts.jsx";
 
 
 function App() {  
@@ -24,6 +25,7 @@ function App() {
         <Route path="/recoverPassword" element={<RecoverPassword/>}/>
         <Route path="/contactUs" element={<ContactUs/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/Listproducts" element={<Listproducts/>}/>
       </Routes>
       <Footer/>
     </Router>

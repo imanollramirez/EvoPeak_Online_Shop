@@ -11,6 +11,22 @@ const Welcome = () => {
             <h1 className="title-welcome">Bienvenido/a</h1>
             <h2 className="subtitle">Usuario</h2>
             <img src={rectangleIzq} className="left-t" />
+
+            <div className="dashboard">
+                <div className="left-panels">
+                    <div className="monthSales"></div>
+                    <div className="pendingOrders"></div>
+                    <div className="stock"></div>
+                    <div className="balance"></div>
+                </div>
+                
+                <div className="right-panels">
+                    <div className="filteredSales"></div>
+                    <div className="salesPerDay"></div>
+                </div>
+                
+            </div>
+
             <img src={rectangleDer} className="right-t"/>
         </div>
 

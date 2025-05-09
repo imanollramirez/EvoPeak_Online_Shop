@@ -59,10 +59,7 @@
     position: absolute;
     bottom: -120px; 
     left: -100px;
-    width: 40%;
-    height: auto;
-    max-height: 300%;
-    object-fit: contain;
+    width: 780px;
     z-index: -1;
 }
 
@@ -74,7 +71,7 @@
     height: auto;
     max-width: 500px;
     max-height: 500%;
-    z-index: 0;
+    z-index: -1;
 }
 
 .center-content {
@@ -199,6 +196,93 @@
     width: 399px;
     min-height: 480px;
     margin: 0 15px 25px;
+}
+
+/* DASHBOARD */
+.dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.left-panels 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    flex-wrap: wrap;
+}
+
+.right-panels {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    flex-wrap: wrap;
+}
+
+.monthSales {
+    width: 900px;
+    height: 550px;
+    margin: 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.filteredSales {
+    width: 650px;
+    height: 400px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.stock {
+    width: 280px;
+    height: 100px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.balance {
+    width: 280px;
+    height: 100px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.pendingOrders 
+{
+    width: 280px;
+    height: 100px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.salesPerDay {
+    width: 650px;
+    height: 250px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive for Tablets and Phones */

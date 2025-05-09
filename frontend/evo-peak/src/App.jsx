@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router";
 import Index from "./screens/Index.jsx";
-import Navbar from './components/NavbarAdmin.jsx'
+import Navbar from './components/Navbar.jsx'
 import Wishlist from "./screens/wishlist.jsx"
 import Login from "./screens/Login.jsx"
 import Shoppingcar from "./screens/shoppingcar.jsx";

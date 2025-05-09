@@ -17,21 +17,21 @@ return(
       <div className="col-auto d-flex justify-content-center mt-0 p-0">
       <ul className="navbar navbar-list text-dark">
         <li >
-          {location.pathname=== "/" ? <a className="link-page-active" href="/">Inicio</a> : <a className="link-page" href="/">Inicio</a>}
+          {location.pathname === "/welcome" ? <a className="link-dark" href="/welcome">Inicio</a> : <a className="link-page" href="/">Inicio</a>}
         </li>
 
         <li >
-        {location.pathname === "/products" ? <a className="link-page-active text-dark" href="/products">Productos</a> : <a className="link-page" href="/products">Productos</a>}
+        {location.pathname === "/products-admin" ? <a className="link-dark" href="/products-Admin">Productos</a> : <a className="link-page" href="#">Productos</a>}
         </li>
 
         <li >
-        {location.pathname === "/orders" ? <a className="link-page-active" href="/contactUs">Pedidos</a> : <a className="link-page" href="/contactUs">Pedidos</a>}
+        {location.pathname === "/orders-admin" ? <a className="link-dark" href="/orders-Admin">Pedidos</a> : <a className="link-page" href="#">Pedidos</a>}
           
         </li>
 
 
         <li >
-        {location.pathname === "/users" ? <a className="link-page-active" href="/Listproducts">Usuarios</a> : <a className="link-page" href="/Listproducts">Usuarios</a>}
+        {location.pathname === "/users-admin" ? <a className="link-dark" href="/users-Admin">Usuarios</a> : <a className="link-page" href="#">Usuarios</a>}
           
         </li>
 

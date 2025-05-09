@@ -21,21 +21,21 @@ return(
       <div className="col-auto d-flex justify-content-center mt-0 p-0">
       <ul className="navbar navbar-list text-dark">
         <li >
-          {location.pathname=== "/" ? <a className="link-page-active" href="/">Inicio</a> : <a className="link-page" href="/">Inicio</a>}
+          {location.pathname=== "/" ? <a className="link-light" href="/">Inicio</a> : <a className="link-page" href="/">Inicio</a>}
         </li>
 
         <li >
-        {location.pathname === "/products" ? <a className="link-page-active text-dark" href="/products">Productos</a> : <a className="link-page" href="/products">Productos</a>}
+        {location.pathname === "/products" ? <a className="link-dark" href="/products">Productos</a> : <a className="link-page" href="/products">Productos</a>}
         </li>
 
         <li >
-        {location.pathname === "/contactUs" ? <a className="link-page-active" href="/contactUs">Contáctanos</a> : <a className="link-page" href="/contactUs">Contáctanos</a>}
+        {location.pathname === "/contactUs" ? <a className="link-light" href="/contactUs">Contáctanos</a> : <a className="link-page" href="/contactUs">Contáctanos</a>}
           
         </li>
 
 
         <li >
-        {location.pathname === "/Listproducts" ? <a className="link-page-active" href="/Listproducts">Pruebaadmin</a> : <a className="link-page" href="/Listproducts">PruebaAdmin</a>}
+        {location.pathname === "/Listproducts" ? <a className="link-dark" href="/Listproducts">Pruebaadmin</a> : <a className="link-page" href="/Listproducts">PruebaAdmin</a>}
           
         </li>
 

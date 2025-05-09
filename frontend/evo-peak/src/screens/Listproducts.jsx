@@ -3,10 +3,10 @@ import { useState } from "react";
 import "../components/Productlist.css";
 
 // Importa tus imágenes locales
-//import imgMancuernas from "../assets/mancuernas.png";
-//import imgPesaRusa from "../assets/pesa_rusa.png";
-//import imgSaltaCuerdas from "../assets/salta_cuerdas.png";
-//import imgRuedaAbdominal from "../assets/rueda_abdominal.png";
+import imgMancuernas from "../assets/Group 76.png";
+import imgPesaRusa from "../assets/4.png";
+import imgSaltaCuerdas from "../assets/9.png";
+import imgRuedaAbdominal from "../assets/10.png";
 
 
 
@@ -19,7 +19,7 @@ const products = [
     stock: 100,
     price: 20.0,
     category: "12312flf194591491",
-   // image: imgMancuernas,
+   image: imgMancuernas,
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const products = [
     stock: 129,
     price: 25.5,
     category: "kdakjd19491849141",
-    //image: imgPesaRusa,
+    image: imgPesaRusa,
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const products = [
     stock: 20,
     price: 16.25,
     category: "dasd1415151cdasdad",
-    //image: imgSaltaCuerdas,
+    image: imgSaltaCuerdas,
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const products = [
     stock: 10,
     price: 18.0,
     category: "odklsadka01040kkak",
-    //image: imgRuedaAbdominal,
+    image: imgRuedaAbdominal,
   },
 ];
 

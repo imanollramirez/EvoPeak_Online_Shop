@@ -11,10 +11,10 @@ export default function CardAdminProducts({ prod, onEdit, onDelete }) {
       <span className="product-category">{prod.category}</span>
       <div className="actions">
         <button className="edit-btn" onClick={() => onEdit(prod)}>
-          <FaEdit />
+
         </button>
         <button className="delete-btn" onClick={() => onDelete(prod)}>
-          <FaTrash />
+    
         </button>
       </div>
     </div>

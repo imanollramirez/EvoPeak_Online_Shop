@@ -1,25 +1,25 @@
+import React, { useState } from "react";
 import CardAdminProducts from "../components/CardAdminProducts.jsx";
-import { useState } from "react";
 import "../components/Productlist.css";
 
-// Importa tus imágenes locales
+// Imágenes de productos
 import imgMancuernas from "../assets/Group 76.png";
 import imgPesaRusa from "../assets/4.png";
 import imgSaltaCuerdas from "../assets/9.png";
 import imgRuedaAbdominal from "../assets/10.png";
 
+// Triángulos de fondo
+import Derecho from "../assets/Rectangle 474.png";
+import Izquierdo from "../assets/Rectangle 475.png";
 
-
-const products = [
-
-    
+const initialProducts = [
   {
     id: 1,
     name: "Mancuernas de ...",
     stock: 100,
     price: 20.0,
     category: "12312flf194591491",
-   image: imgMancuernas,
+    image: imgMancuernas,
   },
   {
     id: 2,
@@ -48,34 +48,37 @@ const products = [
 ];
 
 function Listproducts() {
-  // Puedes agregar tus funciones onEdit y onDelete aquí
+  const [products, setProducts] = useState(initialProducts);
+
   const onEdit = (prod) => alert(`Editar ${prod.name}`);
   const onDelete = (prod) => alert(`Eliminar ${prod.name}`);
 
   return (
-
-    
-    <div className="product-page">
-      <div className="product-header">
-        <h1>PRODUCTOS</h1>
-        <button className="add-btn">Agregar</button>
-      </div>
-      <div className="product-table-header">
-        <span>Nombre</span>
-        <span>Stock</span>
-        <span>Precio</span>
-        <span>idCategoría</span>
-        <span></span>
-      </div>
-      <div className="product-list">
-        {products.map((prod) => (
-          <CardAdminProducts
-            key={prod.id}
-            prod={prod}
-            onEdit={onEdit}
-            onDelete={onDelete}
-          />
-        ))}
+    <div className="product-page-container">
+      <img src={Izquierdo} className="triangulo-izquierdo" alt="Triángulo Izquierdo" />
+      <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />
+      <div className="product-page">
+        <div className="product-header">
+          <h1>PRODUCTOS</h1>
+          <button className="add-btn">Agregar</button>
+        </div>
+        <div className="product-table-header">
+          <span>Nombre</span>
+          <span>Stock</span>
+          <span>Precio</span>
+          <span>idCategoría</span>
+          <span></span>
+        </div>
+        <div className="product-list">
+          {products.map((prod) => (
+            <CardAdminProducts
+              key={prod.id}
+              prod={prod}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

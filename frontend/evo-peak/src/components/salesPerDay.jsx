@@ -1,8 +1,11 @@
 import "./salesPerDay.css";
+import BarChart from "./salesPerDayBar.jsx";
 
 const salesPerDay = () => {
     return (
-        <div className="salesPerDay"></div>
+        <div className="salesPerDay">
+            <BarChart/>
+        </div>
     );
 }
 

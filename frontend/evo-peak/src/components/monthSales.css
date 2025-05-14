@@ -1,14 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 .monthSales {
     width: 900px;
-    height: 550px;
+    height: 450px;
     margin: 10px;
     border-radius: 25px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.233);
     background-color: white;
     transition-duration: .4s;
+    position: relative;
 }
 
 .monthSales:hover {
     transform: translateY(-6px);
     transition-duration: .4s;
 }
+
+.monthSales-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-weight: 600;
+    color: #A3AED0;
+    margin: 15px;
+    background-color: #F4F7FE;
+    width: 150px;
+    height: 40px;
+    border-radius: 7px;
+    transition-duration: .4s;
+}
+
+.monthSales-title i {
+    font-size: 1.3rem;
+    color: inherit; 
+    margin-right: 10px;
+    transition: color 0.6s;
+}
+
+.monthSales-title h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: inherit;
+    transition: color 0.6s;
+}
+
+.monthSales-icon {
+    padding-top: 6px;
+    font-weight: 600;
+    color: #A3AED0;
+    margin: 15px;
+    background-color: #F4F7FE;
+    width: 35px;
+    height: 35px;
+    border-radius: 7px;
+    transition-duration: 0.6s;
+    position: absolute;
+    left: 100;
+    right: 0;
+    top: 0;
+    bottom: 100;
+}
+
+.monthSales-icon i {
+    font-size: 1.3rem;
+    color: inherit !important; 
+    transition: color 0.6s;
+}
+
+.monthSales-title:hover, .monthSales-icon:hover {
+    background-color: #9ecbeb;
+    color: white; 
+    transition-duration: .4s;
+} 
+
+.monthSales-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.monthSales-content h2{
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2B3674;
+    margin: 100px 20px 0;
+    transition-duration: .4s;
+
+}
+
+.monthSales-content p{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #A3AED0;
+    margin: 0 20px 0;
+}
+
+.earnings-percentage
+{
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #05CD99;
+}
+
+/* CHART */
+
+#line-chart {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    #line-chart .line {
+      --aspect-ratio: 21 / 9;
+      background-color: #ffffff;
+    }
+
+    #line-chart .legend {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    #line-chart .legend li {
+      margin: 0 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    #line-chart .legend span {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.5rem;
+      background-color: currentColor;
+    }
+
+    .chart 
+    {
+        width: 600px;
+        position: absolute;
+        left: 100;
+        right: 0;
+        top: 50;
+        bottom: 50;
+        margin: 30px;
+    }
+

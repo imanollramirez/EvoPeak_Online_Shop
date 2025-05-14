@@ -46,7 +46,7 @@ return(
     <input type="text" placeholder="Buscar" />
     </div>
     <i class="fa-solid fa-moon"></i>
-    <a href=""><img src="https://getillustrations.b-cdn.net//photos/pack/3d-avatar-male_lg.png" class="avatar" /></a>
+    <a href=""><img src="https://img.lovepik.com/png/20231128/3d-illustration-avatar-profile-man-collection-guy-cheerful_716220_wh860.png" class="avatar" /></a>
     </div>
       </div>
 

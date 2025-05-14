@@ -5,7 +5,7 @@ import rectangleIzq from "../../assets/Rectangle Izq.png";
 import MonthSales from "../../components/MonthSales.jsx";
 import PendingOrders from "../../components/PendingOrders.jsx";
 import Stock from "../../components/Stock.jsx";
-import Balance from "../../components/Balance.jsx";
+import Balance from "../../components/balance.jsx";
 import FilteredSales from "../../components/FilteredSales.jsx";
 import SalesPerDay from "../../components/SalesPerDay.jsx";
 
@@ -24,9 +24,9 @@ const Welcome = () => {
             <div className="dashboard">
                 <div className="left-panels">
                     <MonthSales/>
-                    <PendingOrders/>
                     <Stock/>
                     <Balance/>
+                    <PendingOrders/>
                 </div>
                 
                 <div className="right-panels">

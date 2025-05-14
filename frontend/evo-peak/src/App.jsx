@@ -13,6 +13,7 @@ import Footer from "./components/footer.jsx";
 import PaymentProcess from "./screens/paymentProcess.jsx";
 import Welcome from "./screens/private/Welcome.jsx";
 
+
 import Listproducts from "./screens/Listproducts.jsx";
 
 
@@ -23,7 +24,7 @@ function App() {
       {window.location.pathname !== "/Login" && 
       window.location.pathname !== "/register" && 
       window.location.pathname !== "/recoverPassword" && 
-      window.location.pathname !== "/welcome"
+      window.location.pathname !== "/welcome"  
   ? <Navbar />
   : (
       window.location.pathname !== "/Login" &&

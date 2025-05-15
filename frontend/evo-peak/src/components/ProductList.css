@@ -55,16 +55,23 @@ body {
   top: 80%;
   transform: translateY(-50%);
   background: linear-gradient(40deg, #62B8EE, #6E75F0);
+  background-size: 200%; /* Necesario para mover el fondo */
+  background-position: left center;
   color: #fff;
   border: none;
   border-radius: 8px;
+  width: 150px;
   padding: 10px 26px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(106, 130, 251, 0.2);
+  transition: background-position 0.8s ease;
 }
 
+.product-page-container .add-btn:hover {
+  background-position: right center;
+}
 
 
 /* Cabecera y cards en grid para alineación perfecta */

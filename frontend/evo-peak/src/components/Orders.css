@@ -82,7 +82,7 @@ body {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  transition:  0.3s ease;
+  transition: 0.3s ease;
 }
 
 .deliver-button:hover {

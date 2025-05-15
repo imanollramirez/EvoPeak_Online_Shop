@@ -1,4 +1,4 @@
-
+import "../components/Orders.css"
 import imagenMancuerna from "../assets/Image.png"
 import pesaRusa from "../assets/5.png"
 import ruedaAbdominal from "../assets/12.png"
@@ -23,7 +23,36 @@ const OrderCard = () => {
   ];
 
   return (
-    <div className="order-card">
+    <div className="main-container-Orders">
+
+
+      <div className="order-card">
+      <div className="header">
+        <div>
+          <h2>NOMBRE DEL CLIENTE</h2>
+          <p className="address">
+            Dirección: Calle Aguilares, S.S, El Salvador.
+          </p>
+        </div>
+        <span className="status">En espera</span>
+      </div>
+
+      <div className="item-list">
+        {items.map((item, index) => (
+          <div className="item" key={index}>
+            <img src={item.img} alt={item.name} />
+            <div className="item-details">
+              <p>{item.name}</p>
+            </div>
+            <p className="price">${item.price.toFixed(2)}</p>
+          </div>
+        ))}
+      </div>
+
+      <button className="deliver-button">Marcar como entregado</button>
+    </div>
+
+      <div className="order-card">
       <div className="header">
         <div>
           <h2>NOMBRE DEL CLIENTE</h2>
@@ -48,6 +77,8 @@ const OrderCard = () => {
 
       <button className="deliver-button">Marcar como entregado</button>
     </div>
+    </div>
+    
   );
 };
 

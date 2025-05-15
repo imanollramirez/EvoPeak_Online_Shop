@@ -34,11 +34,6 @@ return(
         </li>
 
 
-        <li >
-        {location.pathname === "/Listproducts" ? <a className="link-dark" href="/Listproducts">Pruebaadmin</a> : <a className="link-page" href="/Listproducts">PruebaAdmin</a>}
-          
-        </li>
-
        
       </ul>
       </div>

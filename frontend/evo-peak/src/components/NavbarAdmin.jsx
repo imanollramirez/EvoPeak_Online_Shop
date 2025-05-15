@@ -21,7 +21,7 @@ return(
         </li>
 
         <li >
-        {location.pathname === "/products-admin" ? <a className="link-dark" href="/products-Admin">Productos</a> : <a className="link-page" href="#">Productos</a>}
+        {location.pathname === "/Listproducts" ? <a className="link-dark" href="/Listproducts">Productos</a> : <a className="link-page" href="/Listproducts">Productos</a>}
         </li>
 
         <li >

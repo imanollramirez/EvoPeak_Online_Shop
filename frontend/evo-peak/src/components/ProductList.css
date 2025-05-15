@@ -49,27 +49,23 @@ body {
   color: #333;
   margin-bottom: 40px; /* Más espacio debajo del título */
 }
-.add-btn {
+.product-page-container .add-btn {
   position: absolute;
-  right: 32px; /* A 32px del borde derecho, ajusta según necesites */
+  right: 140px;
   top: 80%;
   transform: translateY(-50%);
-  background: linear-gradient(90deg, #2212ff, #2ba9fd);
+  background: linear-gradient(40deg, #62B8EE, #6E75F0);
   color: #fff;
   border: none;
   border-radius: 8px;
   padding: 10px 26px;
-  left: 150;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(106, 130, 251, 0.2);
-  transition: background 0.2s;
 }
 
-.add-btn:hover {
-  background: linear-gradient(40deg, #455de9, #8da0ff);
-}
+
 
 /* Cabecera y cards en grid para alineación perfecta */
 .product-table-header {

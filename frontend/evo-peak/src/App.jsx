@@ -23,7 +23,7 @@ function App() {
     <Router>
       {/*Investigation: This code doesn't display the navigation bar on the login, registration, and password recovery pages due to design. If it's on the admin pages, it displays the admin navigation bar.*/}
       {window.location.pathname !== "/Login" && 
-      window.location.pathname !== "/register" && 
+      window.location.pathname !== "/Listproducts" && 
       window.location.pathname !== "/recoverPassword" && 
       window.location.pathname !== "/welcome" &&
       window.location.pathname !== "/OrdersPending"

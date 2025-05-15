@@ -6,7 +6,6 @@ body {
 
 .product-page {
   position: relative;
-  background: white;
   min-height: 100vh;
   padding-bottom: 40px;
   overflow-x: hidden;
@@ -15,7 +14,7 @@ body {
 .triangulo-izquierdo {
   position: absolute;
   bottom: -120px; 
-  left: -100px;
+  left: -200px;
   width: 40%;
   height: auto;
   max-height: 300%;
@@ -31,7 +30,7 @@ body {
   height: auto;
   max-width: 500px;
   max-height: 500%;
-  z-index: -1;
+  z-index: 0;
 }
 
 .product-header {
@@ -60,6 +59,7 @@ body {
   border: none;
   border-radius: 8px;
   padding: 10px 26px;
+  left: 150;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -68,7 +68,7 @@ body {
 }
 
 .add-btn:hover {
-  background: linear-gradient(40deg, #fffbfc, #6a82fb);
+  background: linear-gradient(40deg, #455de9, #8da0ff);
 }
 
 /* Cabecera y cards en grid para alineación perfecta */
@@ -98,7 +98,7 @@ body {
   grid-template-columns: 2fr 1fr 1fr 2fr;
   align-items: center;
   justify-items: center;
-  background: #fff;
+  background: #ffffff;
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(44, 62, 80, 0.13);
   padding: 16px 32px;

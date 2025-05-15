@@ -25,7 +25,7 @@ return(
         </li>
 
         <li >
-        {location.pathname === "/orders-admin" ? <a className="link-dark" href="/orders-Admin">Pedidos</a> : <a className="link-page" href="#">Pedidos</a>}
+        {location.pathname === "/OrdersPending" ? <a className="link-dark" href="/OrdersPending">Pedidos</a> : <a className="link-page" href="/OrdersPending">Pedidos</a>}
           
         </li>
 

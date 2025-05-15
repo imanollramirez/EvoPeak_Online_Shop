@@ -12,6 +12,7 @@ import Register from "./screens/Register.jsx";
 import Footer from "./components/footer.jsx";
 import PaymentProcess from "./screens/paymentProcess.jsx";
 import Welcome from "./screens/private/Welcome.jsx";
+import OrdersPending from "./screens/private/OrdersPending.jsx"
 
 
 import Listproducts from "./screens/Listproducts.jsx";
@@ -24,7 +25,8 @@ function App() {
       {window.location.pathname !== "/Login" && 
       window.location.pathname !== "/Listproducts" && 
       window.location.pathname !== "/recoverPassword" && 
-      window.location.pathname !== "/welcome"  
+      window.location.pathname !== "/welcome" &&
+      window.location.pathname !== "/OrdersPending"
   ? <Navbar />
   : (
       window.location.pathname !== "/Login" &&
@@ -46,6 +48,7 @@ function App() {
         <Route path="/Listproducts" element={<Listproducts/>}/>
         <Route path="/paymentProcess" element={<PaymentProcess/>}/>
         <Route path="/welcome" element={<Welcome/>}/>
+        <Route path="/OrdersPending" element={<OrdersPending/>}/>
       </Routes>
       {/* This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Footer component. */}
       {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Footer/>}

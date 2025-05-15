@@ -8,17 +8,17 @@ const OrderCard = () => {
     {
       name: 'Set de mancuernas de 20LB',
       price: 20.0,
-      img: {imagenMancuerna},
+      img: imagenMancuerna,
     },
     {
       name: 'Pesa rusa de 10KG',
       price: 25.5,
-      img: {pesaRusa},
+      img: pesaRusa,
     },
     {
       name: 'Rueda abdominal',
       price: 18.0,
-      img: {ruedaAbdominal},
+      img: ruedaAbdominal,
     },
   ];
 

@@ -167,15 +167,18 @@
     color: black;
     border: none;
     border-radius: 20px;
-    padding: 8px 20px;
+    padding: 10px 20px;
+    margin-top: 15px;
     font-weight: bold;
-    font: Poppins;
-    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.5s ease;
 }
 
 .btn-primary:hover {
-    background-color: #cccccc;
+    box-shadow: -3px 4px 6px #92c8ee;
+    transform: translateY(-5px);
     color: black;
+    background-color: white;
 }
 
 .custom-card-size {

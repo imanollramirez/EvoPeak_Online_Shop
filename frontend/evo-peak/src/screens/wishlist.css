@@ -86,21 +86,6 @@
   font-size: 1.05rem;
 }
 
-.btn-primary {
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 30px; /* Cambiado para que todos los bordes sean iguales */
-  padding: 8px 20px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #cccccc;
-  color: black;
-}
-
 .custom-card-size {
   width: 399px;
   min-height: 480px;

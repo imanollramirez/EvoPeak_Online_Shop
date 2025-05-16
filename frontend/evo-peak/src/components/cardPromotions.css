@@ -24,26 +24,13 @@
   .promo-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(40, 40, 40, 0.35);
+    background: rgba(161, 0, 0, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 50;
   }
   
-  .promo-modal-card {
-    background: #fff;
-    border-radius: 22px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    padding: 38px 38px 32px 38px;
-    width: 420px;
-    max-width: 90vw;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: popIn 0.2s;
-  }
   @keyframes popIn {
     from { transform: scale(0.96); opacity: 0.6; }
     to { transform: scale(1); opacity: 1; }

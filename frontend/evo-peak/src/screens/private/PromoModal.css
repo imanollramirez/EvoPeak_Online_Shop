@@ -16,7 +16,7 @@
   }
   
   .promo-modal-card {
-    background: #fff;
+    background: #fff !important;
     border-radius: 22px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     padding: 38px 38px 32px 38px;

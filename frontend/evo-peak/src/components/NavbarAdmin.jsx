@@ -11,7 +11,7 @@ return(
     <div className="row justify-content-between align-items-center">
 
       <div class="col-auto mt-0 pt-0 ps-5">
-        {location.pathname === "/" || location.pathname === "/contactUs" || location.pathname === "/paymentProcess" ? <a class="navbar-brand" href="/"><img src={Logo_White} alt="Logo_White" width="180"/></a> : <a class="navbar-brand" href="/"><img src={Logo_Black} alt="Logo_White" width="180"/></a>}
+        <a class="navbar-brand" href="/welcome"><img src={Logo_Black} alt="Logo_White" width="180"/></a>
       </div>
 
       <div className="col-auto d-flex justify-content-center mt-0 p-0">
@@ -46,7 +46,8 @@ return(
     <input type="text" placeholder="Buscar" />
     </div>
     <i class="fa-solid fa-moon"></i>
-    <a href=""><img src="https://img.lovepik.com/png/20231128/3d-illustration-avatar-profile-man-collection-guy-cheerful_716220_wh860.png" class="avatar" /></a>
+    {/*Temporary: link to the index, then i'll be linked to the profile. - Simulating the Log Out*/}
+    <a href="/"><img src="https://img.lovepik.com/png/20231128/3d-illustration-avatar-profile-man-collection-guy-cheerful_716220_wh860.png" class="avatar" /></a>
     </div>
       </div>
 

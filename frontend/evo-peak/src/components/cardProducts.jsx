@@ -80,31 +80,41 @@ const ProductModal = ({ product, onClose, onRatingChange }) => (
   <div className="modal-overlay" onClick={onClose}>
     <div className="modal-card" onClick={(e) => e.stopPropagation()}>
       <button className="close-btn" onClick={onClose}>×</button>
+      
+      <h2 className='text-start'>{product.title}</h2>
+
+      <div className="modal-content">
+        <div className="img-rating">
       <div className="product-image-container">
         <img src={product.img} alt={product.title} style={{ maxWidth: '200px', margin: '0 auto', display: 'block' }} />
       </div>
-      <h2>{product.title}</h2>
-      <p className="product-price"><b>Precio:</b> ${product.price.toFixed(2)}</p>
-      <div className="product-description">
-        <b>Descripción:</b>
-        <p>{product.description}</p>
-      </div>
       <div className="product-rating">
-        <b>Valoración:</b>
         <StarRating 
           rating={product.rating} 
           onRatingChange={(newRating) => onRatingChange(product, newRating)} 
         />
       </div>
+      </div>
+
+      <div className="product-info">
+      <p className="product-price">Precio: ${product.price.toFixed(2)}</p>
+      <div className="product-description">
+        <b>Descripción:</b>
+        <p>{product.description}</p>
+      </div>
+
       <div className="product-actions">
-  <button className="custom-btn" style={{ marginBottom: 10 }}>
+  <button className="custom-btn">
     Añadir a lista de deseos
   </button>
   <button className="custom-btn">
     Agregar al carrito
   </button>
-</div>
+      </div>
 
+      </div>
+
+      </div>
     </div>
   </div>
 );

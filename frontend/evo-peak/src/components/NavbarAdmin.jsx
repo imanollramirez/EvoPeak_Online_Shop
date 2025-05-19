@@ -17,7 +17,7 @@ return(
       <div className="col-auto d-flex justify-content-center mt-0 p-0">
       <ul className="navbar navbar-list text-dark">
         <li >
-          {location.pathname === "/welcome" ? <a className="link-dark" href="/welcome">Inicio</a> : <a className="link-page" href="/">Inicio</a>}
+          {location.pathname === "/welcome"  ? <a className="link-dark" href="/welcome">Inicio</a> : <a className="link-page" href="/welcome">Inicio</a>}
         </li>
 
         <li >
@@ -31,7 +31,7 @@ return(
 
 
         <li >
-        {location.pathname === "/users-admin" ? <a className="link-dark" href="/users-Admin">Usuarios</a> : <a className="link-page" href="#">Usuarios</a>}
+        {location.pathname === "/UsersAdmin" ? <a className="link-dark" href="/UsersAdmin">Usuarios</a> : <a className="link-page" href="#">Usuarios</a>}
           
         </li>
 

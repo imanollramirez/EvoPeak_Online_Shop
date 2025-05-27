@@ -9,7 +9,7 @@ const pendingOrders = () => {
         <>
         <div className="pendingOrders">
             <div className="pendingOrders-icon">
-            <i class="fa-solid fa-bell"></i>
+            <i className="fa-solid fa-bell"></i>
             </div>
             <div>
             <h2>Pedidos pendientes</h2>

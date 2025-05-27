@@ -22,7 +22,7 @@
     border-radius: 22px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     padding: 38px 38px 32px 38px;
-    width: 420px;
+    width: 500px;
     max-width: 90vw;
     position: relative;
     display: flex;
@@ -52,17 +52,13 @@
   right: 22px;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #222;
   cursor: pointer;
   font-weight: 400;
   z-index: 10;
-  transition: color 0.2s;
   padding: 0;
   line-height: 1;
-}
-.promo-close-btn:hover {
-  color: #2ba9fd;
 }
   
   .promo-img-container {
@@ -118,15 +114,17 @@
     font-size: 1.08rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all .4s ease;
   }
   .promo-btn + .promo-btn {
     background: #fff;
     color: #222;
-    border: 1px solid #ddd;
+    border: 1.5px solid #111;
+    font-weight: bold;
   }
+
   .promo-btn:hover {
-    background: #2ba9fd;
-    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.514);
   }
   

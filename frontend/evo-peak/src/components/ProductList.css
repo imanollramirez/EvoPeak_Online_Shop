@@ -1,14 +1,9 @@
-body {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .product-page {
   position: relative;
   min-height: 100vh;
   padding-bottom: 40px;
   overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
 .triangulo-izquierdo {
@@ -86,7 +81,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 36px; /* MÁS ESPACIO ENTRE CARDS */
+  gap: 25px;
 }
 
 .product-card {
@@ -97,16 +92,16 @@ body {
   background: #ffffff;
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(44, 62, 80, 0.13);
-  padding: 16px 32px;
+  padding: 16px 30px;
   width: 94vw;
   max-width: 1140px;
-  gap: 0px;
   position: relative;
-  transition: box-shadow 0.2s;
+  transition: all .4s ease;
 }
 
 .product-card:hover {
   box-shadow: 0 10px 32px rgba(44, 62, 80, 0.18);
+  transform: translateY(-3px);
 }
 
 .product-img {

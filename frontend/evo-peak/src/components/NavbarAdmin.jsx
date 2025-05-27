@@ -21,17 +21,17 @@ return(
         </li>
 
         <li >
-        {location.pathname === "/Listproducts" ? <a className="link-dark" href="/Listproducts">Productos</a> : <a className="link-page" href="/Listproducts">Productos</a>}
+        {location.pathname === "/productsAdmin" ? <a className="link-dark" href="/productsAdmin">Productos</a> : <a className="link-page" href="/productsAdmin">Productos</a>}
         </li>
 
         <li >
-        {location.pathname === "/OrdersPending" ? <a className="link-dark" href="/OrdersPending">Pedidos</a> : <a className="link-page" href="/OrdersPending">Pedidos</a>}
+        {location.pathname === "/ordersPending" ? <a className="link-dark" href="/ordersPending">Pedidos</a> : <a className="link-page" href="/ordersPending">Pedidos</a>}
           
         </li>
 
 
         <li >
-        {location.pathname === "/UsersAdmin" ? <a className="link-dark" href="/UsersAdmin">Usuarios</a> : <a className="link-page" href="#">Usuarios</a>}
+        {location.pathname === "/usersAdmin" ? <a className="link-dark" href="/usersAdmin">Usuarios</a> : <a className="link-page" href="#">Usuarios</a>}
           
         </li>
 

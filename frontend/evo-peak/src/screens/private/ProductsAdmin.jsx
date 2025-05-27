@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import imgMancuernas from "../assets/Group 76.png";
-import imgPesaRusa from "../assets/4.png";
-import imgSaltaCuerdas from "../assets/9.png";
-import imgRuedaAbdominal from "../assets/10.png";
-import Derecho from "../assets/Rectangle 474.png";
-import Izquierdo from "../assets/Rectangle 475.png";
-import "../components/ProductList.css"; // tu CSS original
-import "./private/PromoModal.css"; // el CSS del modal (ver abajo)
+import imgMancuernas from "../../assets/Group 76.png";
+import imgPesaRusa from "../../assets/4.png";
+import imgSaltaCuerdas from "../../assets/9.png";
+import imgRuedaAbdominal from "../../assets/10.png";
+import Derecho from "../../assets/Rectangle 474.png";
+import Izquierdo from "../../assets/Rectangle 475.png";
+import "./ProductsAdmin.css"; // tu CSS original
+import "./PromoModal.css"; // el CSS del modal (ver abajo)
 
 const initialProducts = [
   {
@@ -84,7 +84,7 @@ const CardAdminProducts = ({ prod, onClick }) => (
   </div>
 );
 
-function Listproducts() {
+function ProductsAdmin() {
   const [products] = useState(initialProducts);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -127,4 +127,4 @@ function Listproducts() {
   
 }
 
-export default Listproducts;
+export default ProductsAdmin;

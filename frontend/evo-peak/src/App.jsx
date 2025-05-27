@@ -15,7 +15,7 @@ import Welcome from "./screens/private/Welcome.jsx";
 import OrdersPending from "./screens/private/OrdersPending.jsx"
 
 
-import Listproducts from "./screens/Listproducts.jsx";
+import ProductsAdmin from "./screens/private/ProductsAdmin.jsx";
 
 
 function App() {  
@@ -23,10 +23,10 @@ function App() {
     <Router>
       {/*Investigation: This code doesn't display the navigation bar on the login, registration, and password recovery pages due to design. If it's on the admin pages, it displays the admin navigation bar.*/}
       {window.location.pathname !== "/Login" && 
-      window.location.pathname !== "/Listproducts" && 
+      window.location.pathname !== "/productsAdmin" && 
       window.location.pathname !== "/recoverPassword" && 
       window.location.pathname !== "/welcome" &&
-      window.location.pathname !== "/OrdersPending"
+      window.location.pathname !== "/ordersPending"
   ? <Navbar />
   : (
       window.location.pathname !== "/Login" &&
@@ -45,10 +45,10 @@ function App() {
         <Route path="/recoverPassword" element={<RecoverPassword/>}/>
         <Route path="/contactUs" element={<ContactUs/>}/>
         <Route path="/register" element={<Register/>}/>
-        <Route path="/Listproducts" element={<Listproducts/>}/>
+        <Route path="/productsAdmin" element={<ProductsAdmin/>}/>
         <Route path="/paymentProcess" element={<PaymentProcess/>}/>
         <Route path="/welcome" element={<Welcome/>}/>
-        <Route path="/OrdersPending" element={<OrdersPending/>}/>
+        <Route path="/ordersPending" element={<OrdersPending/>}/>
       </Routes>
       {/* This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Footer component. */}
       {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Footer/>}

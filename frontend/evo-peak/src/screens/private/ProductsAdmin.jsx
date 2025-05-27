@@ -48,7 +48,17 @@ const initialProducts = [
 ];
 
 const PromoModal = ({ product, onClose }) => {
-  const discountedPrice = (product.price * (1 - product.discount / 100)).toFixed(2);
+
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [discount, setDiscountPrice] = useState(0);
+
+  const calcDiscount = (price,discount) => {
+
+
+    const result =(discount / price).toFixed(2) * 100
+
+    setTotalPrice(result);
+  };
 
   return (
     <div className="promo-modal-overlay" onClick={onClose}>
@@ -59,12 +69,12 @@ const PromoModal = ({ product, onClose }) => {
           <img src={product.image} alt={product.name} />
         </div>
         <div className="promo-details">
-          <div><b>Precio:</b> <span>$ {product.price}</span></div>
-          <div><b>Descuento:</b> <span>% {product.discount}</span></div>
-          <div style={{ marginTop: 8 }}><b>Total Promoción:</b><br /><span className="promo-total">${discountedPrice}</span></div>
+          <div><b>Precio:</b> <input type="number"></input></div>
+          <div><b>Descuento:</b><input type="number" onChange={(e) => setDiscountPrice(e.target.value)}/></div>
+          <div style={{ marginTop: 8 }}><b>Total Promoción:</b><br /><span className="promo-total">${totalPrice}</span></div>
         </div>
         <div className="promo-btns">
-          <button className="promo-btn">Calcular descuento</button>
+          <button className="promo-btn" onClick={calcDiscount(product.price,discount)}>Calcular descuento</button>
           <button className="promo-btn">Guardar promoción</button>
         </div>
       </div>

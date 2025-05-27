@@ -55,11 +55,17 @@ const PromoModal = ({ product, onClose }) => {
     const precioOriginal = product.price;
     const porcentajeDescuento = parseFloat(discount);
 
-    const descuento = precioOriginal * (porcentajeDescuento / 100);
+    if(!porcentajeDescuento)
+    {
+      return ;
+    }
+    else{
+      const descuento = precioOriginal * (porcentajeDescuento / 100);
     
     const totalConDescuento = precioOriginal - descuento;
 
     setTotalPrice(totalConDescuento.toFixed(2)); 
+    }
   };
 
   return (
@@ -81,6 +87,7 @@ const PromoModal = ({ product, onClose }) => {
               type="number"
               value={discount}
               onChange={(e) => setDiscountPrice(e.target.value)}
+              required
             />
           </div>
           <div style={{ marginTop: 8 }}>

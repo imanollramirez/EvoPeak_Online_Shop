@@ -77,6 +77,7 @@ const PromoModal = ({ product, onClose }) => {
           <div>
             <b>Descuento (%):</b>
             <input
+              id="discount"
               type="number"
               value={discount}
               onChange={(e) => setDiscountPrice(e.target.value)}

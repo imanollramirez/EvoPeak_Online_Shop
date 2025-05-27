@@ -164,3 +164,9 @@
   background: #ffeaea;
   color: #d32f2f;
 }
+
+
+  #discount {
+    border: none;
+    width: 60px;
+  }

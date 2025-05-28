@@ -44,9 +44,25 @@
   color: #333;
   margin-bottom: 40px; /* Más espacio debajo del título */
 }
-.product-page-container .add-btn {
+.product-page-container .add-btn-product {
   position: absolute;
-  right: 140px;
+  right: 350px;
+  top: 80%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #62B8EE, #6E75F0);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 26px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(106, 130, 251, 0.2);
+}
+
+.product-page-container .add-btn-category {
+  position: absolute;
+  right: 100px;
   top: 80%;
   transform: translateY(-50%);
   background: linear-gradient(40deg, #62B8EE, #6E75F0);
@@ -169,4 +185,9 @@
   #discount {
     border: none;
     width: 60px;
+    padding: 2px;
+  }
+
+  #discount::placeholder{
+    color: #555;
   }

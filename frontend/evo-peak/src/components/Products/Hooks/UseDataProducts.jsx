@@ -4,11 +4,11 @@ const useDataProducts = () => {
 
   const API = "http://localhost:4000/api/products";
   const [id, setId] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [stock, setStock] = useState(0);
-  const [precio, setPrecio] = useState(0);
-  const [idCategoria, setIdCategoria] = useState("");
-  const [imagen, setImagen] = useState("");
+  const [Name, setName] = useState("");
+  const [Stock, setStock] = useState(0);
+  const [Price, setPrice] = useState(0);
+  const [idCategory, setidCategory] = useState("");
+  const [Image, setImage] = useState("");
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -30,21 +30,21 @@ const useDataProducts = () => {
 
   const saveProducts = async (productData) => {
     if (
-      !productData.nombre ||
-      !productData.stock ||
-      !productData.precio ||
-      !productData.idCategoria ||
-      !productData.imagen
+      !productData.Name ||
+      !productData.Stock ||
+      !productData.Price ||
+      !productData.idCategory ||
+      !productData.Image
     ) {
       return;
     }
 
     const newProduct = {
-      Nombre: productData.nombre,
-      Stock: productData.stock,
-      Precio: productData.precio,
-      idCategoria: productData.idCategoria,
-      Imagen: productData.imagen
+      Name: productData.Name,
+      Stock: productData.Stock,
+      Price: productData.Price,
+      idCategory: productData.idCategory,
+      Image: productData.Image
     };
 
     try {
@@ -63,11 +63,11 @@ const useDataProducts = () => {
 
       fetchProducts();
       // Limpiar campos
-      setNombre("");
+      setName("");
       setStock(0);
-      setPrecio(0);
-      setIdCategoria("");
-      setImagen("");
+      setPrice(0);
+      setidCategory("");
+      setImage("");
       setId("");
     } catch (error) {
       console.error(error)
@@ -95,21 +95,21 @@ const useDataProducts = () => {
 
   const updateProducts = async (updatedData) => {
     if (
-      !updatedData.nombre ||
-      !updatedData.stock ||
-      !updatedData.precio ||
-      !updatedData.idCategoria ||
-      !updatedData.imagen
+      !updatedData.Name ||
+      !updatedData.Stock ||
+      !updatedData.Price ||
+      !updatedData.idCategory ||
+      !updatedData.Image
     ) {
       return;
     }
 
     const updatedProduct = {
-      Nombre: updatedData.nombre,
-      Stock: updatedData.stock,
-      Precio: updatedData.precio,
-      idCategoria: updatedData.idCategoria,
-      Imagen: updatedData.imagen
+      Name: updatedData.Name,
+      Stock: updatedData.Stock,
+      Price: updatedData.Price,
+      idCategory: updatedData.idCategory,
+      Image: updatedData.Image
     };
 
     try {
@@ -134,11 +134,11 @@ const useDataProducts = () => {
 
   return {
     id, setId,
-    nombre, setNombre,
-    stock, setStock,
-    precio, setPrecio,
-    idCategoria, setIdCategoria,
-    imagen, setImagen,
+    Name, setName,
+    Stock, setStock,
+    Price, setPrice,
+    idCategory, setidCategory,
+    Image, setImage,
     products, setProducts,
     fetchProducts,
     saveProducts,

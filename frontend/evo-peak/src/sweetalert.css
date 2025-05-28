@@ -1,5 +1,6 @@
 * {
     --swal2-cancel-button-background-color: #4a4a8a !important;
+    --swal2-confirm-button-background-color: #3085d6 !important;
 }
 
 div:where(.swal2-icon).swal2-warning {
@@ -33,4 +34,8 @@ div:where(.swal2-icon).swal2-warning {
 
 .swal2-input {
     font-family: 'Poppins',sans-serif;   
+}
+
+#swal2-html-container{
+    font-family: 'Poppins',sans-serif; 
 }

@@ -1,7 +1,6 @@
 .product-page {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 40px;
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
 }
@@ -44,6 +43,7 @@
   color: #333;
   margin-bottom: 40px; /* Más espacio debajo del título */
 }
+
 .product-page-container .add-btn-product, .add-btn-category {
   position: absolute;
   right: 300px;
@@ -87,6 +87,11 @@
   flex-direction: column;
   align-items: center;
   gap: 25px;
+
+  max-height: 500px;
+  overflow-y:auto;
+  margin: 20px auto;   
+  width: 65%;          
 }
 
 .product-card {

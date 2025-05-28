@@ -10,17 +10,19 @@ ProductsController.getProducts = async (req, res) => {
 
 // INSERT
 ProductsController.createProducts = async (req, res) => {
-  const { Nombre,
+  const { 
+    Name,
     Stock,
-    Precio,
-    idCategoria,
-    Imagen } = req.body;
+    Price,
+    idCategory,
+    Image } = req.body;
 
-  const newClient = new ProductsModel({ Nombre,
+  const newClient = new ProductsModel({ 
+    Name,
     Stock,
-    Precio,
-    idCategoria,
-    Imagen});
+    Price,
+    idCategory,
+    Image});
   await newClient.save();
   res.json({ message: "products saved" });
 };
@@ -37,20 +39,20 @@ ProductsController.deleteProducts = async (req, res) => {
 // UPDATE
 ProductsController.updateProducts = async (req, res) => {
   // Solicito todos los valores
-  const {Nombre,
+  const {Name,
     Stock,
-    Precio,
-    idCategoria,
-    Imagen } = req.body;
-  // Actualizo
+    Price,
+    idCategory,
+    Image } = req.body;
+  
   await ProductsModel.findByIdAndUpdate(
     req.params.id,
     {
-        Nombre,
-Stock,
-Precio,
-idCategoria,
-Imagen
+      Name,
+      Stock,
+      Price,
+      idCategory,
+      Image
     },
     { new: true }
   );

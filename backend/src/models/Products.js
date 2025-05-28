@@ -12,7 +12,7 @@ import { Schema, model} from "mongoose";
 const ProductsSchema = new Schema(
 {
 
-Nombre: {
+Name: {
 
     type: String,
     require: true,
@@ -26,20 +26,20 @@ Stock:{
 },
 
 
-Precio:{
+Price:{
 
     type: Number,
     require: true
 },
 
-idCategoria:{
+idCategory:{
 
     type: Schema.Types.ObjectId,
     ref: "idCategoria",
     require: true
 },
 
-Imagen: {
+Image: {
 
     type: String,
     require: true,

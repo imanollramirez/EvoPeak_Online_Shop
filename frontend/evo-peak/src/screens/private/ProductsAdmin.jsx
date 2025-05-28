@@ -10,39 +10,39 @@ import ListProducts from "../../components/Products/ListProducts.jsx";
 
 const MySwal = withReactContent(Swal);
 
-const {  products, updateProducts,deleteProducts} = useDataProducts();
 
 const AddNewCategory = (e) => 
   {
     e.stopPropagation();
-
+    
     MySwal.fire({
       title: "Agregar categorias",
       html: `
-    <input id="swal-input1" class="swal2-input" placeholder="Nombre">
-    <input id="swal-input2" class="swal2-input"placeholder="Descripción">
+      <input id="swal-input1" class="swal2-input" placeholder="Nombre">
+      <input id="swal-input2" class="swal2-input"placeholder="Descripción">
     `,
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        MySwal.fire({
-          icon: 'success',
-          title: 'Actualizado con éxito!',
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true
-        });
-      }
-    });
-  };
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      MySwal.fire({
+        icon: 'success',
+        title: 'Actualizado con éxito!',
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+    }
+  });
+};
 
 const ProductsAdmin = () => {
   
+  const {  products, updateProducts,deleteProducts} = useDataProducts();
 
   return (
     <div className="product-page-container">
@@ -50,14 +50,14 @@ const ProductsAdmin = () => {
       <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />
 
       {/* Aplica desenfoque cuando el modal está abierto */}
-      <div className={`product-page${products ? " blurred" : ""}`}>
+      <div className='product-page'>
         <div className="product-header">
           <h1>Productos</h1>
           <button className="add-btn-product">Agregar <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
           <button className="add-btn-category" onClick={AddNewCategory}>Categoría <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
         </div>
         <div className="product-table-header">
-          <span>product</span>
+          <span>Nombre</span>
           <span>Stock</span>
           <span>Precio</span>
           <span>Categoría</span>

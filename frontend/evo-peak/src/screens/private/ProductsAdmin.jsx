@@ -8,6 +8,7 @@ import Izquierdo from "../../assets/Rectangle 475.png";
 import "./ProductsAdmin.css"; // tu CSS original
 
 import PromoModal from "../../components/PromoModal.jsx"
+import CardAdminProducts from "../../components/CardAdminProducts.jsx"
 
 const initialProducts = [
   {
@@ -16,7 +17,7 @@ const initialProducts = [
     stock: 100,
     price: 40.0,
     discount: 10,
-    category: "12312flf194591491",
+    category: "Maquinaria",
     image: imgMancuernas,
   },
   {
@@ -25,7 +26,7 @@ const initialProducts = [
     stock: 129,
     price: 25.5,
     discount: 5,
-    category: "kdakjd19491849141",
+    category: "Maquinaria",
     image: imgPesaRusa,
   },
   {
@@ -34,7 +35,7 @@ const initialProducts = [
     stock: 20,
     price: 16.25,
     discount: 0,
-    category: "dasd1415151cdasdad",
+    category: "Accesorios",
     image: imgSaltaCuerdas,
   },
   {
@@ -43,24 +44,12 @@ const initialProducts = [
     stock: 10,
     price: 18.0,
     discount: 15,
-    category: "odklsadka01040kkak",
+    category: "Accesorios",
     image: imgRuedaAbdominal,
   },
 ];
 
-const CardAdminProducts = ({ prod, onClick }) => (
-  <div className="product-card" onClick={() => onClick(prod)} style={{ cursor: "pointer" }}>
-    <div className="product-name">
-      <img src={prod.image} alt={prod.name} className="product-img" />
-      {prod.name}
-    </div>
-    <span className="product-stock">{prod.stock}</span>
-    <span className="product-price">${prod.price.toFixed(2)}</span>
-    <span className="product-category">{prod.category}</span>
-  </div>
-);
-
-function ProductsAdmin() {
+const ProductsAdmin = () => {
   const [products] = useState(initialProducts);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -80,14 +69,14 @@ function ProductsAdmin() {
           <span>Nombre</span>
           <span>Stock</span>
           <span>Precio</span>
-          <span>idCategoría</span>
+          <span>Categoría</span>
         </div>
         <div className="product-list">
           {products.map((prod) => (
             <CardAdminProducts
               key={prod.id}
               prod={prod}
-              onClick={setSelectedProduct}
+              promoModal={setSelectedProduct}
             />
           ))}
         </div>

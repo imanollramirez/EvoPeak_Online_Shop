@@ -1,6 +1,7 @@
 // CardAdminProducts.jsx
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import "../sweetalert.css"
 
 const MySwal = withReactContent(Swal);
 
@@ -20,7 +21,15 @@ const CardAdminProducts = ({ prod,promoModal }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         //deleteProduct(product._id);
-        MySwal.fire("Eliminado!", "Se eliminó el producto con éxito!", "success");
+        MySwal.fire({
+          icon: 'success',
+          title: 'Eliminado con éxito!',
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true
+        });
       }
     });
   };

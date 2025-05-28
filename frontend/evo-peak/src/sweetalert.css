@@ -1,0 +1,32 @@
+* {
+    --swal2-cancel-button-background-color: #4a4a8a !important;
+}
+
+div:where(.swal2-icon).swal2-warning {
+    color: #62B8EE !important;
+    border-color: #62B8EE !important;
+}
+
+.swal2-success-line-tip{
+    background-color: #62b8ee !important;
+}
+
+.swal2-success-line-long {
+    background-color: rgba(98, 184, 238, 0.767) !important;
+}
+
+.swal2-success-ring {
+    border-color: #6abff3 !important;
+}
+
+.swal2-timer-progress-bar {
+    background-color: #4a4a8a;
+}
+
+#swal2-title{
+    font-family: 'Poppins',sans-serif !important;
+}
+
+.swal2-cancel{
+    font-family: 'Poppins',sans-serif !important;
+}

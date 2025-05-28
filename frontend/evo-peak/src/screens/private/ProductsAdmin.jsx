@@ -1,57 +1,48 @@
-import React, { useState } from "react";
-import imgMancuernas from "../../assets/Group 76.png";
-import imgPesaRusa from "../../assets/4.png";
-import imgSaltaCuerdas from "../../assets/9.png";
-import imgRuedaAbdominal from "../../assets/10.png";
 import Derecho from "../../assets/Rectangle 474.png";
 import Izquierdo from "../../assets/Rectangle 475.png";
 import "./ProductsAdmin.css"; // tu CSS original
 
-import PromoModal from "../../components/PromoModal.jsx"
-import CardAdminProducts from "../../components/CardAdminProducts.jsx"
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-const initialProducts = [
+import useDataProducts from "../../components/Products/Hooks/UseDataProducts.jsx"
+import ListProducts from "../../components/Products/ListProducts.jsx";
+
+const MySwal = withReactContent(Swal);
+
+const {  products, updateProducts,deleteProducts} = useDataProducts();
+
+const AddNewCategory = (e) => 
   {
-    id: 1,
-    name: "Set de mancuernas de 20LB",
-    stock: 100,
-    price: 40.0,
-    discount: 10,
-    category: "Maquinaria",
-    image: imgMancuernas,
-  },
-  {
-    id: 2,
-    name: "Pesa rusa de 10 kg",
-    stock: 129,
-    price: 25.5,
-    discount: 5,
-    category: "Maquinaria",
-    image: imgPesaRusa,
-  },
-  {
-    id: 3,
-    name: "Salta cuerdas de alta calidad",
-    stock: 20,
-    price: 16.25,
-    discount: 0,
-    category: "Accesorios",
-    image: imgSaltaCuerdas,
-  },
-  {
-    id: 4,
-    name: "Rueda abdominal",
-    stock: 10,
-    price: 18.0,
-    discount: 15,
-    category: "Accesorios",
-    image: imgRuedaAbdominal,
-  },
-];
+    e.stopPropagation();
+
+    MySwal.fire({
+      title: "Agregar categorias",
+      html: `
+    <input id="swal-input1" class="swal2-input" placeholder="Nombre">
+    <input id="swal-input2" class="swal2-input"placeholder="Descripción">
+    `,
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        MySwal.fire({
+          icon: 'success',
+          title: 'Actualizado con éxito!',
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true
+        });
+      }
+    });
+  };
 
 const ProductsAdmin = () => {
-  const [products] = useState(initialProducts);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  
 
   return (
     <div className="product-page-container">
@@ -59,32 +50,25 @@ const ProductsAdmin = () => {
       <img src={Derecho} className="triangulo-derecho" alt="Triángulo Derecho" />
 
       {/* Aplica desenfoque cuando el modal está abierto */}
-      <div className={`product-page${selectedProduct ? " blurred" : ""}`}>
+      <div className={`product-page${products ? " blurred" : ""}`}>
         <div className="product-header">
           <h1>Productos</h1>
-          <button className="add-btn-product">Agregar</button>
-          <button className="add-btn-category">Agregar Categoría</button>
+          <button className="add-btn-product">Agregar <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
+          <button className="add-btn-category" onClick={AddNewCategory}>Categoría <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
         </div>
         <div className="product-table-header">
-          <span>Nombre</span>
+          <span>product</span>
           <span>Stock</span>
           <span>Precio</span>
           <span>Categoría</span>
         </div>
-        <div className="product-list">
-          {products.map((prod) => (
-            <CardAdminProducts
-              key={prod.id}
-              prod={prod}
-              promoModal={setSelectedProduct}
-            />
-          ))}
-        </div>
-      </div>
 
-      {selectedProduct && (
-        <PromoModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-      )}
+        <ListProducts
+                  products={products}
+                  deleteProducts={deleteProducts}
+                  updateProducts={updateProducts}
+        />
+      </div>
     </div>
 
     

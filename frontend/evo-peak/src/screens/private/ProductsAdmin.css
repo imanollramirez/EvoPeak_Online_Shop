@@ -32,9 +32,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 64px; /* Más espacio sobre el título */
+  padding-top: 64px; 
   position: relative;
-  margin-bottom: 48px; /* Más espacio entre el título y las cards */
+  margin-bottom: 48px;
 }
 
 .product-header h1 {
@@ -44,10 +44,10 @@
   color: #333;
   margin-bottom: 40px; /* Más espacio debajo del título */
 }
-.product-page-container .add-btn-product {
+.product-page-container .add-btn-product, .add-btn-category {
   position: absolute;
-  right: 350px;
-  top: 80%;
+  right: 300px;
+  top: 75%;
   transform: translateY(-50%);
   background: linear-gradient(40deg, #62B8EE, #6E75F0);
   color: #fff;
@@ -61,19 +61,8 @@
 }
 
 .product-page-container .add-btn-category {
-  position: absolute;
   right: 100px;
-  top: 80%;
-  transform: translateY(-50%);
-  background: linear-gradient(40deg, #62B8EE, #6E75F0);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 26px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(106, 130, 251, 0.2);
+  top: 75%;
 }
 
 
@@ -157,11 +146,18 @@
 }
 
 #edit-btn,  
-#delete-btn {
+#delete-btn,
+#discount-btn {
   background: none;
   border: none;
   font-size: 1.35rem;
-  transition: background 0.2s, color 0.2s;
+  transition: all .4s ease;
+}
+
+#edit-btn:hover,  
+#delete-btn:hover,
+#discount-btn:hover {
+  transform: translateY(-2px);
 }
 
   #discount {

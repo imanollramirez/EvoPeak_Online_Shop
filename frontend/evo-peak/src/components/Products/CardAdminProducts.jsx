@@ -1,18 +1,25 @@
 // CardAdminProducts.jsx
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import "../sweetalert.css"
+import PromoModal from "../../components/PromoModal.jsx"
+
 
 const MySwal = withReactContent(Swal);
 
-const CardAdminProducts = ({ prod,promoModal }) => {
+const CardAdminProducts = ({ product, deleteProduct }) => {
+
+  const handleDiscount = (e) => {
+      e.stopPropagation();
+
+      <PromoModal product={product} onClose={() => product(null)} />
+  }
 
   const handleDelete = (e) => 
   {
     e.stopPropagation();
 
     MySwal.fire({
-      title: "¿Deseas eliminar este producto?",
+      title: "¿Deseas eliminar este product?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -20,7 +27,7 @@ const CardAdminProducts = ({ prod,promoModal }) => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        //deleteProduct(product._id);
+        deleteProduct(null);
         MySwal.fire({
           icon: 'success',
           title: 'Eliminado con éxito!',
@@ -36,14 +43,15 @@ const CardAdminProducts = ({ prod,promoModal }) => {
 
   return (
   <>
-      <div className="product-card" onClick={() => promoModal(prod)} style={{ cursor: "pointer" }}>
-        <img src={prod.image} alt={prod.name} className="product-img" />
-        <span className="product-name">{prod.name}</span>
-        <span className="product-stock">{prod.stock}</span>
-        <span className="product-price">${prod.price.toFixed(2)}</span>
-        <span className="product-category">{prod.category}</span>
+      <div className="product-card">
+        <img src={product.image} alt={product.name} className="product-img" />
+        <span className="product-name">{product.name}</span>
+        <span className="product-stock">{product.stock}</span>
+        <span className="product-price">${product.price.toFixed(2)}</span>
+        <span className="product-category">{product.category}</span>
 
         <div className="products-buttons">
+          <button id="discount-btn" onClick={handleDiscount}><i className="fa-solid fa-percent"></i></button>
           <button id="delete-btn" onClick={handleDelete}><i className="fa-solid fa-trash"></i></button>
           <button id="edit-btn"><i className="fa-solid fa-pen"></i></button>
         </div>

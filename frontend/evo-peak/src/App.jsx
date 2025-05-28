@@ -13,6 +13,7 @@ import Footer from "./components/footer.jsx";
 import PaymentProcess from "./screens/paymentProcess.jsx";
 import Welcome from "./screens/private/Welcome.jsx";
 import OrdersPending from "./screens/private/OrdersPending.jsx"
+import "./sweetalert.css"
 
 
 import ProductsAdmin from "./screens/private/ProductsAdmin.jsx";

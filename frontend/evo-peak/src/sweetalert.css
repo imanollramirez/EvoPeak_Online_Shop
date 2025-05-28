@@ -30,3 +30,7 @@ div:where(.swal2-icon).swal2-warning {
 .swal2-cancel{
     font-family: 'Poppins',sans-serif !important;
 }
+
+.swal2-input {
+    font-family: 'Poppins',sans-serif;   
+}

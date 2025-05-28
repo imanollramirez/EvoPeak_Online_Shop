@@ -9,7 +9,7 @@ import orders from './src/routes/orders.js'
 
 import customers from './src/routes/costumers.js'
 import employees from './src/routes/employees.js'
-import category from './src/routes/category.js'
+import category from './src/routes/categories.js'
 
 const app = express();
 

@@ -6,7 +6,7 @@ const useDataEmployees = () => {
 
   const [id, setId] = useState("");
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [lastName, setLastname] = useState("");
   const [phone, setPhone] = useState("");
   const [dui, setDui] = useState("");
   const [salary, setSalary] = useState(0);
@@ -28,12 +28,12 @@ const useDataEmployees = () => {
 
   useEffect(() => {
     fetchEmployees();
-  }, []);
+  }, [employees]);
 
   const saveEmployee = async (employeeData) => {
     if (
       !employeeData.name ||
-      !employeeData.lastname ||
+      !employeeData.lastName ||
       !employeeData.phone ||
       !employeeData.dui ||
       !employeeData.salary ||
@@ -42,30 +42,28 @@ const useDataEmployees = () => {
     ) {
       return;
     }
-
-    const newEmployee = {
-      name: employeeData.name,
-      lastname: employeeData.lastname,
-      phone: employeeData.phone,
-      dui: employeeData.dui,
-      salary: employeeData.salary,
-      isss: employeeData.isss,
-      profilePic: employeeData.profilePic,
-    };
-
+  
     try {
+      console.log(employeeData.name)
+      const formData = new FormData();
+      formData.append("name", employeeData.name);
+  formData.append("lastName", employeeData.lastName);
+  formData.append("phone", employeeData.phone);
+  formData.append("dui", employeeData.dui);
+  formData.append("salary", employeeData.salary);
+  formData.append("isss", employeeData.isss);
+  formData.append("profilePic", employeeData.profilePic);
+
       const response = await fetch(API, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(newEmployee),
+        body: formData,
       });
-
+  
       if (!response.ok) throw new Error("Error saving employee");
-
+  
+      await response.json();
       fetchEmployees();
+      // Limpiar los campos después de guardar
       setName("");
       setLastname("");
       setPhone("");
@@ -78,6 +76,7 @@ const useDataEmployees = () => {
       console.error(error);
     }
   };
+  
 
   const deleteEmployee = async (id) => {
     try {
@@ -99,7 +98,7 @@ const useDataEmployees = () => {
   const updateEmployee = async (updatedData) => {
     if (
       !updatedData.name ||
-      !updatedData.lastname ||
+      !updatedData.lastName ||
       !updatedData.phone ||
       !updatedData.dui ||
       !updatedData.salary ||
@@ -109,23 +108,20 @@ const useDataEmployees = () => {
       return;
     }
 
-    const updatedEmployee = {
-      name: updatedData.name,
-      lastname: updatedData.lastname,
-      phone: updatedData.phone,
-      dui: updatedData.dui,
-      salary: updatedData.salary,
-      isss: updatedData.isss,
-      profilePic: updatedData.profilePic,
-    };
-
+    
     try {
+      const formUpdated = new FormData();
+      formUpdated.append(updatedData.name);
+      formUpdated.append(updatedData.lastName);
+      formUpdated.append(updatedData.phone);
+      formUpdated.append(updatedData.dui);
+      formUpdated.append(updatedData.salary);
+      formUpdated.append(updatedData.isss);
+      formUpdated.append(updatedData.profilePic);
+
       const response = await fetch(`${API}/${updatedData.id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedEmployee),
+        body: formUpdated,
       });
 
       if (!response.ok) throw new Error("Error updating employee");
@@ -140,7 +136,7 @@ const useDataEmployees = () => {
   return {
     id, setId,
     name, setName,
-    lastname, setLastname,
+    lastName, setLastname,
     phone, setPhone,
     dui, setDui,
     salary, setSalary,

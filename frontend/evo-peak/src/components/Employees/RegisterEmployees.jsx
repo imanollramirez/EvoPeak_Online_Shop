@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [lastName, setLastname] = useState("");
   const [phone, setPhone] = useState("");
   const [dui, setDui] = useState("");
   const [salary, setSalary] = useState("");
@@ -12,7 +12,7 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
   useEffect(() => {
     if (employee) {
       setName(employee.name || "");
-      setLastname(employee.lastname || "");
+      setLastname(employee.lastName || "");
       setPhone(employee.phone || "");
       setDui(employee.dui || "");
       setSalary(employee.salary || "");
@@ -24,20 +24,37 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const employeeData = {
-      name,
-      lastname,
-      phone,
-      dui,
-      salary,
-      isss,
-      profilePic,
-    };
+    // Validaciones de los campos
+    if (!name || !lastName || !phone || !dui || !salary || !isss || !profilePic) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
 
+    // Validación del teléfono
+    if (!/^\d{8}$/.test(phone)) {
+      alert("El número de teléfono debe tener exactamente 8 dígitos.");
+      return;
+    }
+
+    // Validación del DUI
+    if (!/^\d{9}$/.test(dui)) {
+      alert("El DUI debe tener exactamente 9 dígitos.");
+      return;
+    }
+
+    // Validación de salario y ISSS
+    if (!/^\d+$/.test(salary) || !/^\d+$/.test(isss)) {
+      alert("El salario e ISSS deben ser números válidos.");
+      return;
+    }
+
+    const employeeData = { name, lastName, phone, dui, salary, isss, profilePic };
+
+    // Si hay un `employee`, es una actualización
     if (employee) {
-      onUpdate({ ...employeeData, id: employee._id });
+      onUpdate(employeeData, employee._id); // Actualizar con ID del empleado
     } else {
-      onSave(employeeData);
+      onSave(employeeData); // Guardar nuevo empleado
     }
   };
 
@@ -47,7 +64,7 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
       <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="swal2-input m-3" required />
 
       <label>Apellido:</label>
-      <input type="text" value={lastname} onChange={(e) => setLastname(e.target.value)} className="swal2-input m-3" required />
+      <input type="text" value={lastName} onChange={(e) => setLastname(e.target.value)} className="swal2-input m-3" required />
 
       <label>Teléfono:</label>
       <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} className="swal2-input m-3" required />

@@ -1,35 +1,46 @@
 import React, { useState } from "react";
 
 const RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
+  
   const [name, setName] = useState("");
   const [stock, setStock] = useState("");
   const [price, setPrice] = useState("");
   const [idCategory, setIdCategory] = useState("");
   const [image, setImage] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (product) {
+     if (product) {
       onUpdate({
-        Name: name || product?.Name,
-        Stock: stock !== "" ? parseInt(stock) : product?.Stock,
-        Price: price !== "" ? parseFloat(price) : product?.Price,
+        name: name || product?.Name,
+        stock: stock || product?.Stock,
+        price: price || product?.Price,
         idCategory: idCategory || product?.idCategory,
-        Image: image || product?.Image,
+        image: image || imagePreview,
         id: product?._id,
       });
     } else {
       onSave({
-        Name: name,
-        Stock: parseInt(stock),
-        Price: parseFloat(price),
+        name,
+        stock,
+        price,
         idCategory,
-        Image: image,
+        image
       });
     }
-  };
 
+  };
   return (
      <form
       onSubmit={handleSubmit}
@@ -38,7 +49,7 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <label>Nombre del producto:</label>
       <input
         type="text"
-        value={name}
+        value={name || product?.Name}
         onChange={(e) => setName(e.target.value)}
         className="swal2-input m-3"
         placeholder="Nombre del producto"
@@ -49,7 +60,7 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <input
         type="number"
         placeholder="Cantidad disponible"
-        value={stock}
+        value={stock || product?.Stock}
         onChange={(e) => setStock(e.target.value)}
         className="swal2-input m-3"
         required
@@ -59,7 +70,7 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <input
         type="number"
         placeholder="Precio"
-        value={price}
+        value={price || product?.Price}
         onChange={(e) => setPrice(e.target.value)}
         className="swal2-input m-3"
         required
@@ -69,23 +80,26 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <input
         type="text"
         placeholder="ID de la categoría"
-        value={idCategory}
+        value={idCategory || product?.idCategory}
         onChange={(e) => setIdCategory(e.target.value)}
         className="swal2-input m-3"
         required
       />
 
-      <label>Imagen (URL):</label>
+    
+        <label>Image:</label>
       <input
-        type="text"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-        className="swal2-input m-3"
-        required
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange || product?.Image}
+        className="form-control m-3"
       />
+        <div className="image-preview m-3">
+          <img src={imagePreview || product?.Image} style={{ width: "150px", height: "150px", objectFit: "cover" }} />
+        </div>
 
       <button type="submit" className="swal2-confirm swal2-styled m-3">
-        {product ? "Actualizar" : "Guardar"}
+        {(onSave) ? "Guardar" : "Actualizar"}
       </button>
 
       <button type="button" className="swal2-cancel swal2-styled m-3" onClick={onCancel}>

@@ -39,28 +39,25 @@ const useDataProducts = () => {
       return;
     }
 
-    const newProduct = {
-      Name: productData.Name,
-      Stock: productData.Stock,
-      Price: productData.Price,
-      idCategory: productData.idCategory,
-      Image: productData.Image
-    };
+    const formData = new FormData();
+
+    formData.append("Name", productData.Name),
+    formData.append("Stock",productData.Stock,),
+    formData.append("Price",productData.Price),
+    formData.append("idCategory", productData.idCategory),
+    formData.append("Image",productData.Image);
 
     try {
       const response = await fetch(API, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(newProduct),
+        body: formData,
       });
 
       if (!response.ok) {
         throw new Error("An error occurred");
       }
 
+       await response.json();
       fetchProducts();
       // Limpiar campos
       setName("");

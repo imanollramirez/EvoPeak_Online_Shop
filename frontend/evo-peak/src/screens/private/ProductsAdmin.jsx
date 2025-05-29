@@ -7,11 +7,15 @@ import withReactContent from "sweetalert2-react-content";
 
 import useDataProducts from "../../components/Products/Hooks/UseDataProducts.jsx"
 import ListProducts from "../../components/Products/ListProducts.jsx";
+import RegisterProducts from "../../components/Products/RegisterProducts.jsx";
 
 const MySwal = withReactContent(Swal);
 
+const ProductsAdmin = () => {
+  
+  const {  products, updateProducts,deleteProducts,saveProducts} = useDataProducts();
 
-const AddNewCategory = (e) => 
+  const AddNewCategory = (e) => 
   {
     e.stopPropagation();
     
@@ -40,9 +44,32 @@ const AddNewCategory = (e) =>
   });
 };
 
-const ProductsAdmin = () => {
-  
-  const {  products, updateProducts,deleteProducts} = useDataProducts();
+const AddNewProduct = (e) => {
+  e.stopPropagation();
+    
+    MySwal.fire({
+      title: "Agregar productos",
+      html: (
+      <RegisterProducts
+        onSave={(data) => {
+        saveProducts(data);
+          MySwal.fire({
+          icon: "success",
+          title: "Se agregó con éxito!",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+        }}
+        onCancel={() => MySwal.close()}
+      />
+    ),
+    showCancelButton: false,
+    showConfirmButton: false
+  });
+};
 
   return (
     <div className="product-page-container">
@@ -53,10 +80,11 @@ const ProductsAdmin = () => {
       <div className='product-page'>
         <div className="product-header">
           <h1>Productos</h1>
-          <button className="add-btn-product">Agregar <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
-          <button className="add-btn-category" onClick={AddNewCategory}>Categoría <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
+          <button className="add-btn-product" onClick={AddNewProduct}>Agregar <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
+          <button className="add-btn-category" onClick={AddNewCategory} style={{width:"180px "}}>Categoría <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
         </div>
         <div className="product-table-header">
+          <span className="text-light">Foto</span>
           <span>Nombre</span>
           <span>Stock</span>
           <span>Precio</span>

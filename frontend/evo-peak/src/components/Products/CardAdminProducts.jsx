@@ -56,7 +56,15 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
         product={product}
         onUpdate={(updatedProduct) => {
           updateProducts(updatedProduct);
-          MySwal.fire("¡Actualizado!", "El producto ha sido actualizado.", "success");
+          MySwal.fire({
+          icon: "success",
+          title: "Actualizado con éxito!",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
         }}
         onCancel={() => MySwal.close()}
       />

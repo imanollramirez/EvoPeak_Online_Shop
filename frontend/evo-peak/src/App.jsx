@@ -14,7 +14,7 @@ import PaymentProcess from "./screens/paymentProcess.jsx";
 import Welcome from "./screens/private/Welcome.jsx";
 import OrdersPending from "./screens/private/OrdersPending.jsx"
 import Employees from "./screens/private/EmployeesAdmin.jsx"
-import "./sweetalert.css"
+import "./sweetalert.css" 
 
 
 import ProductsAdmin from "./screens/private/ProductsAdmin.jsx";

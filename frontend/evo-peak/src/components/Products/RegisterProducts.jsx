@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 const   RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
   
-  const [name, setName] = useState("");
-  const [stock, setStock] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [idCategory, setIdCategory] = useState("");
-  const [image, setImage] = useState("");
-  const [imagePreview, setImagePreview] = useState("");
+  const [name, setName] = useState(product?.name || "");
+const [stock, setStock] = useState(product?.stock || 0);
+const [price, setPrice] = useState(product?.price || 0);
+const [idCategory, setIdCategory] = useState(product?.idCategory || "");
+const [image, setImage] = useState(null);
+const [imagePreview, setImagePreview] = useState(product?.image || "");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -23,14 +23,13 @@ const   RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
 
     if (product) {
       onUpdate({
-        name: name || product?.name,
-        stock: stock || product?.stock,
-        price: price || product?.price,
-        idCategory: idCategory || product?.idCategory,
+        name: name,
+        stock: stock,
+        price: price,
+        idCategory: idCategory,
         image: image || imagePreview,
         id: product?._id,
-      },
-    console.log(product));
+      })
     } else {
       onSave({
         name,
@@ -49,7 +48,7 @@ const   RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <label>Nombre del producto:</label>
       <input
         type="text"
-        value={name || product?.name}
+        value={name}
         onChange={(e) => setName(e.target.value)}
         className="swal2-input m-3"
         placeholder="Nombre del producto"
@@ -60,7 +59,7 @@ const   RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <input
         type="number"
         placeholder="Cantidad disponible"
-        value={stock || product?.stock}
+        value={stock}
         onChange={(e) => setStock(e.target.value)}
         className="swal2-input m-3"
         required
@@ -70,7 +69,7 @@ const   RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <input
         type="number"
         placeholder="Precio"
-        value={price || product?.price}
+        value={price}
         onChange={(e) => setPrice(e.target.value)}
         className="swal2-input m-3"
         required
@@ -80,7 +79,7 @@ const   RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
       <input
         type="text"
         placeholder="ID de la categoría"
-        value={idCategory || product?.idCategory}
+        value={idCategory}
         onChange={(e) => setIdCategory(e.target.value)}
         className="swal2-input m-3"
         required

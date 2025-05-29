@@ -65,12 +65,12 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
 
   return (
     <div className="employee-card">
-      <span className="employee-name">{employee.name} {employee.lastname}</span>
+      <span className="employee-name">{employee.name} {employee.lastName}</span>
       <span className="employee-phone">{employee.phone}</span>
       <span className="employee-dui">{employee.dui}</span>
       <span className="employee-salary">${employee.salary}</span>
       <span className="employee-isss">{employee.isss}</span>
-       <img src={employee.profilePic} alt={`${employee.name} ${employee.lastname}`} className="employee-img" />
+       <img src={employee.profilePic} alt={`${employee.name} ${employee.lastName}`} className="employee-img" />
 
       <div className="employee-buttons">
         <button id="delete-btn" onClick={handleDelete}>

@@ -32,7 +32,6 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product, categories }) =
       onUpdate(productData);
     } else {
       onSave(productData);
-      console.log(idCategory)
     }
   };
 

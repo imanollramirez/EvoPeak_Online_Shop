@@ -62,7 +62,7 @@
 
 .employee-table-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr 1fr;
+  grid-template-columns: 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
   align-items: center;
   justify-items: center;
   margin: 0 auto 18px auto;
@@ -80,14 +80,14 @@
   align-items: center;
   gap: 25px;
   max-height: 500px;
-  overflow-y: auto;
+  overflow-y: none;
   margin: 20px auto;
-  width: 65%;
+  width: 80%;
 }
 
 .employee-card {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr 1fr;
+  grid-template-columns: 2fr 1fr 2fr 1fr 2fr 1fr 2fr !important;
   align-items: center;
   justify-items: center;
   background: #ffffff;
@@ -95,7 +95,7 @@
   box-shadow: 0 6px 18px rgba(44, 62, 80, 0.13);
   padding: 16px 30px;
   width: 120vw;
-  max-width: 1210px;
+  max-width: 1300px !important;
   position: relative;
   transition: all .4s ease;
 }

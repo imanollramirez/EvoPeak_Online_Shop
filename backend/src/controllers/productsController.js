@@ -14,7 +14,7 @@ cloudinary.config({
 
 // SELECT
 ProductsController.getProducts = async (req, res) => {
-  const products = await ProductsModel.find();
+  const products = await ProductsModel.find().populate('idCategory', 'name');
   res.json(products);
 };
 

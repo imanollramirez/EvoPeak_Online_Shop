@@ -82,34 +82,34 @@ const AddNewCategory = (e) => {
   });
 };
 
-
-
 const AddNewProduct = (e) => {
   e.stopPropagation();
-    
-    MySwal.fire({
-      title: "Agregar productos",
-      html: (
+
+  MySwal.fire({
+    title: "Agregar productos",
+    html: (
       <RegisterProducts
+        categories={categories}
         onSave={(data) => {
-        saveProducts(data);
+          saveProducts(data);
           MySwal.fire({
-          icon: "success",
-          title: "Se agregó con éxito!",
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-        });
+            icon: "success",
+            title: "Se agregó con éxito!",
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
         }}
         onCancel={() => MySwal.close()}
       />
     ),
     showCancelButton: false,
-    showConfirmButton: false
+    showConfirmButton: false,
   });
 };
+
 
   return (
     <div className="product-page-container">

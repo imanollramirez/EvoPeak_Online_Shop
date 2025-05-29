@@ -91,7 +91,7 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
         <span className="product-name">{product.name}</span>
         <span className="product-stock">{product.stock}</span>
         <span className="product-price">${product.price}</span>
-        <span className="product-category">{product.idCategory}</span>
+        <span className="product-category">{product.idCategory?.name}</span>
 
         <div className="products-buttons">
           <button id="discount-btn" onClick={handleDiscount}>

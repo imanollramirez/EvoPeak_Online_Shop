@@ -35,7 +35,7 @@ const ProductsSchema = new Schema(
         idCategory: {
 
             type: Schema.Types.ObjectId,
-            ref: "idCategoria",
+            ref: "Categories",
             require: true
         },
 

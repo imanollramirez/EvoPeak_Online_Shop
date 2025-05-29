@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [lastName, setlastName] = useState("");
   const [phone, setPhone] = useState("");
   const [dui, setDui] = useState("");
   const [salary, setSalary] = useState("");
@@ -12,7 +12,7 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
   useEffect(() => {
     if (employee) {
       setName(employee.name || "");
-      setLastname(employee.lastname || "");
+      setlastName(employee.lastName || "");
       setPhone(employee.phone || "");
       setDui(employee.dui || "");
       setSalary(employee.salary || "");
@@ -26,7 +26,7 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
 
     const employeeData = {
       name,
-      lastname,
+      lastName,
       phone,
       dui,
       salary,
@@ -47,7 +47,7 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
       <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="swal2-input m-3" required />
 
       <label>Apellido:</label>
-      <input type="text" value={lastname} onChange={(e) => setLastname(e.target.value)} className="swal2-input m-3" required />
+      <input type="text" value={lastName} onChange={(e) => setlastName(e.target.value)} className="swal2-input m-3" required />
 
       <label>Teléfono:</label>
       <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} className="swal2-input m-3" required />

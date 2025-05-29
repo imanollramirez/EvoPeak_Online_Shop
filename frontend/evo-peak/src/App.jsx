@@ -13,6 +13,7 @@ import Footer from "./components/footer.jsx";
 import PaymentProcess from "./screens/paymentProcess.jsx";
 import Welcome from "./screens/private/Welcome.jsx";
 import OrdersPending from "./screens/private/OrdersPending.jsx"
+import Employees from "./screens/private/EmployeesAdmin.jsx"
 import "./sweetalert.css"
 
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/paymentProcess" element={<PaymentProcess/>}/>
         <Route path="/welcome" element={<Welcome/>}/>
         <Route path="/ordersPending" element={<OrdersPending/>}/>
+        <Route path="/employeesAdmin" element={<Employees/>}/>
       </Routes>
       {/* This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Footer component. */}
       {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Footer/>}

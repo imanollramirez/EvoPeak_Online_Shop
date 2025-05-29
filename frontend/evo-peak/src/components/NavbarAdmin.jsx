@@ -35,6 +35,11 @@ return(
           
         </li>
 
+        <li >
+        {location.pathname === "/employeesAdmin" ? <a className="link-dark" href="/employeesAdmin">Empleados</a> : <a className="link-page" href="/employeesAdmin">Empleados</a>}
+          
+        </li>
+
        
       </ul>
       </div>

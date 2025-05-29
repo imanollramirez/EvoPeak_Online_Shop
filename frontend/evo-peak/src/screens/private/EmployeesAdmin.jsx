@@ -22,7 +22,7 @@ const AddNewEmployee = (e) => {
       <input id="swal-input4" class="swal2-input" placeholder="DUI">
       <input id="swal-input5" class="swal2-input" placeholder="Salary">
       <input id="swal-input6" class="swal2-input" placeholder="ISSS">
-      <input id="swal-input3" class="swal2-input" placeholder="Imagen URL">
+      <input id="swal-input3" class="swal2-input" placeholder="Foto de Perfil (URL)">
     `,
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -58,9 +58,9 @@ const EmployeesAdmin = () => {
         </div>
         <div className="employee-table-header">
           <span>Nombre</span>
-          <span>Puesto</span>
-          <span>Correo</span>
-          <span>Acciones</span>
+          <span>Telefono</span>
+          <span>DUI</span>
+          <span>Salario</span>
         </div>
 
         <ListEmployees

@@ -1,7 +1,11 @@
+
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import RegisterEmployees from "./RegisterEmployees.jsx";
 import useDataEmployees from "./Hooks/useDataEmployees.jsx";
+
+const MySwal = withReactContent(Swal);
 
 const CardAdminEmployees = ({ employee, deleteEmployee }) => {
   const { updateEmployee } = useDataEmployees();
@@ -10,7 +14,7 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
   const handleDelete = (e) => {
     e.stopPropagation();
 
-    Swal.fire({
+    MySwal.fire({
       title: "¿Deseas eliminar este empleado?",
       icon: "warning",
       showCancelButton: true,
@@ -20,7 +24,7 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteEmployee(employee._id);
-        Swal.fire({
+        MySwal.fire({
           icon: "success",
           title: "Eliminado con éxito!",
           toast: true,
@@ -33,51 +37,50 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
     });
   };
 
-  const handleUpdate = (e) => {
-    e.stopPropagation();
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
+  const handleUpdate = () => {
+    MySwal.fire({
+      title: "Actualizar Empleado",
+      html: (
+        <RegisterEmployees
+          employee={employee}
+          onUpdate={(updatedEmployee) => {
+            updateEmployee(updatedEmployee);
+            MySwal.fire("¡Actualizado!", "El empleado ha sido actualizado.", "success");
+          }}
+          onCancel={() => MySwal.close()}
+        />
+      ),
+      showConfirmButton: false,
+      showCancelButton: false,
+      customClass: {
+        popup: "my-swal-popup",
+        title: "my-swal-title",
+      },
+      width: "600px",
+      background: "#f9fafb",
+      backdrop: "rgba(0, 0, 0, 0.5)",
+      showCloseButton: true,
+    });
   };
 
   return (
-    <>
-      <div className="employee-card">
-        <img src={employee.profilePic} alt={`${employee.name} ${employee.lastname}`} className="employee-img" />
-        <span className="employee-name">{employee.name} {employee.lastname}</span>
-        <span className="employee-phone">{employee.phone}</span>
-        <span className="employee-dui">{employee.dui}</span>
-        <span className="employee-salary">${employee.salary}</span>
-        <span className="employee-isss">${employee.isss}</span>
+    <div className="employee-card">
+      <span className="employee-name">{employee.name} {employee.lastname}</span>
+      <span className="employee-phone">{employee.phone}</span>
+      <span className="employee-dui">{employee.dui}</span>
+      <span className="employee-salary">${employee.salary}</span>
+      <span className="employee-isss">{employee.isss}</span>
+       <img src={employee.profilePic} alt={`${employee.name} ${employee.lastname}`} className="employee-img" />
 
-        <div className="employee-buttons">
-          <button id="delete-btn" onClick={handleDelete}>
-            <i className="fa-solid fa-trash"></i>
-          </button>
-          <button id="edit-btn" onClick={handleUpdate}>
-            <i className="fa-solid fa-pen"></i>
-          </button>
-        </div>
+      <div className="employee-buttons">
+        <button id="delete-btn" onClick={handleDelete}>
+          <i className="fa-solid fa-trash"></i>
+        </button>
+        <button id="edit-btn" onClick={handleUpdate}>
+          <i className="fa-solid fa-pen"></i>
+        </button>
       </div>
-
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <RegisterEmployees
-              employee={employee}
-              onUpdate={(updatedEmployee) => {
-                updateEmployee(updatedEmployee);
-                Swal.fire("¡Actualizado!", "El empleado ha sido actualizado.", "success");
-                setShowModal(false);
-              }}
-              onCancel={handleCloseModal}
-            />
-          </div>
-        </div>
-      )}
-    </>
+    </div>
   );
 };
 

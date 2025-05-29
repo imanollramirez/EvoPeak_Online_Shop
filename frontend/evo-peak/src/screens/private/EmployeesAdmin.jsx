@@ -61,6 +61,8 @@ const EmployeesAdmin = () => {
           <span>Telefono</span>
           <span>DUI</span>
           <span>Salario</span>
+          <span>ISSS</span>  
+          <span>Foto</span>
         </div>
 
         <ListEmployees

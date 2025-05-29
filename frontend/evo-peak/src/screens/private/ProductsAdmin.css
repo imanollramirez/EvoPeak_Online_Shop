@@ -50,21 +50,31 @@
   top: 75%;
   transform: translateY(-50%);
   background: linear-gradient(40deg, #62B8EE, #6E75F0);
+  background-size: 200%; /* Necesario para mover el fondo */
+  background-position: left center;
   color: #fff;
   border: none;
   border-radius: 8px;
+  width: 150px;
   padding: 10px 26px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(106, 130, 251, 0.2);
+  transition: background-position 0.8s ease;
 }
 
+<<<<<<< HEAD:frontend/evo-peak/src/components/ProductList.css
+.product-page-container .add-btn:hover {
+  background-position: right center;
+}
+=======
 .product-page-container .add-btn-category {
   right: 100px;
   top: 75%;
 }
 
+>>>>>>> master:frontend/evo-peak/src/screens/private/ProductsAdmin.css
 
 
 /* Cabecera y cards en grid para alineación perfecta */

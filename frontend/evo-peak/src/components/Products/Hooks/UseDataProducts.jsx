@@ -4,11 +4,11 @@ const useDataProducts = () => {
 
   const API = "http://localhost:4000/api/products";
   const [id, setId] = useState("");
-  const [Name, setName] = useState("");
-  const [Stock, setStock] = useState(0);
-  const [Price, setPrice] = useState(0);
+  const [name, setName] = useState("");
+  const [stock, setStock] = useState(0);
+  const [price, setPrice] = useState(0);
   const [idCategory, setidCategory] = useState("");
-  const [Image, setImage] = useState("");
+  const [image, setImage] = useState("");
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -30,24 +30,25 @@ const useDataProducts = () => {
 
   const saveProducts = async (productData) => {
     if (
-      !productData.Name ||
-      !productData.Stock ||
-      !productData.Price ||
+      !productData.name ||
+      !productData.stock ||
+      !productData.price ||
       !productData.idCategory ||
-      !productData.Image
+      !productData.image
     ) {
       return;
     }
 
     const formData = new FormData();
 
-    formData.append("Name", productData.Name),
-    formData.append("Stock",productData.Stock,),
-    formData.append("Price",productData.Price),
-    formData.append("idCategory", productData.idCategory),
-    formData.append("Image",productData.Image);
-
+  formData.append("name", productData.name),
+  formData.append("stock",productData.stock,),
+  formData.append("price",productData.price),
+  formData.append("idCategory", productData.idCategory),
+  formData.append("image",productData.image);
+  
     try {
+
       const response = await fetch(API, {
         method: "POST",
         body: formData,
@@ -92,37 +93,38 @@ const useDataProducts = () => {
 
   const updateProducts = async (updatedData) => {
     if (
-      !updatedData.Name ||
-      !updatedData.Stock ||
-      !updatedData.Price ||
+      !updatedData.id ||
+      !updatedData.name ||
+      !updatedData.stock ||
+      !updatedData.price ||
       !updatedData.idCategory ||
-      !updatedData.Image
+      !updatedData.image
     ) {
       return;
     }
 
-    const updatedProduct = {
-      Name: updatedData.Name,
-      Stock: updatedData.Stock,
-      Price: updatedData.Price,
-      idCategory: updatedData.idCategory,
-      Image: updatedData.Image
-    };
+    const formData = new FormData();
+    formData.append("name", updatedData.name);
+    formData.append("stock", updatedData.stock);
+    formData.append("price", updatedData.price);
+    formData.append("idCategory", updatedData.idCategory); 
+    formData.append("image", updatedData.image); 
 
     try {
+
       const response = await fetch(`${API}/${updatedData.id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedProduct),
+        body: formData,
       });
 
       if (!response.ok) {
-        throw new Error("An error occurred");
+        throw new Error("An error ocurred");
       }
 
-      fetchProducts();
+      const data = await response.json();
+      setProducts(data);
+      await fetchProducts();
+
       setId("");
     } catch (error) {
       console.error(error);
@@ -131,11 +133,11 @@ const useDataProducts = () => {
 
   return {
     id, setId,
-    Name, setName,
-    Stock, setStock,
-    Price, setPrice,
+    name, setName,
+    stock, setStock,
+    price, setPrice,
     idCategory, setidCategory,
-    Image, setImage,
+    image, setImage,
     products, setProducts,
     fetchProducts,
     saveProducts,

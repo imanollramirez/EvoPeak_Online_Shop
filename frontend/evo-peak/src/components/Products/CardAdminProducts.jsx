@@ -9,7 +9,7 @@ const MySwal = withReactContent(Swal);
 
 const CardAdminProducts = ({ product, deleteProduct }) => {
 
-  const {updateProducts} = UseDataProducts();
+  const {updateProducts} = UseDataProducts(); 
 
   const [showModal, setShowModal] = useState(false);
 
@@ -54,8 +54,8 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
     html: (
       <RegisterProducts
         product={product}
-        onUpdate={(updatedProduct) => {
-          updateProducts(updatedProduct);
+        onUpdate={(products) => {
+        updateProducts(products);
           MySwal.fire({
           icon: "success",
           title: "Actualizado con éxito!",
@@ -87,10 +87,10 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
   return (
     <>
       <div className="product-card">
-        <img src={product.Image} alt={product.Name} className="product-img" />
-        <span className="product-name">{product.Name}</span>
-        <span className="product-stock">{product.Stock}</span>
-        <span className="product-price">${product.Price}</span>
+        <img src={product.image} alt={product.name} className="product-img" />
+        <span className="product-name">{product.name}</span>
+        <span className="product-stock">{product.stock}</span>
+        <span className="product-price">${product.price}</span>
         <span className="product-category">{product.idCategory}</span>
 
         <div className="products-buttons">

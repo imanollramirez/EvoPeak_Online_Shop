@@ -80,7 +80,7 @@ const AddNewProduct = (e) => {
       <div className='product-page'>
         <div className="product-header">
           <h1>Productos</h1>
-          <button className="add-btn-product" onClick={AddNewProduct}>Agregar <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
+          <button className="add-btn-product" onClick={AddNewProduct} style={{width:"180px "}}>Producto <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
           <button className="add-btn-category" onClick={AddNewCategory} style={{width:"180px "}}>Categoría <i className="fa-solid fa-square-plus text-light ms-2"></i></button>
         </div>
         <div className="product-table-header">

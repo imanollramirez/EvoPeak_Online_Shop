@@ -177,3 +177,14 @@
   #discount::placeholder{
     color: #555;
   }
+
+  #open-categories {
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 1rem;
+    transition: all .4s ease;
+  }
+
+  #open-categories:hover{
+    transform: translateY(-3px);
+  }

@@ -9,7 +9,7 @@ import orders from './src/routes/orders.js'
 
 import customers from './src/routes/costumers.js'
 import employees from './src/routes/employees.js'
-import category from './src/routes/categories.js'
+import categories from './src/routes/categories.js'
 
 import cors from "cors";
 
@@ -35,6 +35,6 @@ app.use("/api/orders", orders);
 
 app.use("/api/costumers", customers);
 app.use("/api/employees", employees);
-app.use("/api/category", category);
+app.use("/api/categories", categories);
 
 export default app;

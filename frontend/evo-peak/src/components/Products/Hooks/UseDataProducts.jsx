@@ -26,7 +26,7 @@ const useDataProducts = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [products]);
 
   const saveProducts = async (productData) => {
     if (
@@ -121,9 +121,8 @@ const useDataProducts = () => {
         throw new Error("An error ocurred");
       }
 
-      const data = await response.json();
-      setProducts(data);
-      await fetchProducts();
+      await response.json();
+      fetchProducts();
 
       setId("");
     } catch (error) {

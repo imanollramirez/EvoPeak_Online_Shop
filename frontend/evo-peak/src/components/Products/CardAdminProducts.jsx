@@ -37,7 +37,7 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
         deleteProduct(product._id);
         MySwal.fire({
           icon: "success",
-          title: "Eliminado con éxito!",
+          title: "Producto eliminado con éxito!",
           toast: true,
           position: "top-end",
           showConfirmButton: false,
@@ -58,7 +58,7 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
         updateProducts(products);
           MySwal.fire({
           icon: "success",
-          title: "Actualizado con éxito!",
+          title: "Producto actualizado con éxito!",
           toast: true,
           position: "top-end",
           showConfirmButton: false,

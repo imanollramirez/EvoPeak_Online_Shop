@@ -1,0 +1,132 @@
+.employee-page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.triangulo-izquierdo {
+  position: absolute;
+  bottom: -120px;
+  left: -200px;
+  width: 40%;
+  height: auto;
+  max-height: 300%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.triangulo-derecho {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  max-width: 500px;
+  max-height: 500%;
+  z-index: 0;
+}
+
+.employee-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 64px;
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.employee-header h1 {
+  font-size: 2.7rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.employee-page-container .add-btn-employee {
+  position: absolute;
+  right: 200px;
+  top: 75%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #62B8EE, #6E75F0);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 26px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(106, 130, 251, 0.2);
+}
+
+.employee-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto 18px auto;
+  font-weight: bold;
+  color: #555;
+  font-size: 1.15rem;
+  width: 94vw;
+  max-width: 1140px;
+  background: none;
+}
+
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  max-height: 500px;
+  overflow-y: auto;
+  margin: 20px auto;
+  width: 65%;
+}
+
+.employee-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  align-items: center;
+  justify-items: center;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(44, 62, 80, 0.13);
+  padding: 16px 30px;
+  width: 100vw;
+  max-width: 1210px;
+  position: relative;
+  transition: all .4s ease;
+}
+
+.employee-card:hover {
+  box-shadow: 0 10px 32px rgba(44, 62, 80, 0.18);
+  transform: translateY(-3px);
+}
+
+.employee-name,
+.employee-role,
+.employee-email {
+  text-align: center;
+  color: #222;
+}
+
+.actions {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+#edit-btn,
+#delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.35rem;
+  transition: all .4s ease;
+}
+
+#edit-btn:hover,
+#delete-btn:hover {
+  transform: translateY(-2px);
+}

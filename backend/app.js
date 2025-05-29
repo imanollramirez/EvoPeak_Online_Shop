@@ -9,9 +9,18 @@ import orders from './src/routes/orders.js'
 
 import customers from './src/routes/costumers.js'
 import employees from './src/routes/employees.js'
-import category from './src/routes/category.js'
+import category from './src/routes/categories.js'
+
+import cors from "cors";
 
 const app = express();
+
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true //Allows the cookies and credential
+    })
+)
 
 app.use(express.json());
 

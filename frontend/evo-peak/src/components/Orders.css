@@ -9,10 +9,25 @@ body {
   background: linear-gradient(to bottom right, #ffffff, #dce9ff);
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 360px;
-  padding: 20px;
-  margin: 40px auto;
+  width: 520px;
+  min-height: 520px;
+  padding: 24px;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
+
+
+.main-container-Orders {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
 
 .header {
   display: flex;
@@ -24,6 +39,9 @@ body {
   margin: 0;
   font-size: 18px;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: larger
+  
 }
 
 .status {
@@ -37,12 +55,15 @@ body {
   color: #666;
   margin-top: 4px;
   margin-bottom: 16px;
+  font-weight: bold;
+  font-size: medium;
 }
 
 .item-list {
-  max-height: 180px;
+   max-height: 180px;
   overflow-y: auto;
-  padding-right: 8px;
+  padding-right: 50px;  
+  margin-right: 4px;   
 }
 
 .item {

@@ -29,7 +29,8 @@ const OrderCard = () => {
       <div className="order-card">
       <div className="header">
         <div>
-          <h2>NOMBRE DEL CLIENTE</h2>
+          <h2>Imanol Ramirez</h2>
+          <br />
           <p className="address">
             Dirección: Calle Aguilares, S.S, El Salvador.
           </p>
@@ -55,7 +56,8 @@ const OrderCard = () => {
       <div className="order-card">
       <div className="header">
         <div>
-          <h2>NOMBRE DEL CLIENTE</h2>
+          <h2>Daniel Soriano</h2>
+          <br />
           <p className="address">
             Dirección: Calle Mariona, Depart. #45 Las tunas, El Salvador.
           </p>

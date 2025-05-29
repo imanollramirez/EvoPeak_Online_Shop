@@ -1,6 +1,7 @@
 /* Fuentes globales */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap');
 
 .products-container {
     position: relative;
@@ -14,11 +15,9 @@
 
 .titulo {
     display: block;
-    margin: 0 auto 2rem auto;
-    padding-top: 2rem;
+    margin: 0;
     color: black;
     align-items: center;
-    padding-top: 120px;
     font-weight: 700;
     text-align: center;
     font-family: "Rubik", sans-serif;
@@ -27,8 +26,7 @@
 .filter-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    padding-bottom: 100px;
+    padding-bottom: 20px !important;
 }
 
 /* El ajuste para filtros en dispositivos móviles (apilar en columna) */
@@ -85,7 +83,6 @@
     background-color: #0a0a0a;
     opacity: 87%;
     color: white;
-    border: none;
     box-shadow: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 20px;
@@ -110,15 +107,17 @@
     height: 100%;
     background: linear-gradient(to bottom, rgba(110, 127, 165, 0.85) 0%, rgba(47, 55, 73, 0.7) 100%);
     z-index: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 20px;
-    clip-path: path('M20,0 Lcalc(100% - 20px),0 Q100%,0 100%,20 L100%,calc(87% - 20px) Q100%,87% calc(100% - 20px),87% L20,100% Q0,100% 0,calc(100% - 20px) L0,20 Q0,0 20,0');
 }
 
 .card:hover {
-    transform: scale(1.05);
-    transition: 0.5s;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    transform: perspective(0px) rotateZ(1.2deg) translateY(-20px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.3);
 }
 
 .card:hover::before {
@@ -141,10 +140,6 @@
     max-height: 85%;
     object-fit: contain;
     transition: transform 0.3s ease;
-}
-
-.card:hover .card-img-top {
-    transform: scale(1.1);
 }
 
 .card-body {
@@ -173,15 +168,18 @@
     color: black;
     border: none;
     border-radius: 20px;
-    padding: 8px 20px;
+    padding: 10px 20px;
+    margin-top: 15px;
     font-weight: bold;
-    font: Poppins;
-    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.5s ease;
 }
 
 .btn-primary:hover {
-    background-color: #cccccc;
+    box-shadow: -3px 4px 6px #92c8ee;
+    transform: translateY(-5px);
     color: black;
+    background-color: white;
 }
 
 .custom-card-size {
@@ -273,7 +271,7 @@
 
     /* Fondo difuso al abrir modal */
 .backdrop-blur {
-    filter: blur(4px) brightness(0.95);
+    filter: blur(3px) brightness(0.95);
     pointer-events: none;
     user-select: none;
   }
@@ -292,18 +290,50 @@
   /* Card modal */
   .modal-card {
     background: #fff;
-    border-radius: 24px;
+    border-radius: 30px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    padding: 38px 38px 32px 38px;
-    width: 430px;
-    max-width: 95vw;
     position: relative;
+    font-family: "Poppins", sans-serif;
+    animation: popIn .4s;
+    width: 700px !important;
+    max-width: none !important;
+    height: 500px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .img-rating {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: popIn 0.2s;
+    justify-content: center;
+    flex: 1;
   }
-  
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25px ;
+
+    font-size: 1.2em;
+    color: #222;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
   @keyframes popIn {
     from { transform: scale(0.96); opacity: 0.6; }
     to { transform: scale(1); opacity: 1; }
@@ -316,7 +346,7 @@
     right: 22px;
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 3.5rem;
     color: #222;
     cursor: pointer;
     font-weight: 400;
@@ -327,21 +357,22 @@
   
   /* Imagen producto */
   .product-image-container {
-    background: #f4f7fa;
+    background: #fff;
     border-radius: 16px;
-    padding: 12px;
-    margin-bottom: 18px;
-    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
+    border: #0000001a 2px solid;
+    box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 210px;
-    height: 110px;
+    width: 220px;
+    height: 220px;
+    margin: 0;
   }
   
   .product-image-container img {
-    max-width: 180px;
-    max-height: 90px;
+    padding: 5px;
+    max-width: auto;
+    max-height: auto;
     object-fit: contain;
   }
   
@@ -355,44 +386,24 @@
   }
   
   /* Precio y descripción */
-  .product-price {
-    font-size: 1.15rem;
+  .modal-card .product-price {
     font-weight: 700;
-    margin-bottom: 0.5em;
     color: #222;
     text-align: left;
     width: 100%;
-  }
-  
-  .product-description {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 10px;
-  }
-  
-  .product-description b {
-    font-weight: 700;
-    font-size: 1.07em;
-  }
-  
-  .product-description p {
-    margin: 0.2em 0 0 0;
-    font-size: 1em;
-    color: #222;
+    margin: 0;
   }
   
   /* Estrellas */
   .star-rating {
     display: flex;
     align-items: center;
-    margin: 10px 0 16px 0;
   }
   
   .star {
-    font-size: 1.6em;
+    font-size: 2.5rem !important;
     cursor: pointer;
-    margin: 0 2px;
-    transition: color 0.15s;
+    transition: color .5s;
   }
   
   /* Botones apilados */
@@ -405,7 +416,7 @@
     margin-top: 10px;
   }
   
-  .custom-btn {
+  .modal-card .custom-btn {
     width: 80%;
     min-width: 180px;
     max-width: 250px;
@@ -417,9 +428,9 @@
     font-size: 1.05rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all .4s ease;
     margin: 0 auto;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+    box-shadow: 0 2px 8px rgba(44,62,80,0.07);  
   }
   
   .custom-btn + .custom-btn {
@@ -429,8 +440,12 @@
   }
   
   .custom-btn:hover {
-    background: #2ba9fd;
-    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.514);
+  }
+
+  .product-description {
+    margin: 0;
   }
   
 }

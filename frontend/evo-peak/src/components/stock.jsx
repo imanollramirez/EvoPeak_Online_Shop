@@ -4,7 +4,7 @@ const stock = () => {
     return (
         <div className="stock">
             <div className="stock-icon">
-                <i class="fa-solid fa-cubes"></i>
+                <i className="fa-solid fa-cubes"></i>
             </div>
             <div>
             <h2>Productos existentes</h2>

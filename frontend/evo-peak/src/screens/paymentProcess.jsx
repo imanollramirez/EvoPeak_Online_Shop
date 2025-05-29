@@ -46,47 +46,47 @@ const paymentProcess = () => {
           <h2>Productos</h2>
 
           <div className="products-list">
-            <div class="card-payment-process">
-              <div class="product-info">
+            <div className="card-payment-process">
+              <div className="product-info">
                 <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" alt="mancuernas" />
-                <div class="product-details">
-                  <div class="product-name">Set de mancuernas de 20LB</div>
-                  <div class="product-price">$ 20.00</div>
+                <div className="product-details">
+                  <div className="product-name">Set de mancuernas de 20LB</div>
+                  <div className="product-price">$ 20.00</div>
                 </div>
               </div>
-              <div class="quantity-controls">
+              <div className="quantity-controls">
                 <button onclick="decrease(this)">−</button>
-                <div class="quantity">1</div>
+                <div className="quantity">1</div>
                 <button onclick="increase(this)">+</button>
               </div>
             </div>
 
-            <div class="card-payment-process">
-              <div class="product-info">
+            <div className="card-payment-process">
+              <div className="product-info">
                 <img src="https://cdn-icons-png.flaticon.com/512/10473/10473525.png" alt="pesa rusa" />
-                <div class="product-details">
-                  <div class="product-name">Pesa rusa de 10KG</div>
-                  <div class="product-price">$ 25.50</div>
+                <div className="product-details">
+                  <div className="product-name">Pesa rusa de 10KG</div>
+                  <div className="product-price">$ 25.50</div>
                 </div>
               </div>
-              <div class="quantity-controls">
+              <div className="quantity-controls">
                 <button onclick="decrease(this)">−</button>
-                <div class="quantity">1</div>
+                <div className="quantity">1</div>
                 <button onclick="increase(this)">+</button>
               </div>
             </div>
 
-            <div class="card-payment-process">
-              <div class="product-info">
+            <div className="card-payment-process">
+              <div className="product-info">
                 <img src="https://cdn-icons-png.flaticon.com/512/7616/7616597.png" alt="rueda abdominal" />
-                <div class="product-details">
-                  <div class="product-name">Rueda abdominal</div>
-                  <div class="product-price">$ 18.00</div>
+                <div className="product-details">
+                  <div className="product-name">Rueda abdominal</div>
+                  <div className="product-price">$ 18.00</div>
                 </div>
               </div>
-              <div class="quantity-controls">
+              <div className="quantity-controls">
                 <button onclick="decrease(this)">−</button>
-                <div class="quantity">1</div>
+                <div className="quantity">1</div>
                 <button onclick="increase(this)">+</button>
               </div>
             </div>

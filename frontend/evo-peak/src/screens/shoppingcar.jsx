@@ -10,7 +10,7 @@ import Shopping from "../components/shoppingcard";
 
 const Shoppingcard = () => {
     return (
-        <div className="wishlist-container">
+        <div className="shopping-container">
             <h1 className="titulo">Carrito de Compras</h1>
             <div className="button-container">
                 <a href="/paymentProcess"><button className="pay-button">Ir a pagar</button></a>

@@ -5,12 +5,12 @@ const monthSales = () => {
     return (
         <div className="monthSales">
             <div className="monthSales-title">
-                <i class="fa-regular fa-calendar"></i>
+                <i className="fa-regular fa-calendar"></i>
                 <h3>Month Sales</h3>
             </div>
 
             <div className="monthSales-icon text-center">
-                <i class="fa-solid fa-bars-staggered fa-rotate-270"></i>
+                <i className="fa-solid fa-bars-staggered fa-rotate-270"></i>
             </div>
 
             <div className="monthSales-content">

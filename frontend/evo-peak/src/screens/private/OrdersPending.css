@@ -1,20 +1,30 @@
 .main-container-ordersPending {
-    padding: 0;
+    padding: 30px;
     margin: 0;
+    padding-top: 20px;
     display: flex;
+    flex-direction: column; 
+    align-items: center;     
 }
 
+
+
 .titulo-orderspending {
-    align-items: center;
+    margin: 0 auto 2rem auto;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 700;
     text-align: center;
-    font-family: "Poppins", sans-serif;
+    font-size: 3rem;
+    font-family: "Rubik", sans-serif;
 } 
 
 .container-cards {
-
     display: flex;
-    padding: 3px;
-    margin: 0;
-    flex-direction: column;
-    row-gap: 1;
+    flex-direction: row; 
+    flex-wrap: wrap;     
+    column-gap: 3rem;     
+    justify-content: center; 
+    margin-top: 2rem;
 }
+

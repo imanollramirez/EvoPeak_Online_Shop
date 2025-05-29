@@ -45,7 +45,7 @@ const EmployeesAdmin = () => {
   
         // Validate all fields before proceeding
         if (!name || !lastName || !phone || !dui || !salary || !isss || !profilePic) {
-          Swal.showValidationMessage("Por favor, completa todos los campos");
+          MySwal.showValidationMessage("Por favor, completa todos los campos");
         }
   
         // You can also validate individual fields here (e.g., phone number format, salary being numeric)

@@ -7,6 +7,7 @@ const RegisterCustomer = ({ customer = {}, onUpdate, onCancel }) => {
     lastName: "",
     email: "",
     phone: "",
+    dui: "",
     profilePic: ""
   });
 
@@ -41,7 +42,8 @@ const RegisterCustomer = ({ customer = {}, onUpdate, onCancel }) => {
       <input name="name" value={form.name} onChange={handleChange} placeholder="Nombre" required className="form-control m-2"/>
       <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Apellido" required className="form-control m-2"/>
       <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email" required className="form-control m-2"/>
-      <input name="phone" value={form.phone} onChange={handleChange} placeholder="Teléfono" required className="form-control m-2"/>
+      <input name="phone" type="number" maxLength="8" value={form.phone} onChange={handleChange} placeholder="Teléfono" required className="form-control m-2"/>
+      <input name="dui" type="number" maxLength="10"  value={form.dui} onChange={handleChange} placeholder="Dui" required className="form-control m-2"/>
       <input type="file" accept="image/*" onChange={handleImage} className="form-control mt-4"/>
       {form.profilePic && <img src={form.profilePic} alt="Preview" style={{ maxWidth: 100, borderRadius: "50%" }} />}
       <div style={{ marginTop: 10 }}>

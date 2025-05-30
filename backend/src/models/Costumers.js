@@ -29,7 +29,15 @@ const costumerSchema = new Schema({
             /^[0-9]{8}$/,
             "El numero de telefono debe contener exactamente 8 números"
         ]
-    },
+    },dui: {
+        type: String,
+        require: true,
+        unique: true,
+        match: [
+            /^[0-9]{9}$/,
+            "El numero de dui debe contener exactamente 9 carácteres"
+        ]
+       },
     profilePic: {
          type: String,
          require: true,

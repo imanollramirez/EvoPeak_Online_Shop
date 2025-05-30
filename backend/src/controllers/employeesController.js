@@ -91,7 +91,7 @@ employeesController.updateEmployee = async (req, res) => {
           employee.name = name;
           employee.lastName = lastName;
           employee.phone = phone;
-          employee.dui = dui;
+          employee.dui = dui; 
           employee.salary = salary;
           employee.isss = isss;
           employee.profilePic = result.secure_url;

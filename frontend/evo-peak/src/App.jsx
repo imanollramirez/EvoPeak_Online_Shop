@@ -29,6 +29,7 @@ function App() {
       window.location.pathname !== "/recoverPassword" && 
       window.location.pathname !== "/welcome" &&
       window.location.pathname !== "/ordersPending" &&
+      window.location.pathname !== "/register" &&
       window.location.pathname !== "/employeesAdmin" 
   ? <Navbar />
   : (

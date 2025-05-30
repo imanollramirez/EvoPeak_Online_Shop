@@ -157,23 +157,34 @@ const Register = () => {
                   />
                 </div>
                 <div className="input-container">
-                  <p className="text-start mt-4">Foto de perfil:</p>
-                  {preview && (
-                    <img
-                      src={preview}
-                      alt="Preview"
-                      className="profile-pic"
-                      style={{ maxWidth: "120px", borderRadius: "50%" }}
-                    />
-                  )}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImage}
-                    className="upload-pic mt-3"
-                    required
-                  />
+  <p className="text-start mt-4">Foto de perfil:</p>
+
+  {/* Vista previa de imagen si existe */}
+  {preview && (
+    <img src={preview} alt="Vista previa" className="profile-pic mb-3" />
+  )}
+
+  {/* Label que actúa como botón personalizado */}
+  <label htmlFor="upload-pic" className="upload-pic">
+    Seleccionar imagen
+  </label>
+
+  {/* Input oculto */}
+  <input
+    type="file"
+    accept="image/*"
+    onChange={handleImage}
+    required
+    id="upload-pic"
+    style={{ display: "none" }}
+  />
+
+  {/* Nombre del archivo seleccionado */}
+  {form.profilePic && (
+    <p className="mt-2">{form.profilePic.name}</p>
+  )}
                 </div>
+
               </div>
             </div>
 

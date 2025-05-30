@@ -12,8 +12,8 @@ costumerController.getCostumer = async (req, res) => {
 //Insert del CRUD
 costumerController.createCostumer = async(req, res) => {
 
-    const{direction, email, lastName, name, phone, profilePic} = req.body;
-    const newCustomer = new costumerModel({direction, email, lastName, name, phone, profilePic});
+    const{email, lastName, name, phone, profilePic} = req.body;
+    const newCustomer = new costumerModel({email, lastName, name, phone, profilePic});
 
 
     await newCustomer.save();
@@ -27,10 +27,9 @@ costumerController.deleteCostumer = async(req, res) => {
 }
 
 costumerController.updateCostumer = async(req, res) => {
-    const{direction, email, lastName, name, phone, profilePic} = req.body;
+    const{email, lastName, name, phone, profilePic} = req.body;
 
     await costumerModel.findOneAndUpdate(req.param.id, {
-        direction,
         email, 
         lastName,
         name,

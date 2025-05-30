@@ -21,6 +21,10 @@ const useDataCustomers = () => {
     setLoading(false);
   };
 
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
+
   // Crear customer
   const createCustomer = async (customer) => {
     setLoading(true);
@@ -86,10 +90,6 @@ const useDataCustomers = () => {
     }
     setLoading(false);
   };
-
-  useEffect(() => {
-    fetchCustomers();
-  }, []);
 
   return {
     customers,

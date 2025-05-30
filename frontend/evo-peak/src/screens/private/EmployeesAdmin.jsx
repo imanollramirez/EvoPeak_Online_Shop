@@ -144,12 +144,12 @@ const EmployeesAdmin = () => {
           </button>
         </div>
         <div className="employee-table-header">
-          <span className="text-light">Nombre</span>
+          <span className="text-light">Foto</span>
+          <span>Nombre</span>
           <span>Telefono</span>
           <span>DUI</span>
           <span>Salario</span>
           <span>ISSS</span>
-          <span>Foto</span>
         </div>
 
         <ListEmployees

@@ -1,11 +1,6 @@
 import {model, Schema} from "mongoose"
 
 const costumerSchema = new Schema({
-    direction: {
-        type: String,
-        require: true, 
-        maxlength: 300 
-    },
     email: {
         type: String,
         require: true,

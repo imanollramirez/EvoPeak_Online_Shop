@@ -15,6 +15,7 @@ import Welcome from "./screens/private/Welcome.jsx";
 import OrdersPending from "./screens/private/OrdersPending.jsx"
 import Employees from "./screens/private/EmployeesAdmin.jsx"
 import "./sweetalert.css" 
+import UserAdmin from "./screens/private/UserAdmin.jsx";
 
 
 import ProductsAdmin from "./screens/private/ProductsAdmin.jsx";
@@ -30,12 +31,13 @@ function App() {
       window.location.pathname !== "/welcome" &&
       window.location.pathname !== "/ordersPending" &&
       window.location.pathname !== "/register" &&
-      window.location.pathname !== "/employeesAdmin" 
+      window.location.pathname !== "/employeesAdmin"  &&
+       window.location.pathname !== "/UserAdmin" 
   ? <Navbar />
   : (
       window.location.pathname !== "/Login" &&
       window.location.pathname !== "/register" &&
-      window.location.pathname !== "/recoverPassword" && 
+      window.location.pathname !== "/recoverPassword" &&      
     <NavbarAdmin />
   )
 }
@@ -53,7 +55,8 @@ function App() {
         <Route path="/paymentProcess" element={<PaymentProcess/>}/>
         <Route path="/welcome" element={<Welcome/>}/>
         <Route path="/ordersPending" element={<OrdersPending/>}/>
-        <Route path="/employeesAdmin" element={<Employees/>}/>
+        <Route path="/employeesAdmin" element={<Employees/>}/>    
+        <Route path="/UserAdmin" element={<UserAdmin/>}/>
       </Routes>
       {/* This code is an If-statement that checks if the current URL path is not equal to "/Login", "/register", or "/recoverPassword". If the condition is true, it shows the Footer component. */}
       {window.location.pathname !== "/Login" && window.location.pathname !== "/register" && window.location.pathname !== "/recoverPassword" && <Footer/>}

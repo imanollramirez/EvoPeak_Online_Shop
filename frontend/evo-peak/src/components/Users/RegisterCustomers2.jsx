@@ -7,7 +7,6 @@ const RegisterCustomer = ({ customer = {}, onUpdate, onCancel }) => {
     lastName: "",
     email: "",
     phone: "",
-    direction: "",
     profilePic: ""
   });
 
@@ -39,16 +38,15 @@ const RegisterCustomer = ({ customer = {}, onUpdate, onCancel }) => {
 
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: "100%" }}>
-      <input name="name" value={form.name} onChange={handleChange} placeholder="Nombre" required />
-      <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Apellido" required />
-      <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email" required />
-      <input name="phone" value={form.phone} onChange={handleChange} placeholder="Teléfono" required />
-      <input name="direction" value={form.direction} onChange={handleChange} placeholder="Dirección" required />
-      <input type="file" accept="image/*" onChange={handleImage} />
+      <input name="name" value={form.name} onChange={handleChange} placeholder="Nombre" required className="form-control m-2"/>
+      <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Apellido" required className="form-control m-2"/>
+      <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email" required className="form-control m-2"/>
+      <input name="phone" value={form.phone} onChange={handleChange} placeholder="Teléfono" required className="form-control m-2"/>
+      <input type="file" accept="image/*" onChange={handleImage} className="form-control mt-4"/>
       {form.profilePic && <img src={form.profilePic} alt="Preview" style={{ maxWidth: 100, borderRadius: "50%" }} />}
       <div style={{ marginTop: 10 }}>
-        <button type="submit">Guardar</button>
-        {onCancel && <button type="button" onClick={onCancel}>Cancelar</button>}
+        <button type="submit" className="swal2-confirm swal2-styled m-3">Guardar</button>
+        {onCancel && <button type="button" onClick={onCancel} className="swal2-cancel swal2-styled m-3">Cancelar</button>}
       </div>
     </form>
   );

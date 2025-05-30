@@ -70,7 +70,7 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
       <span className="employee-dui">{employee.dui}</span>
       <span className="employee-salary">${employee.salary}</span>
       <span className="employee-isss">{employee.isss}</span>
-       <img src={employee.profilePic} alt={`${employee.name} ${employee.lastName}`} className="employee-img" />
+       <img src={employee.profilePic} className="employee-img" />
 
       <div className="employee-buttons">
         <button id="delete-btn" onClick={handleDelete}>

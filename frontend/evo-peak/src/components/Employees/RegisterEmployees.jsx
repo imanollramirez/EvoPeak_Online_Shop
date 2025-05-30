@@ -7,7 +7,8 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
   const [dui, setDui] = useState("");
   const [salary, setSalary] = useState("");
   const [isss, setIsss] = useState("");
-  const [profilePic, setProfilePic] = useState("");
+  const [profilePic, setProfilePic] = useState(null);
+  const [imagePreview, setImagePreview] = useState("");
 
   useEffect(() => {
     if (employee) {
@@ -17,44 +18,62 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
       setDui(employee.dui || "");
       setSalary(employee.salary || "");
       setIsss(employee.isss || "");
-      setProfilePic(employee.profilePic || "");
+      setImagePreview(employee.profilePic || "");
+      setProfilePic(null); // resetear a null para permitir nueva carga si es necesario
     }
   }, [employee]);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfilePic(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validaciones de los campos
-    if (!name || !lastName || !phone || !dui || !salary || !isss || !profilePic) {
+    // Validaciones
+    if (!name || !lastName || !phone || !dui || !salary || !isss || (!profilePic && !imagePreview)) {
       alert("Por favor, completa todos los campos.");
       return;
     }
 
-    // Validación del teléfono
     if (!/^\d{8}$/.test(phone)) {
       alert("El número de teléfono debe tener exactamente 8 dígitos.");
       return;
     }
 
-    // Validación del DUI
     if (!/^\d{9}$/.test(dui)) {
       alert("El DUI debe tener exactamente 9 dígitos.");
       return;
     }
 
-    // Validación de salario y ISSS
     if (!/^\d+$/.test(salary) || !/^\d+$/.test(isss)) {
       alert("El salario e ISSS deben ser números válidos.");
       return;
     }
 
-    const employeeData = { name, lastName, phone, dui, salary, isss, profilePic };
-
-    // Si hay un `employee`, es una actualización
-    if (employee) {
-      onUpdate(employeeData, employee._id); // Actualizar con ID del empleado
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("lastName", lastName);
+    formData.append("phone", phone);
+    formData.append("dui", dui);
+    formData.append("salary", salary);
+    formData.append("isss", isss);
+    
+    // Si se ha seleccionado una nueva imagen, usa esa. Si no, usa la URL existente.
+    if (profilePic) {
+      formData.append("profilePic", profilePic);
     } else {
-      onSave(employeeData); // Guardar nuevo empleado
+      formData.append("profilePicUrl", imagePreview); // campo alternativo si solo es una URL
+    }
+
+    if (employee) {
+      onUpdate(formData, employee._id);
+    } else {
+      onSave(formData);
     }
   };
 
@@ -78,8 +97,23 @@ const RegisterEmployees = ({ onSave, onCancel, onUpdate, employee }) => {
       <label>ISSS:</label>
       <input type="number" value={isss} onChange={(e) => setIsss(e.target.value)} className="swal2-input m-3" required />
 
-      <label>Foto de perfil (URL):</label>
-      <input type="text" value={profilePic} onChange={(e) => setProfilePic(e.target.value)} className="swal2-input m-3" required />
+      <label>Imagen:</label>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        className="form-control m-3"
+      />
+
+      {imagePreview && (
+        <div className="image-preview m-3">
+          <img
+            src={imagePreview}
+            alt="Vista previa"
+            style={{ width: "150px", height: "150px", objectFit: "cover" }}
+          />
+        </div>
+      )}
 
       <button type="submit" className="swal2-confirm swal2-styled m-3">
         {employee ? "Actualizar" : "Guardar"}

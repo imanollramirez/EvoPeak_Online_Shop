@@ -62,7 +62,7 @@
 
 .employee-table-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
+  grid-template-columns: 2fr 3fr 2.3fr 2fr 3fr 2fr 3fr;
   align-items: center;
   justify-items: center;
   margin: 0 auto 18px auto;
@@ -73,6 +73,9 @@
   max-width: 1140px;
   background: none;
 }
+
+
+
 
 .employee-list {
   display: flex;
@@ -105,12 +108,18 @@
   transform: translateY(-3px);
 }
 
+.employee-img{
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  background: transparent;
+}
+
 .employee-name,
 .employee-lastname,
 .employee-phone,
 .employee-salary,
-.employee-isss,
-.employee-image {
+.employee-isss {
   text-align: center;
   color: #222;
 }

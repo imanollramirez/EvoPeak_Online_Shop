@@ -7,7 +7,7 @@ import RegisterProducts from "./RegisterProducts.jsx"
 
 const MySwal = withReactContent(Swal);
 
-const CardAdminProducts = ({ product, deleteProduct }) => {
+const CardAdminProducts = ({ product, deleteProduct, categories}) => {
 
   const {updateProducts} = UseDataProducts(); 
 
@@ -54,6 +54,7 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
     html: (
       <RegisterProducts
         product={product}
+        categories={categories}
         onUpdate={(products) => {
         updateProducts(products);
           MySwal.fire({

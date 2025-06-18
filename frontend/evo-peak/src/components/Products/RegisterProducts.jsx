@@ -77,12 +77,14 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product, categories }) =
         className="swal2-input m-3"
         required
       >
-        <option value="">Seleccione una categoría</option>  
+
+        <option value="">Seleccione una categoría</option>
         {categories?.map((cat) => (
           <option key={cat._id} value={cat._id}>
             {cat.name}
           </option>
         ))}
+
       </select>
 
 

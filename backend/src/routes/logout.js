@@ -5,3 +5,6 @@ const router = express.Router();
 
 router.route("/")
     .post(logoutController.logout)
+
+
+export default router;

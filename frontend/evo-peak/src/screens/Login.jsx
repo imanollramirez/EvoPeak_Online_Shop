@@ -72,7 +72,7 @@ const Login = () => {
       <div className="box position-absolute top-50 start-50 translate-middle">
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-container">
-            <p className="text-start mt-4">Usuario:</p>
+            <p className="text-start mt-4">Correo:</p>
             <input
               type="text"
               className="username"

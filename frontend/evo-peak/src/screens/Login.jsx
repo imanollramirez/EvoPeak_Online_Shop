@@ -7,6 +7,11 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext" 
 import { useNavigate } from "react-router-dom";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +32,15 @@ const Login = () => {
       return;
     }
 
+    MySwal.fire({
+            icon: "success",
+            title: "Sesión iniciada con éxito",
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
     navigate("/welcome");
   };
 

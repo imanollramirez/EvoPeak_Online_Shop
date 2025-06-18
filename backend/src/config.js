@@ -16,4 +16,9 @@ export const config = {
     api_key: process.env.API_KEY,
     api_secret: process.env.API_SECRET
   }
+  ,
+  ADMIN: {
+    password: process.env.ADMIN_PASSWORD,
+    email: process.env.ADMIN_EMAIL
+  }
 }

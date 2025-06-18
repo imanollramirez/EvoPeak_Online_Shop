@@ -10,6 +10,10 @@ import orders from './src/routes/orders.js'
 import customers from './src/routes/costumers.js'
 import employees from './src/routes/employees.js'
 import categories from './src/routes/categories.js'
+
+import login from "./src/routes/login.js"
+import logout from "./src/routes/logout.js"
+
 import multer  from "multer";
 
 import cors from "cors";
@@ -26,6 +30,9 @@ app.use(
 app.use(express.json());
 
 // Definir las rutas de las funciones que tendrá la página web
+app.use("/api/login", login)
+app.use("/api/logout", logout)
+
 app.use("/api/promotions", promotionsRoutes);
 app.use("/api/sales", salesRoutes);
 app.use("/api/wishList", wishListRoutes);

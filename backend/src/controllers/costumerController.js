@@ -1,5 +1,5 @@
 const costumerController = {};
-import costumerModel from "../models/costumers.js";
+import costumerModel from "../models/Costumers.js";
 
 
 //Select del CRUD 

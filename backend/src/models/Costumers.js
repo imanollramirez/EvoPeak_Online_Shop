@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const costumerSchema = new Schema({
     email: {
@@ -29,7 +29,13 @@ const costumerSchema = new Schema({
             /^[0-9]{8}$/,
             "El numero de telefono debe contener exactamente 8 números"
         ]
-    },dui: {
+    },
+    password: {
+        type: String,
+        require:true,
+        minLength: 8    
+    },
+    dui: {
         type: String,
         require: true,
         unique: true,
@@ -41,7 +47,7 @@ const costumerSchema = new Schema({
     profilePic: {
          type: String,
          require: true,
-         maxLenght: 300
+         maxLength: 300
             
     }
 }, {

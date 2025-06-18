@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_URL = "http://localhost:4000/api/costumers";
+const API_URL = "http://localhost:4000/api";
 
 const useDataCustomers = () => {
   const [customers, setCustomers] = useState([]);
@@ -11,7 +11,7 @@ const useDataCustomers = () => {
   const fetchCustomers = async () => {
     setLoading(true);
     try {
-      const res = await fetch(API_URL);
+      const res = await fetch(`${API_URL}/costumers`);
       const data = await res.json();
       setCustomers(data);
     } catch (error) {
@@ -25,12 +25,39 @@ const useDataCustomers = () => {
     fetchCustomers();
   }, []);
 
+ const registerCostumer = async (customer) => {
+  setLoading(true);
+  setMessage("");
+
+  try {
+    const res = await fetch(`${API_URL}/registerCostumer`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(customer),
+    });
+
+    const data = await res.json();
+      if (res.ok) {
+        setMessage("¡Registro exitoso!");
+        fetchCustomers();
+        setMessage(data.message);
+        console.log(customer.profilePic)
+      } else {
+        setMessage(data.message);
+      }
+    } catch (error) {
+      setMessage("Error de conexión.");
+    }
+    setLoading(false);
+};
+
+
   // Crear customer
   const createCustomer = async (customer) => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(`${API_URL}/costumers`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(customer),
@@ -53,7 +80,7 @@ const useDataCustomers = () => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await fetch(`${API_URL}/${id}`, {
+      const res = await fetch(`${API_URL}/costumers/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(customer),
@@ -76,7 +103,7 @@ const useDataCustomers = () => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await fetch(`${API_URL}/${id}`, {
+      const res = await fetch(`${API_URL}/costumers/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -100,6 +127,7 @@ const useDataCustomers = () => {
     updateCustomer,
     deleteCustomer,
     fetchCustomers,
+    registerCostumer
   };
 };
 

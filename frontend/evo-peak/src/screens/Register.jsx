@@ -7,18 +7,18 @@ import useDataCustomers from "../components/Users/Hooks/useDataCustomers";
 
 const Register = () => {
   const [form, setForm] = useState({
-    name: "",
-    lastName: "",
     email: "",
+    lastName: "",
+    name: "",
     phone: "",
     password: "",
     dui: "",
-    profilePic: ""
+    profilePic: null
   });
   const [preview, setPreview] = useState(null);
 
   // Importa las funciones y estados del hook
-  const { createCustomer, loading, message, setMessage } = useDataCustomers();
+  const { registerCostumer, loading, message, setMessage } = useDataCustomers();
 
   // Actualiza el estado del formulario
   const handleChange = (e) => {
@@ -31,13 +31,13 @@ const Register = () => {
     e.preventDefault();
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setForm({ ...form, profilePic: reader.result });
-        setPreview(reader.result);
-      };
-      reader.readAsDataURL(file);
+      
+      const file = e.target.files[0];
+    if (file) {
+      setForm({ ...form, profilePic: file });
+      setPreview(URL.createObjectURL(file));
     }
+  };
   };
 
   // Envía el formulario al backend
@@ -58,20 +58,21 @@ const Register = () => {
       return;
     }
 
-    await createCustomer(form);
+    const result = await registerCostumer(form);
 
-    if (message === "¡Registro exitoso!") {
-      setForm({
-        name: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        password: "",
-        dui: "",
-        profilePic: ""
-      });
-      setPreview(null);
-    }
+  if (result) {
+    setForm({
+      name: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      password: "",
+      dui: "",
+      profilePic: null
+    });
+    setPreview(null);
+  }
+  
   };
 
   return (

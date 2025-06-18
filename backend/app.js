@@ -14,6 +14,8 @@ import categories from './src/routes/categories.js'
 import login from "./src/routes/login.js"
 import logout from "./src/routes/logout.js"
 
+import registerCostumer from "./src/routes/registerCostumer.js"
+
 import multer  from "multer";
 
 import cors from "cors";
@@ -32,6 +34,8 @@ app.use(express.json());
 // Definir las rutas de las funciones que tendrá la página web
 app.use("/api/login", login)
 app.use("/api/logout", logout)
+
+app.use("/api/registerCostumer", registerCostumer)
 
 app.use("/api/promotions", promotionsRoutes);
 app.use("/api/sales", salesRoutes);

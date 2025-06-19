@@ -57,15 +57,25 @@ loginController.login = async (req, res) => {
       //3-Cuando expira
       { expiresIn: config.JWT.expiresIn },
       //4. Funcion flecha
-      (error, token) => {
-        if (error) console.log("error" + error);
+      (err, token) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ message: "Error generating token" });
+        }
 
-        res.cookie("authToken", token);
-        res.status(200).json({ message: "Login successful" });
+        // Guardar el token en una cookie con configuraciones adecuadas
+        res.cookie("authToken", token, { 
+          httpOnly: true,
+          maxAge: 24 * 60 * 60 * 1000, // 24 horas en milisegundos
+          path: '/', // Cookie disponible en toda la aplicación
+          sameSite: 'lax', // Protección contra CSRF
+          secure: process.env.NODE_ENV === 'production' // Solo HTTPS en producción
+        });
+        res.status(200).json({ message: `${userType} login successful`, token, userId: userFound._id });
       }
     );
   } catch (error) {
-    console.log("error" + error);
+    res.status(500).json({ message: "Error", error: error.message });
   }
 };
 

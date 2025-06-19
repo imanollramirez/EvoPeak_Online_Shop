@@ -1,11 +1,6 @@
-import {model, Schema} from "mongoose"
+import { Schema, model } from "mongoose";
 
 const costumerSchema = new Schema({
-    direction: {
-        type: String,
-        require: true, 
-        maxlength: 300 
-    },
     email: {
         type: String,
         require: true,
@@ -35,10 +30,24 @@ const costumerSchema = new Schema({
             "El numero de telefono debe contener exactamente 8 números"
         ]
     },
+    password: {
+        type: String,
+        require:true,
+        minLength: 8    
+    },
+    dui: {
+        type: String,
+        require: true,
+        unique: true,
+        match: [
+            /^[0-9]{9}$/,
+            "El numero de dui debe contener exactamente 9 carácteres"
+        ]
+       },
     profilePic: {
          type: String,
          require: true,
-         maxLenght: 300
+         maxLength: 300
             
     }
 }, {

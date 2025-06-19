@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 const useDataEmployees = () => {
-
   const API = "http://localhost:4000/api/employees";
 
+  // Estados para formulario (puedes mantener o eliminar si solo usas FormData)
   const [id, setId] = useState("");
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [lastName, setLastname] = useState("");
   const [phone, setPhone] = useState("");
   const [dui, setDui] = useState("");
   const [salary, setSalary] = useState(0);
@@ -27,45 +27,25 @@ const useDataEmployees = () => {
   };
 
   useEffect(() => {
+    // Solo ejecutar una vez al montar el componente
     fetchEmployees();
   }, []);
 
-  const saveEmployee = async (employeeData) => {
-    if (
-      !employeeData.name ||
-      !employeeData.lastname ||
-      !employeeData.phone ||
-      !employeeData.dui ||
-      !employeeData.salary ||
-      !employeeData.isss ||
-      !employeeData.profilePic
-    ) {
-      return;
-    }
-
-    const newEmployee = {
-      name: employeeData.name,
-      lastname: employeeData.lastname,
-      phone: employeeData.phone,
-      dui: employeeData.dui,
-      salary: employeeData.salary,
-      isss: employeeData.isss,
-      profilePic: employeeData.profilePic,
-    };
-
+  const saveEmployee = async (formData) => {
+    // formData es un FormData, no se debe usar JSON.stringify ni headers Content-Type explícito
     try {
       const response = await fetch(API, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(newEmployee),
+        body: formData,
+        // NO agregar headers Content-Type, el navegador lo pone automáticamente para FormData
       });
 
       if (!response.ok) throw new Error("Error saving employee");
 
+      await response.json();
       fetchEmployees();
+
+      // Limpiar campos si los usas
       setName("");
       setLastname("");
       setPhone("");
@@ -83,9 +63,6 @@ const useDataEmployees = () => {
     try {
       const response = await fetch(`${API}/${id}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
 
       if (!response.ok) throw new Error("Error deleting employee");
@@ -96,41 +73,19 @@ const useDataEmployees = () => {
     }
   };
 
-  const updateEmployee = async (updatedData) => {
-    if (
-      !updatedData.name ||
-      !updatedData.lastname ||
-      !updatedData.phone ||
-      !updatedData.dui ||
-      !updatedData.salary ||
-      !updatedData.isss ||
-      !updatedData.profilePic
-    ) {
-      return;
-    }
-
-    const updatedEmployee = {
-      name: updatedData.name,
-      lastname: updatedData.lastname,
-      phone: updatedData.phone,
-      dui: updatedData.dui,
-      salary: updatedData.salary,
-      isss: updatedData.isss,
-      profilePic: updatedData.profilePic,
-    };
-
+  const updateEmployee = async (formData, employeeId) => {
     try {
-      const response = await fetch(`${API}/${updatedData.id}`, {
+      const response = await fetch(`${API}/${employeeId}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedEmployee),
+        body: formData,
+        // Igual que saveEmployee, no hay que poner headers Content-Type
       });
 
       if (!response.ok) throw new Error("Error updating employee");
 
+      await response.json();
       fetchEmployees();
+
       setId("");
     } catch (error) {
       console.error(error);
@@ -138,15 +93,24 @@ const useDataEmployees = () => {
   };
 
   return {
-    id, setId,
-    name, setName,
-    lastname, setLastname,
-    phone, setPhone,
-    dui, setDui,
-    salary, setSalary,
-    isss, setIsss,
-    profilePic, setProfilePic,
-    employees, setEmployees,
+    id,
+    setId,
+    name,
+    setName,
+    lastName,
+    setLastname,
+    phone,
+    setPhone,
+    dui,
+    setDui,
+    salary,
+    setSalary,
+    isss,
+    setIsss,
+    profilePic,
+    setProfilePic,
+    employees,
+    setEmployees,
     fetchEmployees,
     saveEmployee,
     deleteEmployee,

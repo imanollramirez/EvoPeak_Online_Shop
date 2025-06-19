@@ -1,16 +1,21 @@
-//import de la libreria express
+// src/routes/employees.js
 import express from "express";
-//import de el controlador de Category
 import employeesController from "../controllers/employeesController.js";
+import multer from "multer";
 
-//router nos ayuda a cargar los metodos que tendra mi ruta 
 const router = express.Router();
 
+// Configura multer con memoryStorage (archivos en memoria)
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+// Rutas con multer para subir archivo 'profilePic'
 router.route("/")
-.get(employeesController.getEmployee)
-.post(employeesController.createEmployee)
+  .get(employeesController.getEmployee)
+  .post(upload.single("profilePic"), employeesController.createEmployee);
+
 router.route("/:id")
-.put(employeesController.updateEmployee)
-.delete(employeesController.deleteEmployee);
+  .put(upload.single("profilePic"), employeesController.updateEmployee)
+  .delete(employeesController.deleteEmployee);
 
 export default router;

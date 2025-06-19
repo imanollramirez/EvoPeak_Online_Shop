@@ -146,10 +146,9 @@ padding-top: 7%;
        border-radius: 10px;
        font-weight: bold;
        display: block;
-       width: 50%;
-       margin-left: 25%;
+       width: 400px;
+       margin-left: 80px;
 }
-
 .box-register .register {
     width: 50%;
     margin-left: 25%;

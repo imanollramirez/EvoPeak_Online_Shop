@@ -8,7 +8,7 @@ const PromoModal = ({ product, onClose }) => {
 
   const calcDiscount = () => {
 
-    const precioOriginal = product.Price;
+    const precioOriginal = product.price;
     const porcentajeDescuento = parseFloat(discount);
 
     if(!porcentajeDescuento)
@@ -28,13 +28,13 @@ const PromoModal = ({ product, onClose }) => {
     <div className="promo-modal-overlay" onClick={onClose}>
       <div className="promo-modal-card" onClick={(e) => e.stopPropagation()}>
         <button className="promo-close-btn" onClick={onClose}>×</button>
-        <h2 className="promo-title">{product.Name}</h2>
+        <h2 className="promo-title">{product.name}</h2>
         <div className="promo-img-container">
-          <img src={product.Image} alt={product.Name} />
+          <img src={product.image} alt={product.name} />
         </div>
         <div className="promo-details">
           <div>
-            <b>Precio:</b> <span>${product.Price}</span>
+            <b>Precio:</b> <span>${product.price}</span>
           </div>
           <div>
             <b>Descuento (%):</b>

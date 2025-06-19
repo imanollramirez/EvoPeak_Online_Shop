@@ -1,0 +1,55 @@
+.category-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;  /* fondo suave */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.category-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  flex: 1;
+  margin-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-description {
+  font-size: 0.9rem;
+  color: #666;
+  flex: 2;
+  margin-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-buttons button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 1.2rem;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.category-buttons button:hover {
+  color: #007bff; /* color azul al hover */
+}
+
+.category-buttons button:focus {
+  outline: none;
+}

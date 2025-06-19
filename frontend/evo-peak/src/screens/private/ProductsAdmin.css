@@ -64,23 +64,16 @@
   transition: background-position 0.8s ease;
 }
 
-<<<<<<< HEAD:frontend/evo-peak/src/components/ProductList.css
-.product-page-container .add-btn:hover {
-  background-position: right center;
-}
-=======
 .product-page-container .add-btn-category {
   right: 100px;
   top: 75%;
 }
 
->>>>>>> master:frontend/evo-peak/src/screens/private/ProductsAdmin.css
-
 
 /* Cabecera y cards en grid para alineación perfecta */
 .product-table-header {
   display: grid;
-  grid-template-columns: 2.5fr .9fr .9fr 1.8fr;
+  grid-template-columns: .1fr 1fr .3fr .3fr .6fr .3fr;
   align-items: center;
   justify-items: center;
   margin: 0 auto 18px auto;
@@ -183,4 +176,15 @@
 
   #discount::placeholder{
     color: #555;
+  }
+
+  #open-categories {
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 1rem;
+    transition: all .4s ease;
+  }
+
+  #open-categories:hover{
+    transform: translateY(-3px);
   }

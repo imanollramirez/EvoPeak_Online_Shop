@@ -7,9 +7,9 @@ import RegisterProducts from "./RegisterProducts.jsx"
 
 const MySwal = withReactContent(Swal);
 
-const CardAdminProducts = ({ product, deleteProduct }) => {
+const CardAdminProducts = ({ product, deleteProduct, categories}) => {
 
-  const {updateProducts} = UseDataProducts();
+  const {updateProducts} = UseDataProducts(); 
 
   const [showModal, setShowModal] = useState(false);
 
@@ -37,7 +37,7 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
         deleteProduct(product._id);
         MySwal.fire({
           icon: "success",
-          title: "Eliminado con éxito!",
+          title: "Producto eliminado con éxito!",
           toast: true,
           position: "top-end",
           showConfirmButton: false,
@@ -54,9 +54,18 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
     html: (
       <RegisterProducts
         product={product}
-        onUpdate={(updatedProduct) => {
-          updateProducts(updatedProduct);
-          MySwal.fire("¡Actualizado!", "El producto ha sido actualizado.", "success");
+        categories={categories}
+        onUpdate={(products) => {
+        updateProducts(products);
+          MySwal.fire({
+          icon: "success",
+          title: "Producto actualizado con éxito!",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
         }}
         onCancel={() => MySwal.close()}
       />
@@ -79,11 +88,11 @@ const CardAdminProducts = ({ product, deleteProduct }) => {
   return (
     <>
       <div className="product-card">
-        <img src={product.Image} alt={product.Name} className="product-img" />
-        <span className="product-name">{product.Name}</span>
-        <span className="product-stock">{product.Stock}</span>
-        <span className="product-price">${product.Price}</span>
-        <span className="product-category">{product.idCategory}</span>
+        <img src={product.image} alt={product.name} className="product-img" />
+        <span className="product-name">{product.name}</span>
+        <span className="product-stock">{product.stock}</span>
+        <span className="product-price">${product.price}</span>
+        <span className="product-category">{product.idCategory?.name}</span>
 
         <div className="products-buttons">
           <button id="discount-btn" onClick={handleDiscount}>

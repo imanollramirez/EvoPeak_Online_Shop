@@ -6,9 +6,23 @@ dotenv.config();
 
 export const config = {
     db: {
-        URI: process.env.DB_URI || "mongodb+srv://German:GermanDanielImanol@clustera2.lgxpo.mongodb.net/"
+        URI: process.env.DB_URI
     },
     server: {
         PORT: process.env.PORT
-    }
+    },
+  cloudinary: {
+    cloudinary_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+  }
+  ,
+  ADMIN: {
+    password: process.env.ADMIN_PASSWORD,
+    email: process.env.ADMIN_EMAIL
+  },
+  JWT: {
+    secret: process.env.JWT_SECRET,
+    expiresIn: process.env.JWT_EXPIRES
+  }
 }

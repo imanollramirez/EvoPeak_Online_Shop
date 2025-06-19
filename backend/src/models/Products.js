@@ -7,52 +7,56 @@ idCategoria
 Imagen
 */
 
-import { Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
 const ProductsSchema = new Schema(
-{
+    {
 
-Name: {
+        name: {
 
-    type: String,
-    require: true,
-    maxLenght: 50
-},
+            type: String,
+            require: true,
+            maxLenght: 50
+        },
 
-Stock:{
+        stock: {
 
-    type: Number,
-    require: true
-},
-
-
-Price:{
-
-    type: Number,
-    require: true
-},
-
-idCategory:{
-
-    type: Schema.Types.ObjectId,
-    ref: "idCategoria",
-    require: true
-},
-
-Image: {
-
-    type: String,
-    require: true,
-    
-}
+            type: Number,
+            require: true
+        },
 
 
-},
+        price: {
 
-{
-    timestamps: true,
-    strict: false,
-}
+            type: Number,
+            require: true
+        },
+
+        idCategory: {
+
+            type: Schema.Types.ObjectId,
+            ref: "Categories",
+            require: true
+        },
+
+        image: {
+
+            type: String,
+            require: true,
+
+        },
+        imagePublicID: {
+            type: String,
+            require: true,
+        }
+
+
+    },
+
+    {
+        timestamps: true,
+        strict: false,
+    }
 );
 
-export default model ("Products", ProductsSchema);
+export default model("Products", ProductsSchema);

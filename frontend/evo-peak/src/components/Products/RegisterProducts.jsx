@@ -1,37 +1,42 @@
 import React, { useState } from "react";
 
-const RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
-  const [name, setName] = useState("");
-  const [stock, setStock] = useState("");
-  const [price, setPrice] = useState("");
-  const [idCategory, setIdCategory] = useState("");
-  const [image, setImage] = useState("");
+const RegisterProducts = ({ onSave, onCancel, onUpdate, product, categories }) => {
+  const [name, setName] = useState(product?.name || "");
+  const [stock, setStock] = useState(product?.stock || 0);
+  const [price, setPrice] = useState(product?.price || 0);
+  const [idCategory, setIdCategory] = useState(product?.idCategory || "");
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(product?.image || "");
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const productData = {
+      name,
+      stock,
+      price,
+      idCategory,
+      image: image || imagePreview,
+    };
+
     if (product) {
-      onUpdate({
-        Name: name || product?.Name,
-        Stock: stock !== "" ? parseInt(stock) : product?.Stock,
-        Price: price !== "" ? parseFloat(price) : product?.Price,
-        idCategory: idCategory || product?.idCategory,
-        Image: image || product?.Image,
-        id: product?._id,
-      });
+      productData.id = product._id;
+      onUpdate(productData);
     } else {
-      onSave({
-        Name: name,
-        Stock: parseInt(stock),
-        Price: parseFloat(price),
-        idCategory,
-        Image: image,
-      });
+      onSave(productData);
     }
   };
 
   return (
-     <form
+    <form
       onSubmit={handleSubmit}
       className="d-flex flex-column justify-content-center align-items-center"
     >
@@ -65,32 +70,56 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product }) => {
         required
       />
 
-      <label>ID Categoría:</label>
-      <input
-        type="text"
-        placeholder="ID de la categoría"
+      <label>Categoría:</label>
+      <select
         value={idCategory}
         onChange={(e) => setIdCategory(e.target.value)}
         className="swal2-input m-3"
         required
-      />
+      >
 
-      <label>Imagen (URL):</label>
+        <option value="">Seleccione una categoría</option>
+        {categories?.map((cat) => (
+          <option key={cat._id} value={cat._id}>
+            {cat.name}
+          </option>
+        ))}
+
+      </select>
+
+
+
+      <label>Imagen:</label>
       <input
-        type="text"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-        className="swal2-input m-3"
-        required
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        className="form-control m-3"
       />
 
-      <button type="submit" className="swal2-confirm swal2-styled m-3">
-        {product ? "Actualizar" : "Guardar"}
-      </button>
+      <div className="image-preview m-3">
+        {imagePreview && (
+          <img
+            src={imagePreview}
+            alt="Vista previa"
+            style={{ width: "150px", height: "150px", objectFit: "cover" }}
+          />
+        )}
+      </div>
 
-      <button type="button" className="swal2-cancel swal2-styled m-3" onClick={onCancel}>
-        Cancelar
-      </button>
+      <div className="buttons d-flex">
+        <button type="submit" className="swal2-confirm swal2-styled m-3">
+          {product ? "Actualizar" : "Guardar"}
+        </button>
+
+        <button
+          type="button"
+          className="swal2-cancel swal2-styled m-3"
+          onClick={onCancel}
+        >
+          Cancelar
+        </button>
+      </div>
     </form>
   );
 };

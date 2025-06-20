@@ -4,9 +4,7 @@ import CardAdminCustomers from "./CardAdminCustomers.jsx";
 import useDataCustomers from "./Hooks/useDataCustomers.jsx";
 
 const ListCustomers = () => {
-  const { customers, loading, deleteCustomer } = useDataCustomers();
-
-  if (loading) return <p>Cargando clientes...</p>;
+  const { customers, deleteCustomer } = useDataCustomers();
 
   return (
     <div className="customer-list">
@@ -14,7 +12,7 @@ const ListCustomers = () => {
         <CardAdminCustomers
           key={customer._id}
           customer={customer}
-          deleteCustomer={deleteCustomer}
+          onDelete={deleteCustomer}
         />
       ))}
     </div>

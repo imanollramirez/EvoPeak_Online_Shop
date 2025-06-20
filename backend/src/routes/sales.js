@@ -13,4 +13,10 @@ router
   .put(salesController.updateSales)
   .delete(salesController.deleteSales);
 
+  //Graphics
+  router.route("/category").get(salesController.salesByCategory);
+  router.route("/bestSellingsProducts").get(salesController.bestSellingProduct);
+  router.route("/frecuentCustomer").get(salesController.frecuentCustomer);
+  router.route("/earnings").get(salesController.earnings);
+
 export default router;

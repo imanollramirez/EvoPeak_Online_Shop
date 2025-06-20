@@ -16,8 +16,6 @@ import logout from "./src/routes/logout.js"
 
 import registerCostumer from "./src/routes/registerCostumer.js"
 
-import multer  from "multer";
-
 import cors from "cors";
 
 const app = express();
@@ -38,7 +36,9 @@ app.use("/api/logout", logout)
 app.use("/api/registerCostumer", registerCostumer)
 
 app.use("/api/promotions", promotionsRoutes);
+
 app.use("/api/sales", salesRoutes);
+
 app.use("/api/wishList", wishListRoutes);
 
 app.use("/api/assessments", assessments);

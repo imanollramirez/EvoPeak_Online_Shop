@@ -99,7 +99,7 @@
 
 .product-card {
   display: grid;
-  grid-template-columns: .1fr .6fr .2fr .2fr .2fr .2fr;
+  grid-template-columns: .0fr .39fr .15fr .1fr .3fr .1fr;
   align-items: center;
   justify-items: center;
   background: #ffffff;
@@ -110,6 +110,10 @@
   max-width: 1210px;
   position: relative;
   transition: all .4s ease;
+}
+
+.product-card .product-price {
+  margin: 0 !important;
 }
 
 .product-card:hover {

@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
         if (token || cookieToken) {
           // Como no hay un endpoint específico para verificar tokens, vamos a usar
           // una ruta protegida simple para ver si el token es válido
-          const response = await fetch(`${API_URL}/productsAdmin`, {
+          const response = await fetch(`${API_URL}/products`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

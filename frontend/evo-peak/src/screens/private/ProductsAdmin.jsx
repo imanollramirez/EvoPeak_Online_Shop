@@ -89,6 +89,7 @@ const AddNewProduct = (e) => {
     title: "Agregar productos",
     html: (
       <RegisterProducts
+      categories={categories}
         onSave={(data) => {
           saveProducts(data);
           MySwal.fire({

@@ -55,7 +55,7 @@ const UserAdmin = () => {
           </button>
         </div>
         <div className="user-table-header">
-          <span className="text-light">Foto</span>
+          <span >Foto</span>
           <span>Nombre</span>
           <span>Apellido</span>
           <span>Telefono</span>

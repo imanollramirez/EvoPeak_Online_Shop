@@ -239,3 +239,10 @@
   color: #6E75F0;
   transform: translateY(-2px);
 }
+
+.customer-list {
+   max-height: 500px;
+  overflow-y:auto;
+  margin: 20px auto;   
+  width: 65%;   
+}

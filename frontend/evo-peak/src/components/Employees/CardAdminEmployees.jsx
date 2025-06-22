@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -43,9 +42,19 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
       html: (
         <RegisterEmployees
           employee={employee}
-          onUpdate={(updatedEmployee) => {
-            updateEmployee(updatedEmployee);
-            MySwal.fire("¡Actualizado!", "El empleado ha sido actualizado.", "success");
+          onUpdate={(formData) => {
+            updateEmployee(formData, employee._id); 
+            
+            MySwal.fire({
+              icon: "success",
+              title: "¡Actualizado!",
+              text: "El empleado ha sido actualizado.",
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+            });
           }}
           onCancel={() => MySwal.close()}
         />
@@ -65,8 +74,10 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
 
   return (
     <div className="employee-card">
-      <img src={employee.profilePic} className="employee-img" />
-      <span className="employee-name">{employee.name} {employee.lastName}</span>
+      <img src={employee.profilePic} className="employee-img" alt="Empleado" />
+      <span className="employee-name">
+        {employee.name} {employee.lastName}
+      </span>
       <span className="employee-phone">{employee.phone}</span>
       <span className="employee-dui">{employee.dui}</span>
       <span className="employee-salary">${employee.salary}</span>
@@ -81,9 +92,6 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
         </button>
       </div>
     </div>
-        
-
-    
   );
 };
 

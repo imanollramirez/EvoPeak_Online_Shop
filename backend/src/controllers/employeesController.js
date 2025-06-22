@@ -14,41 +14,46 @@ const employeesController = {};
 
 // GET empleados
 employeesController.getEmployee = async (req, res) => {
-  const employee = await employeesModel.find();
-  res.json(employee);
+  try {
+    const employee = await employeesModel.find();
+    res.json(employee);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error al obtener empleados" });
+  }
 };
 
 // POST crear empleado con imagen
 employeesController.createEmployee = async (req, res) => {
   try {
     const { name, lastName, phone, dui, salary, isss } = req.body;
-    let profilePicUrl = "";
 
     if (req.file) {
       // Subir la imagen usando el buffer de multer
-      const result = await cloudinary.uploader.upload_stream(
-        { folder: "employees" },
-        (error, result) => {
-          if (error) {
-            console.error("Cloudinary upload error:", error);
-            return res.status(500).json({ message: "Error al subir la imagen" });
+      const uploadResult = await new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: "employees" },
+          (error, result) => {
+            if (error) return reject(error);
+            resolve(result);
           }
-          // Crear el empleado y guardar con la URL de imagen
-          const newEmployee = new employeesModel({
-            name,
-            lastName,
-            phone,
-            dui,
-            salary,
-            isss,
-            profilePic: result.secure_url,
-          });
-          newEmployee.save();
-          res.json({ message: "Empleado creado con imagen" });
-        }
-      );
-      // Importante: pasar el buffer al stream
-      result.end(req.file.buffer);
+        );
+        stream.end(req.file.buffer);
+      });
+
+      const newEmployee = new employeesModel({
+        name,
+        lastName,
+        phone,
+        dui,
+        salary,
+        isss,
+        profilePic: uploadResult.secure_url,
+      });
+
+      await newEmployee.save();
+
+      res.status(201).json(newEmployee); // Devuelve el empleado creado completo
     } else {
       // Sin imagen
       const newEmployee = new employeesModel({
@@ -60,8 +65,10 @@ employeesController.createEmployee = async (req, res) => {
         isss,
         profilePic: "",
       });
+
       await newEmployee.save();
-      res.json({ message: "Empleado creado sin imagen" });
+
+      res.status(201).json(newEmployee); // Devuelve el empleado creado completo
     }
   } catch (error) {
     console.error(error);
@@ -80,27 +87,29 @@ employeesController.updateEmployee = async (req, res) => {
 
     if (req.file) {
       // Subir nueva imagen
-      const result = await cloudinary.uploader.upload_stream(
-        { folder: "employees" },
-        async (error, result) => {
-          if (error) {
-            console.error("Cloudinary upload error:", error);
-            return res.status(500).json({ message: "Error al subir la imagen" });
+      const uploadResult = await new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: "employees" },
+          (error, result) => {
+            if (error) return reject(error);
+            resolve(result);
           }
-          // Actualizar datos y nueva imagen
-          employee.name = name;
-          employee.lastName = lastName;
-          employee.phone = phone;
-          employee.dui = dui; 
-          employee.salary = salary;
-          employee.isss = isss;
-          employee.profilePic = result.secure_url;
+        );
+        stream.end(req.file.buffer);
+      });
 
-          await employee.save();
-          res.json({ message: "Empleado actualizado con imagen", employee });
-        }
-      );
-      result.end(req.file.buffer);
+      // Actualizar datos y nueva imagen
+      employee.name = name;
+      employee.lastName = lastName;
+      employee.phone = phone;
+      employee.dui = dui;
+      employee.salary = salary;
+      employee.isss = isss;
+      employee.profilePic = uploadResult.secure_url;
+
+      await employee.save();
+
+      res.status(200).json(employee); // Devuelve el empleado actualizado completo
     } else {
       // Solo actualizar campos (sin imagen)
       employee.name = name;
@@ -111,7 +120,8 @@ employeesController.updateEmployee = async (req, res) => {
       employee.isss = isss;
 
       await employee.save();
-      res.json({ message: "Empleado actualizado sin imagen", employee });
+
+      res.status(200).json(employee); // Devuelve el empleado actualizado completo
     }
   } catch (error) {
     console.error(error);

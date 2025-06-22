@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const useDataEmployees = () => {
   const API = "http://localhost:4000/api/employees";
 
-  // Estados para formulario (puedes mantener o eliminar si solo usas FormData)
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [lastName, setLastname] = useState("");
@@ -27,23 +26,22 @@ const useDataEmployees = () => {
   };
 
   useEffect(() => {
-    // Solo ejecutar una vez al montar el componente
     fetchEmployees();
   }, []);
 
   const saveEmployee = async (formData) => {
-    // formData es un FormData, no se debe usar JSON.stringify ni headers Content-Type explícito
     try {
       const response = await fetch(API, {
         method: "POST",
         body: formData,
-        // NO agregar headers Content-Type, el navegador lo pone automáticamente para FormData
       });
 
       if (!response.ok) throw new Error("Error saving employee");
 
-      await response.json();
-      fetchEmployees();
+      const newEmployee = await response.json();
+
+      // Actualizar el estado añadiendo el nuevo empleado
+      setEmployees((prev) => [...prev, newEmployee]);
 
       // Limpiar campos si los usas
       setName("");
@@ -67,7 +65,7 @@ const useDataEmployees = () => {
 
       if (!response.ok) throw new Error("Error deleting employee");
 
-      fetchEmployees();
+      setEmployees((prev) => prev.filter((emp) => emp._id !== id));
     } catch (error) {
       console.error(error);
     }
@@ -78,13 +76,16 @@ const useDataEmployees = () => {
       const response = await fetch(`${API}/${employeeId}`, {
         method: "PUT",
         body: formData,
-        // Igual que saveEmployee, no hay que poner headers Content-Type
       });
 
       if (!response.ok) throw new Error("Error updating employee");
 
-      await response.json();
-      fetchEmployees();
+      const updatedEmployee = await response.json();
+
+      // Actualizar el estado reemplazando el empleado editado
+      setEmployees((prev) =>
+        prev.map((emp) => (emp._id === employeeId ? updatedEmployee : emp))
+      );
 
       setId("");
     } catch (error) {

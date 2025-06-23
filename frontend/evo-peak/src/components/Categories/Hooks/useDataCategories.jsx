@@ -94,14 +94,9 @@ const useDataCategories = () => {
         body: JSON.stringify(categoryUpdated),
       });
 
-      if (!response.ok) {
-        throw new Error("Error al actualizar la categoría");
-      }
-
       await response.json();
       fetchCategories();
 
-      setId("");
     } catch (error) {
       console.error(error);
     }

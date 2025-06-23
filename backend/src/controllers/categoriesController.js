@@ -30,7 +30,8 @@ categoriesController.deleteCategory = async(req, res) => {
 categoriesController.updateCategory = async(req, res) => {
     const{description, name} = req.body;
 
-    await categoriesModel.findOneAndUpdate(req.param.id, {
+    await categoriesModel.findByIdAndUpdate(
+        req.param.id, {
         description,
         name
     });

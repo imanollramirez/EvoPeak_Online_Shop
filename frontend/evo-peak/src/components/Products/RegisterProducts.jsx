@@ -5,7 +5,7 @@ const RegisterProducts = ({ onSave, onCancel, onUpdate, product, categories }) =
   const [name, setName] = useState(product?.name || "");
   const [stock, setStock] = useState(product?.stock || 0);
   const [price, setPrice] = useState(product?.price || 0);
-  const [idCategory, setIdCategory] = useState(product?.idCategory._id || "");
+  const [idCategory, setIdCategory] = useState(product?.idCategory?._id || "");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(product?.image || "");
 

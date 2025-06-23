@@ -3,7 +3,7 @@ import lower_shape from "../assets/Lower_Shape.png";
 import logo from "../assets/EvoPeak_Black.png";
 import "../screens/Login.css";
 
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useAuth } from "../context/AuthContext" 
 import { useNavigate } from "react-router-dom";
 
@@ -19,35 +19,50 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
 
     if (!email || !password) {
-      alert("Por favor, completa todos los campos.");
-      return;
-    }
-
-    const success = await login(email, password);
-    if (!success) {
-      alert("Credenciales incorrectas.");
-      return;
-    }
-
-    MySwal.fire({
-            icon: "success",
-            title: "Sesión iniciada con éxito",
+     MySwal.fire({
+            icon: "error",
+            title: "Complete todos los campos!",
             toast: true,
             position: "top-end",
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
           });
-    navigate("/welcome");
-  };
 
-  useEffect(() => {
-    const miCookie = localStorage.getItem("authToken");
-    console.log(miCookie, "cookie desde el login useEffect");
-  }, []);
+      return;
+    }
+
+    const success = await login(email, password);
+    if (!success) {
+      MySwal.fire({
+            icon: "error",
+            title: "Crendenciales incorrectas!",
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
+      return;
+    }
+    else{
+      MySwal.fire({
+              icon: "success",
+              title: "Sesión iniciada con éxito",
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+            });
+      navigate("/welcome");
+    }
+
+  };
 
   return (
     <>
@@ -76,7 +91,6 @@ const Login = () => {
             <input
               type="text"
               className="username"
-              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -86,7 +100,6 @@ const Login = () => {
             <input
               type="password"
               className="password"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

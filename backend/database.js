@@ -11,11 +11,15 @@ mongoose.connect(config.db.URI);
 const connection = mongoose.connection;
 
 connection.once("open", () => {
-  console.log("DB is connected");
+  console.log("=========================================");
+  console.log("             EvoPeak DB ✔");
+  console.log("=========================================");
 });
 
 connection.on("disconnected", () => {
+  console.log("=========================================");
   console.log("DB is disconnected");
+  console.log("=========================================");
 });
 
 connection.on("error", (error) => {

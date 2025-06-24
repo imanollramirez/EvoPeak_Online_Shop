@@ -20,7 +20,8 @@ const CardAdminCategories = ({ category, deleteCategory }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
+      ancelButtonText: "No",
+      confirmButtonText: "Sí",
     }).then((result) => {
       if (result.isConfirmed) {
         deleteCategory(category._id);

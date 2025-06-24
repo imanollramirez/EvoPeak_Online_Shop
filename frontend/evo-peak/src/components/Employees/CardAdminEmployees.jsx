@@ -19,6 +19,7 @@ const CardAdminEmployees = ({ employee, deleteEmployee }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
+      ancelButtonText: "No",
       confirmButtonText: "Sí",
     }).then((result) => {
       if (result.isConfirmed) {

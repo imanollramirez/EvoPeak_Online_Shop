@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import PromoModal from "../../components/PromoModal.jsx";
 import UseDataProducts from "../Products/Hooks/UseDataProducts.jsx"
+import UseDataPromotions from "../Promotions/useDataPromotions.jsx";
+
 import RegisterProducts from "./RegisterProducts.jsx"
 
 const MySwal = withReactContent(Swal);
 
 const CardAdminProducts = ({ product, deleteProduct, categories}) => {
 
-  const {updateProducts} = UseDataProducts(); 
+  const {updateProducts} = UseDataProducts();
 
   const [showModal, setShowModal] = useState(false);
-
+  
   const handleDiscount = (e) => {
     e.stopPropagation();
     setShowModal(true);

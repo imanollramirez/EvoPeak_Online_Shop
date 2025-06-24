@@ -2,10 +2,20 @@ const promotionsController = {};
 import promotionModel from "../models/Promotions.js";
 
 //SELECT
-promotionsController.getPromotions =  async(req,res) => {
-    const promotions = await promotionModel.find();
-    res.json(promotions)
-}
+promotionsController.getPromotionById = async (req, res) => {
+  try {
+    const promotion = await promotionModel.findOne({ idProducts: req.params.id });
+
+    if (!promotion) {
+      return;
+    }
+    res.json(promotion);
+    
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
 
 //INSERT
 promotionsController.createPromotions = async(req,res) => {
@@ -27,7 +37,7 @@ promotionsController.deletePromotions = async (req, res) => {
 //UPDATE
 promotionsController.updatePromotions = async (req, res) => {
     const { Discount, idProducts } = req.body;
-    await branchsModel.findByIdAndUpdate(
+    await promotionModel.findByIdAndUpdate(
       req.params.id,
       {
         Discount, idProducts

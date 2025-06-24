@@ -5,11 +5,11 @@ const router = express.Router();
 
 router
 .route("/")
-.get(promotionsController.getPromotions)
 .post(promotionsController.createPromotions);
 
 router
 .route("/:id")
+.get(promotionsController.getPromotionById)
 .put(promotionsController.updatePromotions)
 .delete(promotionsController.deletePromotions);
 

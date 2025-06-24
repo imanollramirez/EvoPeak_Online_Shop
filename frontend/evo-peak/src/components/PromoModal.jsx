@@ -14,14 +14,6 @@ const PromoModal = ({ product, onClose }) => {
   const [Discount, setDiscountPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const operation = () => {
-    const descuento = product.price * (parseFloat(Discount) / 100);
-
-    const totalConDescuento = product.price - descuento;
-
-    return totalConDescuento.toFixed(2);
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchPromotion(product._id);
@@ -31,13 +23,13 @@ const PromoModal = ({ product, onClose }) => {
         setPromotion(data);
         setDiscountPrice(data.Discount);
 
-        setTotalPrice(operation);
-      }
+        const totalConDescuento = product.price - product.price * (parseFloat(data.Discount) / 100).toFixed(2);
+        setTotalPrice(totalConDescuento);
+      }      
     };
 
     fetchData();
   }, []);
-
 
   const calcDiscount = () => {
 
@@ -53,7 +45,8 @@ const PromoModal = ({ product, onClose }) => {
       })
     }
     else {
-      setTotalPrice(operation);
+      const totalConDescuento = product.price - product.price * (parseFloat(Discount) / 100).toFixed(2);
+      setTotalPrice(totalConDescuento);
       return;
     }
   };

@@ -1,22 +1,27 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 import upper_shape from "../assets/Upper_Shape.png";
 import lower_shape from "../assets/Lower_Shape.png";
 import logo from "../assets/EvoPeak_Black.png";
 import "../screens/Login.css";
-
-import React, { useState} from "react";
-import { useAuth } from "../context/AuthContext" 
-import { useNavigate } from "react-router-dom";
-
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth();
+  const { login, authCookie } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (authCookie) {
+      navigate("/welcome");
+    }
+  }, [authCookie]);
 
   const handleSubmit = async (e) => {
     

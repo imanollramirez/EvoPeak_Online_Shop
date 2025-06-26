@@ -2,30 +2,26 @@ import React, { createContext, useState, useEffect, useCallback, useContext } fr
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-// Creamos el contexto
 const AuthContext = createContext(null);
-
-// Exportamos el contexto para que pueda ser importado por useAuth.js
 export { AuthContext };
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [authCokie, setAuthCokie] = useState(null);
+  const [authCookie, setAuthCookie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const API_URL = "http://localhost:4000/api";
-  
   const navigate = useNavigate();
 
-  // Función para limpiar sesión - función interna que no causa dependencias cíclicas
   const clearSession = () => {
     localStorage.removeItem("token");
-    // Eliminar la cookie con el nombre correcto (authToken)
-    Cookies.remove("authToken", { path: '/' }); // Añadir path para asegurar que se elimina correctamente
+    Cookies.remove("authToken", { path: '/' });
     setUser(null);
-    setAuthCokie(null);
+    setAuthCookie(null);
+    setIsLoggedIn(false);
   };
-  
-  // Definir la función logout como useCallback para evitar recreaciones
+
   const logout = useCallback(() => {
     const logoutUser = async () => {
       try {
@@ -40,11 +36,10 @@ export const AuthProvider = ({ children }) => {
         navigate("/");
       }
     };
-    
+
     logoutUser();
   }, [API_URL, navigate]);
 
-  // Función para iniciar sesión
   const login = async (email, password) => {
     try {
       const response = await fetch(`${API_URL}/login`, {
@@ -60,9 +55,12 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         localStorage.setItem("token", data.token);
-        setAuthCokie(data.token);
+        Cookies.set("authToken", data.token, { path: '/' });
+        setAuthCookie(data.token);
         setUser(data.user);
+        setIsLoggedIn(true);
         navigate("/welcome");
+        console.log(user.name)
         return true;
       } else {
         return false;
@@ -73,45 +71,41 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Verificar sesión al cargar la aplicación
   useEffect(() => {
     const checkAuth = async () => {
+      setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const cookieToken = Cookies.get("authToken"); // Usar el mismo nombre que usa el backend (authToken)
+        const cookieToken = Cookies.get("authToken");
 
         if (token || cookieToken) {
-          // Como no hay un endpoint específico para verificar tokens, vamos a usar
-          // una ruta protegida simple para ver si el token es válido
           const response = await fetch(`${API_URL}/products`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              // Usar el token que tenemos (del localStorage o de la cookie)
               Authorization: `Bearer ${token || cookieToken}`,
             },
             credentials: "include",
           });
 
           if (response.ok) {
-            // Si la respuesta es exitosa, significa que el token es válido
-            // Decodificar el token para obtener información del usuario
             try {
-              // Una manera simple de extraer la info del usuario del token
-              const tokenParts = (token || cookieToken).split('.');
+              const tokenParts = (token || cookieToken).split(".");
               if (tokenParts.length === 3) {
                 const payload = JSON.parse(atob(tokenParts[1]));
                 setUser({
                   id: payload.id,
-                  userType: payload.userType
+                  userType: payload.userType,
+                  name: payload.name
                 });
-                setAuthCokie(token || cookieToken);
+                setAuthCookie(token || cookieToken);
+                setIsLoggedIn(true);
               }
             } catch (e) {
               console.error("Error decoding token:", e);
+              clearSession();
             }
           } else {
-            // Token inválido
             clearSession();
           }
         } else {
@@ -126,20 +120,20 @@ export const AuthProvider = ({ children }) => {
     };
 
     checkAuth();
-  }, [API_URL]); // Sólo depende de API_URL
-
-  // Objeto de valores del contexto
-  const contextValue = {
-    user,
-    authCokie,
-    loading,
-    login,
-    logout,
-    API: API_URL // Exponer API_URL como API para que sea accesible en useDataProducts
-  };
+  }, []);
 
   return (
-    <AuthContext.Provider value={contextValue}>
+    <AuthContext.Provider
+      value={{
+        user,
+        authCookie,
+        loading,
+        login,
+        logout,
+        isLoggedIn,
+        API: API_URL,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

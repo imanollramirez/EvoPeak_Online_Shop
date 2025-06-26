@@ -9,16 +9,21 @@ import Balance from "../../components/balance.jsx";
 import FilteredSales from "../../components/FilteredSales.jsx";
 import SalesPerDay from "../../components/SalesPerDay.jsx";
 
+import {useAuth} from "../../context/AuthContext.jsx"
+
 import "./Welcome.css";
 
 
 const Welcome = () => {
+
+    const {user} = useAuth();
+
     return (
         <>
 
         <div className="products-container">
             <h1 className="title-welcome">Bienvenido/a</h1>
-            <h2 className="subtitle">Usuario</h2>
+            <h2 className="subtitle">{user?.name || ''}</h2>
             <img src={rectangleIzq} className="left-t" />
 
             <div className="dashboard">

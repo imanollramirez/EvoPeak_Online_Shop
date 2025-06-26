@@ -1,86 +1,65 @@
-import "../components/Orders.css"
-import imagenMancuerna from "../assets/Image.png"
-import pesaRusa from "../assets/5.png"
-import ruedaAbdominal from "../assets/12.png"
+import "../components/Orders.css";
+import useDataOrders from "../components/Orders/Hooks/useDataOrders.jsx";
 
 const OrderCard = () => {
-  const items = [
-    {
-      name: 'Set de mancuernas de 20LB',
-      price: 20.0,
-      img: imagenMancuerna,
-    },
-    {
-      name: 'Pesa rusa de 10KG',
-      price: 25.5,
-      img: pesaRusa,
-    },
-    {
-      name: 'Rueda abdominal',
-      price: 18.0,
-      img: ruedaAbdominal,
-    },
-  ];
+  const {
+    orders,
+    updateOrders,
+  } = useDataOrders();
+
+  const handleMarkAsDelivered = (order) => {
+    const updatedOrder = {
+      ...order,
+      id: order._id,
+      status: "Entregado",
+    };
+    updateOrders(updatedOrder);
+  };
+
+  if (!orders.length) return <p>No hay órdenes registradas.</p>;
 
   return (
     <div className="main-container-Orders">
-
-
-      <div className="order-card">
-      <div className="header">
-        <div>
-          <h2>Imanol Ramirez</h2>
-          <br />
-          <p className="address">
-            Dirección: Calle Aguilares, S.S, El Salvador.
-          </p>
-        </div>
-        <span className="status">En espera</span>
-      </div>
-
-      <div className="item-list">
-        {items.map((item, index) => (
-          <div className="item" key={index}>
-            <img src={item.img} alt={item.name} />
-            <div className="item-details">
-              <p>{item.name}</p>
+      {orders.map((order) => (
+        <div className="order-card" key={order._id}>
+          <div className="header">
+            <div>
+              <h2>{order.idCostumers?.name} {order.idCostumers?.lastName}</h2>
+              <p className="address">Email: {order.idCostumers?.email}</p>
             </div>
-            <p className="price">${item.price.toFixed(2)}</p>
+            <span className="status">{order.status}</span>
           </div>
-        ))}
-      </div>
 
-      <button className="deliver-button">Marcar como entregado</button>
-    </div>
+          <div className="item-list">
+            {order.products.map((item, index) => (
+              <div className="item" key={index}>
+                <img
+                  src={item.idProduct?.image || "/placeholder.jpg"}
+                  alt={item.idProduct?.name || "Producto"}
+                />
+                <div className="item-details">
+                  <p>{item.idProduct?.name || "Sin nombre"}</p>
+                  <p className="price">${item.subtotal?.toFixed(2)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-      <div className="order-card">
-      <div className="header">
-        <div>
-          <h2>Daniel Soriano</h2>
-          <br />
-          <p className="address">
-            Dirección: Calle Mariona, Depart. #45 Las tunas, El Salvador.
+          <p className="total">
+            Total: <strong>${order.total.toFixed(2)}</strong>
           </p>
+
+          {order.status !== "Entregado" && (
+            <button
+              className="deliver-button"
+              onClick={() => handleMarkAsDelivered(order)}
+            >
+              Marcar como entregado
+            </button>
+          )}
         </div>
-        <span className="status">Entregando</span>
-      </div>
-
-      <div className="item-list">
-        {items.map((item, index) => (
-          <div className="item" key={index}>
-            <img src={item.img} alt={item.name} />
-            <div className="item-details">
-              <p>{item.name}</p>
-            </div>
-            <p className="price">${item.price.toFixed(2)}</p>
-          </div>
-        ))}
-      </div>
-
-      <button className="deliver-button">Marcar como entregado</button>
+      ))}
     </div>
-    </div>
-    
   );
 };
 

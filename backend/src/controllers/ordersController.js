@@ -1,59 +1,61 @@
-//Array de metodos (C R U D)
 const OrdersController = {};
 import OrdersModel from "../models/Orders.js";
 
-// SELECT
 OrdersController.getOrders = async (req, res) => {
-  const products = await OrdersModel.find();
-  res.json(products);
+  try {
+    const orders = await OrdersModel.find()
+      .populate("idCostumers", "name lastName email phone")
+      .populate("products.idProduct", "name image price");
+
+    res.json(orders);
+  } catch (err) {
+    res.status(500).json({ message: "Error al obtener órdenes", error: err });
+  }
 };
 
-// INSERT
-OrdersController.createOrders = async (req, res) => {
-  const { Nombre, idCostumers,
-    products,
-    total,
-    status
-     } = req.body;
 
-  const newOrders = new OrdersModel({ Nombre,
-    idCostumers,
-    products,
-    total,
-    status});
-  await newOrders.save();
-  res.json({ message: "orders saved" });
+
+// INSERT: crear nueva orden asociada a un cliente
+OrdersController.createOrders = async (req, res) => {
+  try {
+    const { idCostumers, products, total, status } = req.body;
+
+    const newOrder = new OrdersModel({
+      idCostumers,
+      products,
+      total,
+      status,
+    });
+
+    await newOrder.save();
+    res.status(201).json({ message: "Orden creada exitosamente", order: newOrder });
+  } catch (err) {
+    res.status(400).json({ message: "Error al crear la orden", error: err });
+  }
 };
 
 // DELETE
 OrdersController.deleteOrders = async (req, res) => {
-  const deleteorders = await OrdersModel.findByIdAndDelete(req.params.id);
-  if (!deleteorders) {
-    return res.status(404).json({ message: "orders not found" });
+  const deleted = await OrdersModel.findByIdAndDelete(req.params.id);
+  if (!deleted) {
+    return res.status(404).json({ message: "Orden no encontrada" });
   }
-  res.json({ message: "orders deleted" });
+  res.json({ message: "Orden eliminada" });
 };
 
 // UPDATE
 OrdersController.updateOrders = async (req, res) => {
-  // Solicito todos los valores
-  const {idCostumers,
-    products,
-    total,
-    status, } = req.body;
-  // Actualizo
-  await OrdersModel.findByIdAndUpdate(
-    req.params.id,
-    {
-        idCostumers,
-        products,
-        total,
-        status,
-    },
-    { new: true }
-  );
-  // muestro un mensaje que todo se actualizo
-  res.json({ message: "orders updated" });
+  const { idCostumers, products, total, status } = req.body;
+  try {
+    const updated = await OrdersModel.findByIdAndUpdate(
+      req.params.id,
+      { idCostumers, products, total, status },
+      { new: true }
+    );
+    res.json({ message: "Orden actualizada", order: updated });
+  } catch (err) {
+    res.status(400).json({ message: "Error al actualizar", error: err });
+  }
 };
 
 export default OrdersController;

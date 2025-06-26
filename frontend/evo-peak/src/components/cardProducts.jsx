@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card2 from '../assets/4.png';
 import Card3 from '../assets/9.png';
 import Card4 from '../assets/10.png';
 import Card1 from '../assets/Group 76.png';
 import WishList from '../assets/WishList_Icon_White.png';
+import cartMemory from '../../src/utils/cartMemory';
 
-// Datos de productos
 const products = [
   {
     img: Card4,
@@ -37,27 +38,24 @@ const products = [
   },
 ];
 
-// Componente de estrellas interactivo
 const StarRating = ({ rating, onRatingChange }) => {
   const [hover, setHover] = useState(null);
-  
   return (
     <div className="star-rating">
       {[...Array(5)].map((_, i) => {
         const ratingValue = i + 1;
-        
         return (
           <label key={i}>
-            <input 
-              type="radio" 
-              name="rating" 
-              value={ratingValue} 
+            <input
+              type="radio"
+              name="rating"
+              value={ratingValue}
               onClick={() => onRatingChange(ratingValue)}
               style={{ display: 'none' }}
             />
-            <span 
+            <span
               className="star"
-              style={{ 
+              style={{
                 color: ratingValue <= (hover || rating) ? '#FFD700' : '#ccc',
                 fontSize: '1.8em',
                 cursor: 'pointer',
@@ -75,64 +73,62 @@ const StarRating = ({ rating, onRatingChange }) => {
   );
 };
 
-// Model de producto modificado con botones apilados verticalmente en negro
-const ProductModal = ({ product, onClose, onRatingChange }) => (
-  <div className="modal-overlay" onClick={onClose}>
-    <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-      <button className="close-btn" onClick={onClose}>×</button>
-      
-      <h2 className='text-start'>{product.title}</h2>
-
-      <div className="modal-content">
-        <div className="img-rating">
-      <div className="product-image-container">
-        <img src={product.img} alt={product.title} style={{ maxWidth: '200px', margin: '0 auto', display: 'block' }} />
-      </div>
-      <div className="product-rating">
-        <StarRating 
-          rating={product.rating} 
-          onRatingChange={(newRating) => onRatingChange(product, newRating)} 
-        />
-      </div>
-      </div>
-
-      <div className="product-info">
-      <p className="product-price">Precio: ${product.price.toFixed(2)}</p>
-      <div className="product-description">
-        <b>Descripción:</b>
-        <p>{product.description}</p>
-      </div>
-
-      <div className="product-actions">
-  <button className="custom-btn">
-    Añadir a lista de deseos
-  </button>
-  <button className="custom-btn">
-    Agregar al carrito
-  </button>
-      </div>
-
-      </div>
-
+const ProductModal = ({ product, onClose, onRatingChange }) => {
+  const navigate = useNavigate();
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+        <button className="close-btn" onClick={onClose}>×</button>
+        <h2 className='text-start'>{product.title}</h2>
+        <div className="modal-content">
+          <div className="img-rating">
+            <div className="product-image-container">
+              <img src={product.img} alt={product.title} style={{ maxWidth: '200px', margin: '0 auto', display: 'block' }} />
+            </div>
+            <div className="product-rating">
+              <StarRating
+                rating={product.rating}
+                onRatingChange={(newRating) => onRatingChange(product, newRating)}
+              />
+            </div>
+          </div>
+          <div className="product-info">
+            <p className="product-price">Precio: ${product.price.toFixed(2)}</p>
+            <div className="product-description">
+              <b>Descripción:</b>
+              <p>{product.description}</p>
+            </div>
+            <div className="product-actions">
+              <button className="custom-btn">Añadir a lista de deseos</button>
+              <button
+                className="custom-btn"
+                onClick={() => {
+                  cartMemory.addItem(product);
+                  navigate('/shoppingcar');
+                }}
+              >
+                Agregar al carrito
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-);
-
+  );
+};
 
 const CardWishlists = () => {
+  const navigate = useNavigate();
   const [modalProduct, setModalProduct] = useState(null);
   const [productsData, setProductsData] = useState(products);
 
   const handleRatingChange = (product, newRating) => {
-    const updatedProducts = productsData.map(p => 
-      p.title === product.title ? {...p, rating: newRating} : p
+    const updatedProducts = productsData.map(p =>
+      p.title === product.title ? { ...p, rating: newRating } : p
     );
     setProductsData(updatedProducts);
-    
-    // También actualizar el modal si está abierto
     if (modalProduct && modalProduct.title === product.title) {
-      setModalProduct({...modalProduct, rating: newRating});
+      setModalProduct({ ...modalProduct, rating: newRating });
     }
   };
 
@@ -141,25 +137,25 @@ const CardWishlists = () => {
       <div className={`row row-cols-1 row-cols-md-4 g-4 ${modalProduct ? 'backdrop-blur' : ''}`}>
         {productsData.map((product, idx) => (
           <div className="col d-flex justify-content-center" key={idx}>
-            <div 
-              className="card custom-card-size" 
-              onClick={() => setModalProduct(product)} 
+            <div
+              className="card custom-card-size"
+              onClick={() => setModalProduct(product)}
               style={{ cursor: 'pointer' }}
             >
-              <img 
-                src={WishList} 
-                alt="Agregar a Wishlist" 
-                style={{ 
-                  position: 'absolute', 
-                  top: '10px', 
-                  right: '10px', 
-                  width: '30px', 
+              <img
+                src={WishList}
+                alt="Agregar a Wishlist"
+                style={{
+                  position: 'absolute',
+                  top: '10px',
+                  right: '10px',
+                  width: '30px',
                   height: '24px',
                   zIndex: 2
-                }} 
+                }}
                 onClick={(e) => {
                   e.stopPropagation();
-                  // Lógica para agregar a wishlist
+                  // lógica para wishlist
                 }}
               />
               <div className="card-img-container">
@@ -169,11 +165,12 @@ const CardWishlists = () => {
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">${product.price.toFixed(2)}</p>
                 <p className="card-text">Cantidad: -1+</p>
-                <button 
+                <button
                   className="btn btn-primary"
                   onClick={(e) => {
                     e.stopPropagation();
-                    // Lógica para agregar al carrito
+                    cartMemory.addItem(product);
+                    navigate('/shoppingcar');
                   }}
                 >
                   Agregar al carrito
@@ -183,10 +180,9 @@ const CardWishlists = () => {
           </div>
         ))}
       </div>
-      
       {modalProduct && (
-        <ProductModal 
-          product={modalProduct} 
+        <ProductModal
+          product={modalProduct}
           onClose={() => setModalProduct(null)}
           onRatingChange={handleRatingChange}
         />

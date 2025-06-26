@@ -39,7 +39,7 @@ const OrderCard = () => {
                 />
                 <div className="item-details">
                   <p>{item.idProduct?.name || "Sin nombre"}</p>
-                  <p className="price">${item.subtotal?.toFixed(2)}</p>
+                  <p className="price">Subtotal: ${item.subtotal?.toFixed(2)}</p>
                 </div>
               </div>
             ))}

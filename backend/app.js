@@ -19,8 +19,11 @@ import registerCostumer from "./src/routes/registerCostumer.js"
 import contactRoute from "./src/routes/contact.js";
 
 import cors from "cors";
+import cookieParser from 'cookie-parser';
 
 const app = express();
+
+app.use(cookieParser());
 
 app.use(
     cors({

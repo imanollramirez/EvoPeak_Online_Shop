@@ -17,16 +17,18 @@ const ShoppingCart = () => {
   if (cartItems.length === 0) return <p>No hay productos en el carrito.</p>;
 
   return (
-    <div className="row row-cols-1 row-cols-md-4 g-4">
+
+    
+    <div className="">
       {cartItems.map((product, idx) => (
         <div className="col d-flex justify-content-center" key={idx}>
           <div className="card custom-card-size">
-            <img
-              src={Trash}
-              alt="Eliminar"
-              style={{ position: 'absolute', top: 10, right: 10, width: 30, height: 40, cursor: 'pointer' }}
-              onClick={() => handleRemoveFromCart(product.title)}
-            />
+          <img
+  src={Trash}
+  alt="Eliminar"
+  className="trash-icon"
+  onClick={() => handleRemoveFromCart(product.title)}
+/>
             <div className="card-img-container">
               <img src={product.img} className="card-img-top" alt={product.title} />
             </div>

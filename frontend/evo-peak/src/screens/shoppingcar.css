@@ -85,9 +85,9 @@
   }
  
   .custom-card-size {
-    width: 399px;
-    min-height: 480px;
-    margin: 0 15px 25px;
+    width: 700px !important;          
+    min-height: 600px;     
+    margin: 0 20px 30px;  
   }
   
   .button-container {

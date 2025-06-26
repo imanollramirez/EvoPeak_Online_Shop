@@ -4,9 +4,10 @@ import { useAuth } from "../context/AuthContext.jsx";
 
 
 const PrivateRoute = () => {
-  const { authCookie } = useAuth();
-
-  return authCookie ? <Outlet /> : <Navigate to="/Login" replace />;
+  const { authCookie, loading } = useAuth();
+  //console.log(authCookie, "valor en el private route")
+  if(loading) return <p>...Cargando</p>
+  return authCookie ? <Outlet /> : <Navigate to="/Login" />;
 };
 
 export default PrivateRoute;

@@ -94,7 +94,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const cookieToken = Cookies.get("authToken");
+       const cookieToken = Cookies.get("authToken");
 
         if (token || cookieToken) {
           const response = await fetch(`${API_URL}/products`, {

@@ -7,20 +7,43 @@ const ProductsCard = ({ products }) => {
   const navigate = useNavigate();
   const [modalProduct, setModalProduct] = useState(null);
   const [productsData, setProductsData] = useState(products || []);
+  
+  // Estado para cantidades: { [productId]: cantidad }
+  const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
     setProductsData(products);
+    // Inicializar cantidades en 1 para todos los productos
+    if(products) {
+      const initialQuantities = {};
+      products.forEach(p => {
+        initialQuantities[p._id] = 1;
+      });
+      setQuantities(initialQuantities);
+    }
   }, [products]);
 
-  const handleRatingChange = (product, newRating) => {
-    const updatedProducts = productsData.map((p) =>
-      p._id === product._id ? { ...p, rating: newRating } : p
-    );
-    setProductsData(updatedProducts);
-    if (modalProduct && modalProduct._id === product._id) {
-      setModalProduct({ ...modalProduct, rating: newRating });
-    }
+  const handleIncrease = (productId) => {
+    setQuantities(prev => ({
+      ...prev,
+      [productId]: (prev[productId] || 1) + 1,
+    }));
   };
+
+  const handleDecrease = (productId) => {
+    setQuantities(prev => ({
+      ...prev,
+      [productId]: prev[productId] > 1 ? prev[productId] - 1 : 1,
+    }));
+  };
+
+  const handleAddToCart = (product) => {
+    const quantity = quantities[product._id] || 1;
+    cartMemory.addItem({...product, quantity});
+    navigate("/shoppingcar");
+  };
+
+  // (ModalProduct igual que antes, lo omito aquí por brevedad...)
 
   const ProductModal = ({ product, onClose }) => {
     return (
@@ -67,6 +90,7 @@ const ProductsCard = ({ products }) => {
     );
   };
 
+
   return (
     <div className="product-container">
       <div
@@ -107,17 +131,30 @@ const ProductsCard = ({ products }) => {
                   alt={product.name || product.title}
                 />
               </div>
-              <div className="card-body">
+              <div className="card-body" onClick={e => e.stopPropagation()}>
                 <h5 className="card-title">{product.name || product.title}</h5>
                 <p className="card-text">${product.price?.toFixed(2)}</p>
-                <p className="card-text">Cantidad: -1+</p>
+
+                {/* Controles de cantidad */}
+                <div className="quantity-control" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                  <button
+                    onClick={() => handleDecrease(product._id)}
+                    style={{ padding: '4px 10px', fontWeight: 'bold', cursor: 'pointer' }}
+                  >
+                    -
+                  </button>
+                  <span>{quantities[product._id] || 1}</span>
+                  <button
+                    onClick={() => handleIncrease(product._id)}
+                    style={{ padding: '4px 10px', fontWeight: 'bold', cursor: 'pointer' }}
+                  >
+                    +
+                  </button>
+                </div>
+
                 <button
                   className="btn btn-primary"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    cartMemory.addItem(product);
-                    navigate("/shoppingcar");
-                  }}
+                  onClick={() => handleAddToCart(product)}
                 >
                   Agregar al carrito
                 </button>
@@ -130,7 +167,6 @@ const ProductsCard = ({ products }) => {
         <ProductModal
           product={modalProduct}
           onClose={() => setModalProduct(null)}
-          // Si agregas rating, puedes pasarlo aquí
         />
       )}
     </div>

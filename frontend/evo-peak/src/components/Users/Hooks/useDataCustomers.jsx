@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import MySwal from "sweetalert2";
 
 const API_URL = "http://localhost:4000/api";
 
@@ -6,6 +8,8 @@ const useDataCustomers = () => {
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(""); // Mensajes de estado
+
+  const navigate = useNavigate();
 
   // Obtener todos los customers
   const fetchCustomers = async () => {
@@ -38,15 +42,22 @@ const useDataCustomers = () => {
 
     const data = await res.json();
       if (res.ok) {
-        setMessage("¡Registro exitoso!");
+        MySwal.fire({
+          icon: "success",
+          title: "Registro exitoso",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
         fetchCustomers();
-        setMessage(data.message);
-        console.log(customer.profilePic)
+        navigate("/Login")
       } else {
         setMessage(data.message);
       }
     } catch (error) {
-      setMessage("Error de conexión.");
+      setMessage(error);
     }
     setLoading(false);
 };
@@ -64,7 +75,6 @@ const useDataCustomers = () => {
       });
       const data = await res.json();
       if (res.ok) {
-        setMessage("¡Registro exitoso!");
         fetchCustomers();
       } else {
         setMessage(data.message || "Error al registrar cliente.");

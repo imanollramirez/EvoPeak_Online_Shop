@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import MySwal from "sweetalert2";
 
 const AuthContext = createContext(null);
 export { AuthContext };
@@ -59,10 +60,27 @@ export const AuthProvider = ({ children }) => {
         setAuthCookie(data.token);
         setUser(data.user);
         setIsLoggedIn(true);
+        MySwal.fire({
+          icon: "success",
+          title: "Sesión iniciada con éxito",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
         navigate("/welcome");
-        console.log(user.name)
         return true;
       } else {
+        MySwal.fire({
+          icon: "error",
+          title: "Credenciales incorrectas",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
         return false;
       }
     } catch (error) {

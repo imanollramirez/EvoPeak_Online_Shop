@@ -24,49 +24,25 @@ const Login = () => {
   }, [authCookie]);
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
 
     if (!email || !password) {
-     MySwal.fire({
-            icon: "error",
-            title: "Complete todos los campos!",
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-          });
+      MySwal.fire({
+        icon: "error",
+        title: "Complete todos los campos!",
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
 
       return;
     }
-
-    const success = await login(email, password);
-    if (!success) {
-      MySwal.fire({
-            icon: "error",
-            title: "Crendenciales incorrectas!",
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-          });
-      return;
+    else
+    {
+      await login(email, password);
     }
-    else{
-      MySwal.fire({
-              icon: "success",
-              title: "Sesión iniciada con éxito",
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-            });
-      navigate("/welcome");
-    }
-
   };
 
   return (
@@ -92,7 +68,7 @@ const Login = () => {
       <div className="box position-absolute top-50 start-50 translate-middle">
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-container">
-            <p className="text-start mt-4">Correo eletrónico:</p>
+            <p className="text-start mt-4">Correo electrónico:</p>
             <input
               type="text"
               className="username"

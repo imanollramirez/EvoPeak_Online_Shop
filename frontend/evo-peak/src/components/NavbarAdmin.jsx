@@ -1,6 +1,7 @@
 import Logo_White from '../assets/EvoPeak_White.png'
 import Logo_Black from '../assets/EvoPeak_Black.png'
 import "./Navbar.css"
+import MySwal from "sweetalert2";
 
 import { useAuth } from "../context/AuthContext.jsx";
 
@@ -60,6 +61,15 @@ const Navbar = () => {
           onClick={(e) => {
             e.preventDefault();
             logout();
+            MySwal.fire({
+              icon: "success",
+              title: "Sesión cerrada con éxito",
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+            });
           }}
         >
           <img

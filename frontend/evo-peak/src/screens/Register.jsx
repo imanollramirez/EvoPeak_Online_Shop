@@ -5,6 +5,8 @@ import logo from "../assets/EvoPeak_Black.png";
 import "../screens/Register.css";
 import useDataCustomers from "../components/Users/Hooks/useDataCustomers";
 
+import MySwal from "sweetalert2";
+
 const Register = () => {
   const [form, setForm] = useState({
     email: "",
@@ -18,12 +20,12 @@ const Register = () => {
   const [preview, setPreview] = useState(null);
 
   // Importa las funciones y estados del hook
-  const { registerCostumer, loading, message, setMessage } = useDataCustomers();
+  const { registerCostumer, loading } = useDataCustomers();
+
 
   // Actualiza el estado del formulario
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setMessage("");
   };
 
   // Maneja la carga y preview de la imagen
@@ -54,25 +56,20 @@ const Register = () => {
       !form.dui ||
       !form.profilePic
     ) {
-      setMessage("Por favor completa todos los campos.");
-      return;
+      MySwal.fire({
+        icon: "error",
+        title: "Complete los campos",
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
     }
-
-    const result = await registerCostumer(form);
-
-  if (result) {
-    setForm({
-      name: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      password: "",
-      dui: "",
-      profilePic: null
-    });
-    setPreview(null);
-  }
-  
+    else 
+    {   
+    await registerCostumer(form);
+    }
   };
 
   return (
@@ -96,7 +93,7 @@ const Register = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    required
+                    
                   />
                 </div>
                 <div className="input-container">
@@ -107,7 +104,7 @@ const Register = () => {
                     name="lastName"
                     value={form.lastName}
                     onChange={handleChange}
-                    required
+                    
                   />
                 </div>
                 <div className="input-container">
@@ -118,7 +115,7 @@ const Register = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    required
+                    
                   />
                 </div>
                 <div className="input-container">
@@ -129,7 +126,7 @@ const Register = () => {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    required
+                    
                   />
                 </div>
               </div>
@@ -143,7 +140,7 @@ const Register = () => {
                     name="password"
                     value={form.password}
                     onChange={handleChange}
-                    required
+                    
                   />
                 </div>
                 <div className="input-container">
@@ -154,7 +151,7 @@ const Register = () => {
                     name="dui"
                     value={form.dui}
                     onChange={handleChange}
-                    required
+                    
                   />
                 </div>
                 <div className="input-container">
@@ -175,7 +172,7 @@ const Register = () => {
     type="file"
     accept="image/*"
     onChange={handleImage}
-    required
+    
     id="upload-pic"
     style={{ display: "none" }}
   />
@@ -194,7 +191,6 @@ const Register = () => {
                 {loading ? "Registrando..." : "Registrarse"}
               </button>
             </div>
-            {message && <p className="text-center mt-3">{message}</p>}
           </form>
         </div>
       </div>

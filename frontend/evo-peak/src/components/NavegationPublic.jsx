@@ -12,7 +12,7 @@ import Register from "../screens/Register.jsx";
 export default function NavegationPublic() {
   return (
     <>
-      <Route path="/" element={<Index />} />
+      <Route path="/inicio" element={<Index />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/products" element={<Products />} />
       <Route path="/recoverPassword" element={<RecoverPassword />} />

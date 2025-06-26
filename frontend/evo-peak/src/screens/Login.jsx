@@ -52,7 +52,7 @@ const Login = () => {
         className="absolute top-0 left-0 w-full h-auto"
         alt="Upper Shape"
       />
-      <a href="/">
+      <a href="/inicio">
         <img
           src={logo}
           width={220}

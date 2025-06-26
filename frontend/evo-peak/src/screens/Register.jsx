@@ -75,7 +75,7 @@ const Register = () => {
   return (
     <>
       <img src={upper_shape} className="absolute top-0 left-0 w-full h-auto" alt="upper shape" />
-      <a href="/">
+      <a href="/inicio">
         <img src={logo} width={220} className="logo position-absolute top-0 start-50 translate-middle" alt="logo" />
       </a>
 

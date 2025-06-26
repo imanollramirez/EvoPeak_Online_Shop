@@ -5,6 +5,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import NavbarAdmin from "./NavbarAdmin";
 import Footer from "./footer";
+import NotFound from "../screens/NotFound.jsx";
 
 import NavegationPublic from "./NavegationPublic";
 import NavegationPrivate from "./NavegationPrivate";
@@ -19,8 +20,22 @@ function NavbarSelector() {
     "/employeesAdmin",
     "/UserAdmin",
   ];
+  const publicPaths = [
+    "/inicio",
+    "/Login",
+    "/products",
+    "/recoverPassword",
+    "/contactUs",
+    "/register"
+  ]
 
-  if (noNavbarPaths.includes(pathname)) return null;
+  const isNotFound = ![
+    ...noNavbarPaths,
+    ...adminPaths,
+    ...publicPaths,
+  ].some((path) => pathname.startsWith(path));
+
+  if (noNavbarPaths.includes(pathname) || isNotFound) return null;
   if (adminPaths.includes(pathname)) return <NavbarAdmin />;
   return <Navbar />;
 }
@@ -39,7 +54,8 @@ export default function AppRoutes() {
 
       <Routes>
         {NavegationPublic()}
-        {NavegationPrivate()} 
+        {NavegationPrivate()}
+        <Route path="*" element={<NotFound />} replace />
       </Routes>
 
       <FooterSelector />

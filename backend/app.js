@@ -16,6 +16,7 @@ import logout from "./src/routes/logout.js"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js";
 
 import registerCostumer from "./src/routes/registerCostumer.js"
+import contactRoute from "./src/routes/contact.js";
 
 import cors from "cors";
 import cookieParser from 'cookie-parser';
@@ -53,5 +54,6 @@ app.use("/api/orders", orders);
 app.use("/api/costumers", customers);
 app.use("/api/employees", employees);
 app.use("/api/categories", categories);
+app.use("/api/contact", contactRoute);
 
 export default app;

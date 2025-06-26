@@ -188,6 +188,44 @@
   margin: 0 20px 30px;  
 }
 
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quantity-control button {
+  background-color: #3b82f6; /* azul bonito */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-control button:hover {
+  background-color: #2563eb; /* azul más oscuro al hover */
+}
+
+.quantity-control span {
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+  user-select: none;
+}
+
 
 /* Responsive for Tablets and Phones */
 

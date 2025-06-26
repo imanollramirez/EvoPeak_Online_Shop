@@ -1,177 +1,160 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Card2 from '../assets/4.png';
-import Card3 from '../assets/9.png';
-import Card4 from '../assets/10.png';
-import Card1 from '../assets/Group 76.png';
-import WishList from '../assets/WishList_Icon_White.png';
-import cartMemory from '../../src/utils/cartMemory';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import WishList from "../assets/WishList_Icon_White.png";
+import cartMemory from "../../src/utils/cartMemory";
 
-const products = [
-  {
-    img: Card4,
-    title: 'Rueda abdominal',
-    price: 18.00,
-    description: 'Rueda abdominal para ejercicios de core y abdomen.',
-    rating: 0,
-  },
-  {
-    img: Card2,
-    title: 'Pesa Rusa de 10kg',
-    price: 25.50,
-    description: 'Pesa rusa de 10kg, ideal para entrenamiento funcional.',
-    rating: 0,
-  },
-  {
-    img: Card3,
-    title: 'Salta cuerdas 90cm',
-    price: 16.25,
-    description: 'Cuerda para saltar de 90cm, perfecta para cardio.',
-    rating: 0,
-  },
-  {
-    img: Card1,
-    title: 'Set de mancuernas de 20LB',
-    price: 40.00,
-    description: 'Par de mancuernas de 20LB desmontables y armables, incluye sus roscas de seguridad y son altamente flexibles. Vienen 2 mancuernas, es decir, ambas por el mismo precio.',
-    rating: 0,
-  },
-];
-
-const StarRating = ({ rating, onRatingChange }) => {
-  const [hover, setHover] = useState(null);
-  return (
-    <div className="star-rating">
-      {[...Array(5)].map((_, i) => {
-        const ratingValue = i + 1;
-        return (
-          <label key={i}>
-            <input
-              type="radio"
-              name="rating"
-              value={ratingValue}
-              onClick={() => onRatingChange(ratingValue)}
-              style={{ display: 'none' }}
-            />
-            <span
-              className="star"
-              style={{
-                color: ratingValue <= (hover || rating) ? '#FFD700' : '#ccc',
-                fontSize: '1.8em',
-                cursor: 'pointer',
-                margin: '0 2px'
-              }}
-              onMouseEnter={() => setHover(ratingValue)}
-              onMouseLeave={() => setHover(null)}
-            >
-              ★
-            </span>
-          </label>
-        );
-      })}
-    </div>
-  );
-};
-
-const ProductModal = ({ product, onClose, onRatingChange }) => {
+const ProductsCard = ({ products }) => {
   const navigate = useNavigate();
-  return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>×</button>
-        <h2 className='text-start'>{product.title}</h2>
-        <div className="modal-content">
-          <div className="img-rating">
-            <div className="product-image-container">
-              <img src={product.img} alt={product.title} style={{ maxWidth: '200px', margin: '0 auto', display: 'block' }} />
+  const [modalProduct, setModalProduct] = useState(null);
+  const [productsData, setProductsData] = useState(products || []);
+  
+  // Estado para cantidades: { [productId]: cantidad }
+  const [quantities, setQuantities] = useState({});
+
+  useEffect(() => {
+    setProductsData(products);
+    // Inicializar cantidades en 1 para todos los productos
+    if(products) {
+      const initialQuantities = {};
+      products.forEach(p => {
+        initialQuantities[p._id] = 1;
+      });
+      setQuantities(initialQuantities);
+    }
+  }, [products]);
+
+  const handleIncrease = (productId) => {
+    setQuantities(prev => ({
+      ...prev,
+      [productId]: (prev[productId] || 1) + 1,
+    }));
+  };
+
+  const handleDecrease = (productId) => {
+    setQuantities(prev => ({
+      ...prev,
+      [productId]: prev[productId] > 1 ? prev[productId] - 1 : 1,
+    }));
+  };
+
+  const handleAddToCart = (product) => {
+    const quantity = quantities[product._id] || 1;
+    cartMemory.addItem({...product, quantity});
+    navigate("/shoppingcar");
+  };
+
+  // (ModalProduct igual que antes, lo omito aquí por brevedad...)
+
+  const ProductModal = ({ product, onClose }) => {
+    return (
+      <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+          <button className="close-btn" onClick={onClose}>
+            ×
+          </button>
+          <h2 className="text-start">{product.name || product.title}</h2>
+          <div className="modal-content">
+            <div className="img-rating">
+              <div className="product-image-container">
+                <img
+                  src={product.image || product.img}
+                  alt={product.name || product.title}
+                  style={{ maxWidth: "200px", margin: "0 auto", display: "block" }}
+                />
+              </div>
             </div>
-            <div className="product-rating">
-              <StarRating
-                rating={product.rating}
-                onRatingChange={(newRating) => onRatingChange(product, newRating)}
-              />
-            </div>
-          </div>
-          <div className="product-info">
-            <p className="product-price">Precio: ${product.price.toFixed(2)}</p>
-            <div className="product-description">
-              <b>Descripción:</b>
-              <p>{product.description}</p>
-            </div>
-            <div className="product-actions">
-              <button className="custom-btn">Añadir a lista de deseos</button>
-              <button
-                className="custom-btn"
-                onClick={() => {
-                  cartMemory.addItem(product);
-                  navigate('/shoppingcar');
-                }}
-              >
-                Agregar al carrito
-              </button>
+            <div className="product-info">
+              <p className="product-price">
+                Precio: ${product.price?.toFixed(2)}
+              </p>
+              <div className="product-description">
+                <b>Descripción:</b>
+                <p>{product.description || "Sin descripción"}</p>
+              </div>
+              <div className="product-actions">
+                <button className="custom-btn">Añadir a lista de deseos</button>
+                <button
+                  className="custom-btn"
+                  onClick={() => {
+                    cartMemory.addItem(product);
+                    navigate("/shoppingcar");
+                  }}
+                >
+                  Agregar al carrito
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-const CardWishlists = () => {
-  const navigate = useNavigate();
-  const [modalProduct, setModalProduct] = useState(null);
-  const [productsData, setProductsData] = useState(products);
-
-  const handleRatingChange = (product, newRating) => {
-    const updatedProducts = productsData.map(p =>
-      p.title === product.title ? { ...p, rating: newRating } : p
     );
-    setProductsData(updatedProducts);
-    if (modalProduct && modalProduct.title === product.title) {
-      setModalProduct({ ...modalProduct, rating: newRating });
-    }
   };
+
 
   return (
     <div className="product-container">
-      <div className={`row row-cols-1 row-cols-md-4 g-4 ${modalProduct ? 'backdrop-blur' : ''}`}>
-        {productsData.map((product, idx) => (
-          <div className="col d-flex justify-content-center" key={idx}>
+      <div
+        className={`row row-cols-1 row-cols-md-4 g-4 ${
+          modalProduct ? "backdrop-blur" : ""
+        }`}
+      >
+        {productsData?.map((product) => (
+          <div
+            className="col d-flex justify-content-center"
+            key={product._id || product.title}
+          >
             <div
               className="card custom-card-size"
               onClick={() => setModalProduct(product)}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer", position: "relative" }}
             >
               <img
                 src={WishList}
                 alt="Agregar a Wishlist"
                 style={{
-                  position: 'absolute',
-                  top: '10px',
-                  right: '10px',
-                  width: '30px',
-                  height: '24px',
-                  zIndex: 2
+                  position: "absolute",
+                  top: "10px",
+                  right: "10px",
+                  width: "30px",
+                  height: "24px",
+                  zIndex: 2,
                 }}
                 onClick={(e) => {
                   e.stopPropagation();
-                  // lógica para wishlist
+                  // lógica para wishlist aquí si quieres
                 }}
               />
               <div className="card-img-container">
-                <img src={product.img} className="card-img-top" alt={product.title} />
+                <img
+                  src={product.image || product.img}
+                  className="card-img-top"
+                  alt={product.name || product.title}
+                />
               </div>
-              <div className="card-body">
-                <h5 className="card-title">{product.title}</h5>
-                <p className="card-text">${product.price.toFixed(2)}</p>
-                <p className="card-text">Cantidad: -1+</p>
+              <div className="card-body" onClick={e => e.stopPropagation()}>
+                <h5 className="card-title">{product.name || product.title}</h5>
+                <p className="card-text">${product.price?.toFixed(2)}</p>
+
+                {/* Controles de cantidad */}
+                <div className="quantity-control" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                  <button
+                    onClick={() => handleDecrease(product._id)}
+                    style={{ padding: '4px 10px', fontWeight: 'bold', cursor: 'pointer' }}
+                  >
+                    -
+                  </button>
+                  <span>{quantities[product._id] || 1}</span>
+                  <button
+                    onClick={() => handleIncrease(product._id)}
+                    style={{ padding: '4px 10px', fontWeight: 'bold', cursor: 'pointer' }}
+                  >
+                    +
+                  </button>
+                </div>
+
                 <button
                   className="btn btn-primary"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    cartMemory.addItem(product);
-                    navigate('/shoppingcar');
-                  }}
+                  onClick={() => handleAddToCart(product)}
                 >
                   Agregar al carrito
                 </button>
@@ -184,11 +167,10 @@ const CardWishlists = () => {
         <ProductModal
           product={modalProduct}
           onClose={() => setModalProduct(null)}
-          onRatingChange={handleRatingChange}
         />
       )}
     </div>
   );
 };
 
-export default CardWishlists;
+export default ProductsCard;

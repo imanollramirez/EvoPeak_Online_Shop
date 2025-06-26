@@ -2,7 +2,11 @@ import Logo_White from '../assets/EvoPeak_White.png'
 import Logo_Black from '../assets/EvoPeak_Black.png'
 import "./Navbar.css"
 
+import { useAuth } from "../context/AuthContext.jsx";
+
 const Navbar = () => {
+
+  const { logout } = useAuth();
 
   return (
     <>
@@ -45,17 +49,28 @@ const Navbar = () => {
             </div>
 
             <div className="col-auto d-flex align-items-center mt-0 pt-0 pe-5">
-              <div className="search-container">
-                <div className="search-box">
-                  <i className="fa-solid fa-magnifying-glass" />
-                  <input type="text" placeholder="Buscar" />
-                </div>
-                <i className="fa-solid fa-moon"></i>
-                  <a href="#">
-                    <img src="https://img.lovepik.com/png/20231128/3d-illustration-avatar-profile-man-collection-guy-cheerful_716220_wh860.png" className="avatar" />
-                  </a>
-              </div>
-            </div>
+      <div className="search-container">
+        <div className="search-box">
+          <i className="fa-solid fa-magnifying-glass" />
+          <input type="text" placeholder="Buscar" />
+        </div>
+        <i className="fa-solid fa-moon"></i>
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            logout();
+          }}
+        >
+          <img
+            src="https://img.lovepik.com/png/20231128/3d-illustration-avatar-profile-man-collection-guy-cheerful_716220_wh860.png"
+            className="avatar"
+            alt="User Avatar"
+            style={{ cursor: "pointer" }}
+          />
+        </a>
+      </div>
+    </div>
 
           </div>
         </div>

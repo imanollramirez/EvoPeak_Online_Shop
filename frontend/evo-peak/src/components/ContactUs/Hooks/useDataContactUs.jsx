@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MySwal from "sweetalert2";
 
 const useDataContactUs = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +33,15 @@ const useDataContactUs = () => {
       const data = await res.json();
 
       if (res.ok) {
-        setSuccessMsg("Mensaje enviado con éxito.");
+        MySwal.fire({
+        icon: "success",
+        title: "Mensaje enviado con éxito!",
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
         setFormData({
           nombres: "",
           apellidos: "",

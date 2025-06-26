@@ -125,6 +125,7 @@ const Register = () => {
                     placeholder="Número de Teléfono"
                     name="phone"
                     value={form.phone}
+                    maxLength={8}
                     onChange={handleChange}
                     
                   />
@@ -146,9 +147,10 @@ const Register = () => {
                 <div className="input-container">
                   <p className="text-start mt-4">DUI:</p>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="xxxxxxxx-x"
                     name="dui"
+                    maxLength={9}
                     value={form.dui}
                     onChange={handleChange}
                     

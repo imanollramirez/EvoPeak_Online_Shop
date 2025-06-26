@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import NavbarAdmin from "./NavbarAdmin";
 import Footer from "./footer";
 import NotFound from "../screens/NotFound.jsx";
+import Inicio from "../screens/Index.jsx";
 
 import NavegationPublic from "./NavegationPublic";
 import NavegationPrivate from "./NavegationPrivate";
@@ -51,8 +52,8 @@ export default function AppRoutes() {
   return (
     <>
       <NavbarSelector />
-
       <Routes>
+        <Route path="/" element={<Navigate to="/inicio" replace />} />
         {NavegationPublic()}
         {NavegationPrivate()}
         <Route path="*" element={<NotFound />} replace />

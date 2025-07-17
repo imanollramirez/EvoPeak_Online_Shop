@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import WishList from "../assets/WishList_Icon_White.png";
-import cartMemory from "../../src/utils/cartMemory";
+import cartMemory from "../utils/cartMemory";
 
 const ProductsCard = ({ products }) => {
   const navigate = useNavigate();
   const [modalProduct, setModalProduct] = useState(null);
   const [productsData, setProductsData] = useState(products || []);
-  
-  // Estado para cantidades: { [productId]: cantidad }
   const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
     setProductsData(products);
-    // Inicializar cantidades en 1 para todos los productos
-    if(products) {
+    if (products) {
       const initialQuantities = {};
       products.forEach(p => {
         initialQuantities[p._id] = 1;
@@ -39,19 +36,22 @@ const ProductsCard = ({ products }) => {
 
   const handleAddToCart = (product) => {
     const quantity = quantities[product._id] || 1;
-    cartMemory.addItem({...product, quantity});
+    const cartItem = {
+      _id: product._id,
+      title: product.name || product.title,
+      img: product.image || product.img,
+      price: product.price,
+      quantity: quantity,
+    };
+    cartMemory.addItem(cartItem);
     navigate("/shoppingcar");
   };
-
-  // (ModalProduct igual que antes, lo omito aquí por brevedad...)
 
   const ProductModal = ({ product, onClose }) => {
     return (
       <div className="modal-overlay" onClick={onClose}>
         <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-          <button className="close-btn" onClick={onClose}>
-            ×
-          </button>
+          <button className="close-btn" onClick={onClose}>×</button>
           <h2 className="text-start">{product.name || product.title}</h2>
           <div className="modal-content">
             <div className="img-rating">
@@ -76,7 +76,14 @@ const ProductsCard = ({ products }) => {
                 <button
                   className="custom-btn"
                   onClick={() => {
-                    cartMemory.addItem(product);
+                    const cartItem = {
+                      _id: product._id,
+                      title: product.name || product.title,
+                      img: product.image || product.img,
+                      price: product.price,
+                      quantity: 1,
+                    };
+                    cartMemory.addItem(cartItem);
                     navigate("/shoppingcar");
                   }}
                 >
@@ -90,7 +97,6 @@ const ProductsCard = ({ products }) => {
     );
   };
 
-
   return (
     <div className="product-container">
       <div
@@ -101,7 +107,7 @@ const ProductsCard = ({ products }) => {
         {productsData?.map((product) => (
           <div
             className="col d-flex justify-content-center"
-            key={product._id || product.title}
+            key={product._id}
           >
             <div
               className="card custom-card-size"
@@ -121,7 +127,7 @@ const ProductsCard = ({ products }) => {
                 }}
                 onClick={(e) => {
                   e.stopPropagation();
-                  // lógica para wishlist aquí si quieres
+                  // Wishlist logic
                 }}
               />
               <div className="card-img-container">
@@ -135,7 +141,6 @@ const ProductsCard = ({ products }) => {
                 <h5 className="card-title">{product.name || product.title}</h5>
                 <p className="card-text">${product.price?.toFixed(2)}</p>
 
-                {/* Controles de cantidad */}
                 <div className="quantity-control" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                   <button
                     onClick={() => handleDecrease(product._id)}

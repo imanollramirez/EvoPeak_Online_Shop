@@ -1,0 +1,74 @@
+/* Contenedor principal con margen */
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Espaciado interno en cada columna (para separar cards) */
+.col {
+  padding: 100px;
+}
+
+/* Estilo general para las cards */
+.card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  background-color: #fff;
+}
+
+/* Efecto hover para dar un poco de dinamismo */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen dentro de la card */
+.card-img-top {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  object-fit: cover;
+  width: 100%;
+  height: 200px; /* fijo para que todas las imágenes tengan la misma altura */
+}
+
+/* Contenedor de la imagen para controlar overflow si fuera necesario */
+.card-img-container {
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Body de la card */
+.card-body {
+  padding: 15px;
+}
+
+/* Icono de la papelera */
+.trash-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.2s ease;
+}
+
+/* Efecto hover para el icono de eliminar */
+.trash-icon:hover {
+  opacity: 0.7;
+}
+
+/* Texto dentro de la card */
+.card-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
